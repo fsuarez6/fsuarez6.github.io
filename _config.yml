@@ -1,6 +1,6 @@
 # Site wide configuration
 
-title:            Site Title
+title:            Francisco Suárez Ruiz | Roboticist
 locale:           en_US
 url:
 
@@ -21,15 +21,15 @@ kramdown:
   footnote_nr: 1
   entity_output: as_char
   toc_levels: 1..6
-  use_coderay: false
+  enable_coderay: false
 
 
 # Site owner
 owner:
-  name: Your Name
-  avatar: bio-photo.jpg
+  name: Francisco Suárez-Ruiz
+  avatar: bio-photo.png
   bio: "Describe your self."
-  email:
+  email: username@gmail.com
   disqus-shortname:
   twitter: #username
   facebook: #username
@@ -40,9 +40,9 @@ owner:
     ad-client:
     ad-slot:
   bing-verify:
-  github: #username
+  github: fsuarez6
   stackoverflow: #123456/username   from a "http://stackoverflow.com/users/123456/username" link
-  linkedin: #username
+  linkedin: fsuarez6
   xing: #username
   instagram: #username
   lastfm: #username
@@ -51,7 +51,7 @@ owner:
   foursquare: #username
   steam: #username
   dribbble: #username
-  youtube: #username
+  youtube: FSuarezRuiz
   soundcloud: #username
   weibo: #username
   flickr: #username
