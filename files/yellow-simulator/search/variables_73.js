@@ -1,0 +1,19 @@
+var searchData=
+[
+  ['saveact',['saveAct',['../class_graphs_window.html#aec95ef33101400dac9bfe9d65b3803f6',1,'GraphsWindow::saveAct()'],['../class_qt_g_u_i.html#ab9acd2f88c86b8b0a1e94a9b2194e4ad',1,'QtGUI::saveAct()']]],
+  ['saveasact',['saveAsAct',['../class_qt_g_u_i.html#a6cc418b281425b9e92fd2f836240f50f',1,'QtGUI']]],
+  ['selectedfilter',['selectedFilter',['../class_graphs_window.html#ada338f5b1ec755966decd8b02a911c61',1,'GraphsWindow']]],
+  ['shiftact',['shiftAct',['../class_qt_g_u_i.html#a0227aa62c3045d45dd52ca6118e99fcc',1,'QtGUI']]],
+  ['showboth',['showBoth',['../class_graphs_window.html#a909b359e82b169d4d0fee06dbec408b4',1,'GraphsWindow']]],
+  ['showposition',['showPosition',['../class_graphs_window.html#ac06ed2e88f56baa431a2b4d388110502',1,'GraphsWindow']]],
+  ['showvelocity',['showVelocity',['../class_graphs_window.html#a471d5f99949c17cf556c1da48b991e11',1,'GraphsWindow']]],
+  ['sim_5fspeed_5fmax',['SIM_SPEED_MAX',['../_simulator_8cpp.html#adc2c34611a9645b686f45c65460891fe',1,'Simulator.cpp']]],
+  ['sim_5fspeed_5fmin',['SIM_SPEED_MIN',['../_simulator_8cpp.html#a5404a3db161bce2cc210d331540c1815',1,'Simulator.cpp']]],
+  ['simmenu',['simMenu',['../class_qt_g_u_i.html#a170785c891698eb8d8cd97422b017b3f',1,'QtGUI']]],
+  ['simtoolbar',['simToolBar',['../class_qt_g_u_i.html#ab9a6b316162fe010c7511e294aef7d90',1,'QtGUI']]],
+  ['singlelinecommentformat',['singleLineCommentFormat',['../class_highlighter.html#ad1ca0f6942b0451781d7e32f1781f22b',1,'Highlighter']]],
+  ['sloweract',['slowerAct',['../class_qt_g_u_i.html#afc74769be64d6337745ec8aab4c3ee24',1,'QtGUI']]],
+  ['startpoint',['startPoint',['../class_wall.html#a517bcd2b8e026adb389b476808c39d2c',1,'Wall']]],
+  ['stopact',['stopAct',['../class_qt_g_u_i.html#ae23f94e93b27094fb556cd84a8d08c99',1,'QtGUI']]],
+  ['strobots',['stRobots',['../_simulator_8cpp.html#a1c7648d96b805e37612df0aa73b1199b',1,'Simulator.cpp']]]
+];

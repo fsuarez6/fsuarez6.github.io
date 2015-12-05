@@ -1,0 +1,8 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$class_code_editor.html" title="A class holding the code editor window." alt="" coords="5,551,211,761"/>
+<area shape="rect" id="node4" href="$class_highlighter.html" title="Manages the highlighting functionality given to the CodeEditor." alt="" coords="14,87,199,311"/>
+<area shape="rect" id="node6" href="$class_simulator.html" title="Class for the interaction with V&#45;REP." alt="" coords="224,6,395,391"/>
+<area shape="rect" id="node8" href="$class_world.html" title="Has as its objective represent all objects which are in the simulation." alt="" coords="358,522,521,790"/>
+<area shape="rect" id="node11" href="$class_maze.html" title="Holding class for the labyrinth in the simulation." alt="" coords="419,28,564,369"/>
+<area shape="rect" id="node13" href="$class_graphs_window.html" title="Window were the position an velocity of Robot is shown in real&#45;time." alt="" coords="546,456,720,856"/>
+</map>

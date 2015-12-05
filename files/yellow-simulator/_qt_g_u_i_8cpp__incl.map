@@ -1,0 +1,12 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$_qt_g_u_i_8h.html" title="lib/QtGUI.h" alt="" coords="1758,80,1844,107"/>
+<area shape="rect" id="node11" href="$_simulator_8h.html" title="lib/Simulator.h" alt="" coords="314,259,419,285"/>
+<area shape="rect" id="node32" href="$_world_8h.html" title="lib/World.h" alt="" coords="1263,169,1347,196"/>
+<area shape="rect" id="node68" href="$_code_editor_8h.html" title="lib/CodeEditor.h" alt="" coords="1673,169,1788,196"/>
+<area shape="rect" id="node80" href="$_graphs_window_8h.html" title="GraphsWindow.h" alt="" coords="2305,169,2425,196"/>
+<area shape="rect" id="node45" href="$_maze_8h.html" title="lib/Maze.h" alt="" coords="848,259,931,285"/>
+<area shape="rect" id="node56" href="$_robot_8h.html" title="lib/Robot.h" alt="" coords="1183,259,1267,285"/>
+<area shape="rect" id="node50" href="$_wall_8h.html" title="lib/Wall.h" alt="" coords="615,341,691,368"/>
+<area shape="rect" id="node74" href="$_highlighter_8h.html" title="lib/Highlighter.h" alt="" coords="1629,259,1739,285"/>
+<area shape="rect" id="node112" href="$_writer_8h.html" title="Writer.h" alt="" coords="1990,259,2057,285"/>
+</map>

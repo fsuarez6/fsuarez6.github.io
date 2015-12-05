@@ -1,0 +1,4 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$class_code_editor.html" title="A class holding the code editor window." alt="" coords="5,294,211,503"/>
+<area shape="rect" id="node4" href="$class_highlighter.html" title="Manages the highlighting functionality given to the CodeEditor." alt="" coords="15,5,200,229"/>
+</map>

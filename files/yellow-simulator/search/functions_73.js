@@ -1,0 +1,27 @@
+var searchData=
+[
+  ['save',['save',['../class_qt_g_u_i.html#ab83c34717e67db5b43fa2b017e80ed67',1,'QtGUI']]],
+  ['save2csv',['Save2CSV',['../class_writer.html#a74f2106e64b8243fa1b72083b962947c',1,'Writer']]],
+  ['save2mat',['Save2MAT',['../class_writer.html#acb1a60f751139060bf25ed3bce58d922',1,'Writer']]],
+  ['save2txt',['Save2TXT',['../class_writer.html#a06e9a67a25184134179acfeb17b2b949',1,'Writer']]],
+  ['saveas',['saveAs',['../class_qt_g_u_i.html#aa45a973400a91546e5037eac67c25cfb',1,'QtGUI']]],
+  ['savefile',['saveFile',['../class_graphs_window.html#a41ed56cb099195128fcfd8cb8c5d038c',1,'GraphsWindow::saveFile()'],['../class_qt_g_u_i.html#a5a04fa4ce1f238b313935eea89e1ac4e',1,'QtGUI::saveFile()'],['../class_simulator.html#ad6459c95c42352834b77b2c8ab937287',1,'Simulator::saveFile()']]],
+  ['savefilterchanged',['saveFilterChanged',['../class_graphs_window.html#a67ee3b3a12949c51ed5b424b77462d5f',1,'GraphsWindow']]],
+  ['setcurrentfile',['setCurrentFile',['../class_qt_g_u_i.html#ac305f1f85c1ddf9824123a181ea68231',1,'QtGUI']]],
+  ['setexistence',['setExistence',['../class_wall.html#abe73d7f5ecb85423c131ae1f19066bce',1,'Wall']]],
+  ['setexistingxwalls',['setExistingXwalls',['../class_maze.html#a1edac7f64dbc8b35cc53547e1369aa2f',1,'Maze']]],
+  ['setexistingywalls',['setExistingYwalls',['../class_maze.html#a3bf3437798a64f22907cb69c12e21c39',1,'Maze']]],
+  ['setgraphicposition',['setGraphicPosition',['../class_graphs_window.html#a70892cd02bf773d263543e1137b3619d',1,'GraphsWindow']]],
+  ['setgraphicvelocity',['setGraphicVelocity',['../class_graphs_window.html#a3f71deaccf7a8a366a0cbce0c569a152',1,'GraphsWindow']]],
+  ['setrobotcode',['setRobotCode',['../class_simulator.html#a59386a7893d481f677d3335306113549',1,'Simulator']]],
+  ['setrobotnumber',['setRobotNumber',['../class_code_editor.html#aa77d6565cb5fdb046bf517dbe4f8f58f',1,'CodeEditor::setRobotNumber()'],['../class_robot.html#a9c419111834e350597011533f3534c0e',1,'Robot::setRobotNumber()']]],
+  ['simulator',['Simulator',['../class_simulator.html#a7385b3d2b06bdeda0ccaeb83c5437992',1,'Simulator']]],
+  ['simulatordeinit',['simulatorDeinit',['../class_simulator.html#ad96e6a381928fa27ca448dbcbb8f6d4a',1,'Simulator']]],
+  ['simulatorinit',['simulatorInit',['../class_simulator.html#a4a9f7b7d867077b4fa41ff5a5a900ff9',1,'Simulator']]],
+  ['simulatorloop',['simulatorLoop',['../class_simulator.html#af6b04a6e0fd2b02f1dc989ebb967b12b',1,'Simulator']]],
+  ['sizehint',['sizeHint',['../class_line_number_area.html#a5d31f7fb107bc1eefd7ae4974c095308',1,'LineNumberArea']]],
+  ['startavailable',['startAvailable',['../class_simulator.html#ac63920fed6149dd2a5bc99059cab197a',1,'Simulator']]],
+  ['startsimulation',['startSimulation',['../class_simulator.html#a7c1fedfeee2955be5805acb2f9ad74a4',1,'Simulator']]],
+  ['stopavailable',['stopAvailable',['../class_simulator.html#a3ddb76d3b6d3ee80273eb00178724cc1',1,'Simulator']]],
+  ['stopsimulation',['stopSimulation',['../class_simulator.html#a2a296c0672d3093a491fd0c399fa1e44',1,'Simulator']]]
+];

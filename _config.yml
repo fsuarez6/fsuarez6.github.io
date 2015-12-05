@@ -1,12 +1,11 @@
 # Site wide configuration
 
-title:            Francisco Suárez Ruiz | Roboticist
+title:            Francisco Suárez Ruiz
 locale:           en_US
 url:
 
 
 # Jekyll configuration
-
 permalink:   /:categories/:title/
 markdown:    kramdown
 highlighter: pygments
@@ -15,6 +14,7 @@ sass:
   style: compressed
 gems:
   - jekyll-sitemap
+  - jekyll/scholar
 
 kramdown:
   auto_ids: true
@@ -24,12 +24,33 @@ kramdown:
   enable_coderay: false
 
 
+# Publications
+scholar:
+  style: annales
+  locale: en
+
+  sort_by: year
+  order: descending
+
+  source: /_data
+  bibliography: publications.bib
+  bibliography_template: bibitem
+
+  replace_strings: false
+  join_strings:    true
+
+  details_dir: ''
+  details_layout: ''
+  details_link: ''
+
+  query: "@*"
+
 # Site owner
 owner:
   name: Francisco Suárez-Ruiz
   avatar: bio-photo.png
-  bio: "Describe your self."
-  email: username@gmail.com
+  bio: "I'm from Bogotá, Colombia. Currently in Singapore. Passionate about robotics, technology and football."
+  email: <username>@gmail.com
   disqus-shortname:
   twitter: #username
   facebook: #username
@@ -39,6 +60,7 @@ owner:
     verify:
     ad-client:
     ad-slot:
+    scholar: uXo_Q_IAAAAJ
   bing-verify:
   github: fsuarez6
   stackoverflow: #123456/username   from a "http://stackoverflow.com/users/123456/username" link
