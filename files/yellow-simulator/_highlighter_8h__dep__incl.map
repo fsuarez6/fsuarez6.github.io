@@ -1,7 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$_code_editor_8h.html" title="lib/CodeEditor.h" alt="" coords="67,80,181,107"/>
-<area shape="rect" id="node11" href="$_highlighter_8cpp.html" title="src/Highlighter.cpp" alt="" coords="205,80,336,107"/>
-<area shape="rect" id="node5" href="$_qt_g_u_i_8h.html" title="lib/QtGUI.h" alt="" coords="14,155,100,181"/>
-<area shape="rect" id="node9" href="$_code_editor_8cpp.html" title="src/CodeEditor.cpp" alt="" coords="125,155,259,181"/>
-<area shape="rect" id="node7" href="$_qt_g_u_i_8cpp.html" title="src/QtGUI.cpp" alt="" coords="5,229,109,256"/>
-</map>
