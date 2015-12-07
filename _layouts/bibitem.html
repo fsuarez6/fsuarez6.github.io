@@ -2,6 +2,19 @@
 ---
 {{reference}}
 
+<script type="text/javascript">
+<!--
+    function toggle_visibility(id) {
+       var e = document.getElementById(id);
+       if(e.style.display == 'block')
+          e.style.display = 'none';
+       else
+          e.style.display = 'block';
+    }
+//-->
+</script>
+
+  [<a href="javascript:toggle_visibility('{{key}}-bibtex')">BibTeX</a>]
 {% if entry.pdf %}
   [<a href="{{site.url}}/files/pdf/{{entry.pdf}}" target="_blank">preprint</a>]
 {% endif %}
@@ -9,37 +22,4 @@
   [<a href="{{entry.url}}" target="_blank">link</a>]
 {% endif %}
 
-<!--
-<div class="row">
-  {% if entry.pdf %}
-  <a role="button" class="btn btn-primary" href="{{site.url}}/files/pdf/{{site.pdf}}" target="_blank">PDF</a> 
-  {% endif %}
-  {% if entry.url %}
-  <a role="button" class="btn btn-info" href="{{entry.url}}" target="_blank">Link</a> 
-  {% endif %}
-</div>
--->
-
-
-<!--
-<div id="{{key}}-materials">
-  <ul class="nav nav-pills">
-    {% if entry.abstract %}
-    <li><a data-toggle="collapse" href="#{{key}}-abstract">Abstract</a></li>
-    {% endif %}
-
-    <li><a data-toggle="collapse" href="#{{key}}-bibtex">BibTeX</a></li>
-
-    {% if link %}
-    <li><a href="{{link}}">Download</a></li>
-    {% endif %}
-  </ul>
-
-  {% if entry.abstract %}
-  <p id="{{key}}-abstract" class="collapse">{{entry.abstract}}</p>
-  {% endif %}
-
-  <pre id="{{key}}-bibtex" class="pre pre-scrollable collapse">{{entry.bibtex}}</pre>
-
-</div>
--->
+<pre id="{{key}}-bibtex" class="pre pre-scrollable" hidden>{{entry.bibtex}}</pre>
