@@ -1,9 +1,10 @@
 ---
 layout: page
-tags: [about, Jekyll, theme, responsive]
+tags: [about, CRI, NTU, Robotics]
 comments: true
 image:
   feature: cover.jpg
+  credit: Playa blanca, Isla Barú, Cartagena, Colombia.
 ---
 
 I'm a Research Fellow at [Prof. Pham Quang Cuong](http://research.ntu.edu.sg/expertise/academicprofile/Pages/StaffProfile.aspx?ST_EMAILID=CUONG)'s [CRI Group](http://www.ntu.edu.sg/home/cuong/), Nanyang Technological University, Singapore.
