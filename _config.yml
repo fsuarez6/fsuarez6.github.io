@@ -4,7 +4,6 @@ title:            Francisco Suárez Ruiz
 locale:           en_US
 url:
 
-
 # Jekyll configuration
 permalink:   /:categories/:title/
 markdown:    kramdown
@@ -22,7 +21,6 @@ kramdown:
   entity_output: as_char
   toc_levels: 1..6
   enable_coderay: false
-
 
 # Publications
 scholar:
@@ -51,7 +49,7 @@ owner:
   avatar: bio-photo.png
   bio: "I'm from Bogotá, Colombia. Currently in Singapore. Passionate about robotics, technology and football."
   email: fsuarez6@gmail.com
-  disqus-shortname:
+  disqus-shortname: fsuarez6githu
   twitter: #username
   facebook: #username
   google:

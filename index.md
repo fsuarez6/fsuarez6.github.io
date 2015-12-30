@@ -1,7 +1,7 @@
 ---
 layout: page
 tags: [about, CRI, NTU, Robotics]
-comments: true
+comments: false
 image:
   feature: cover.jpg
   credit: Playa blanca, Isla Barú, Cartagena, Colombia.
