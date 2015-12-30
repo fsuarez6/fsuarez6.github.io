@@ -8,7 +8,14 @@ comments: true
 ---
 {% include _toc.html %}
 
-_These ROS packages are for the Geomagic Touch (formerly Sensable PHANToM Omni) haptic device -- **firewire** version.
+{:refdef: style="text-align: center;"}
+<figure>
+  <img src="https://raw.github.com/fsuarez6/phantom_omni/hydro-devel/omni_description/resources/OmniRviz.png">
+  <figcaption>Omni in RViz</figcaption>
+</figure>
+{: refdef}
+
+These ROS packages are for the Geomagic Touch (formerly Sensable PHANToM Omni) haptic device -- **firewire** version.
 
 I developed them during my time at the [Group of Robots and Intelligent Machines](http://www.romin.upm.es/), Universidad Politécnica de Madrid.
 
@@ -37,4 +44,49 @@ sudo ln -s /usr/lib/x86_64-linux-gnu/libraw1394.so.11.0.1 /usr/lib/libraw1394.so
 sudo ln -s /usr/lib64/libPHANToMIO.so.4.3 /usr/lib/libPHANToMIO.so.4
 sudo ln -s /usr/lib64/libHD.so.3.0.0 /usr/lib/libHD.so.3.0
 sudo ln -s /usr/lib64/libHL.so.3.0.0 /usr/lib/libHL.so.3.0
+{% endhighlight %}
+
+### ROS Metapackage
+
+Go to your ROS working directory. e.g.
+
+{% highlight bash %}
+cd ~/catkin_ws/src
+{% endhighlight %}
+
+Use the `wstool` to install the repository
+
+{% highlight bash %}
+wstool init .
+wstool merge https://raw.github.com/fsuarez6/phantom_omni/hydro-devel/phantom_omni.rosinstall
+wstool update
+{% endhighlight %}
+
+Check for any missing dependencies using rosdep:
+
+{% highlight bash %}
+rosdep update
+rosdep check --from-paths . --ignore-src --rosdistro hydro
+{% endhighlight %}
+
+
+After installing the missing dependencies compile your ROS workspace. e.g.
+{% highlight bash %}
+cd ~/catkin_ws && catkin_make
+{% endhighlight %}
+
+### Testing the Installation
+
+Be sure to always source the appropriate ROS setup file, which for Hydro is done like so:
+
+{% highlight bash %}
+source /opt/ros/hydro/setup.bash
+{% endhighlight %}
+
+You might want to add that line to your `~/.bashrc`.
+Try the `omni.launch` file in the `omni_common` package:
+
+{% highlight bash %}
+rosrun omni_common initialize_device.sh -c
+roslaunch omni_common omni.launch
 {% endhighlight %}
