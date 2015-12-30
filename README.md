@@ -36,6 +36,7 @@ $ sudo apt-get install nodejs
 ## Running it Locally
 
 ```
+$ cd ~/git/fsuarez6.github.io
 $ jekyll serve --watch --port 5000
 ``` 
 
