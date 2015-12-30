@@ -4,13 +4,249 @@
 <generator uri="https://github.com/jekyll/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2015-12-07T15:23:05+08:00</updated>
+<updated>2015-12-30T16:12:09+08:00</updated>
 <id>/</id>
 <author>
   <name>Francisco Suárez-Ruiz</name>
   <uri>/</uri>
-  <email><username>@gmail.com</email>
+  <email>fsuarez6@gmail.com</email>
 </author>
+
+
+<entry>
+  <title type="html"><![CDATA[The infamous .bashrc]]></title>
+  <link rel="alternate" type="text/html" href="/blog/bashrc/" />
+  <id>/blog/bashrc</id>
+  <published>2015-12-16T00:00:00+08:00</published>
+  <updated>2015-12-16T00:00:00+08:00</updated>
+  <author>
+    <name>Francisco Suárez-Ruiz</name>
+    <uri></uri>
+    <email>fsuarez6@gmail.com</email>
+  </author>
+  <content type="html">
+    &lt;p&gt;I’ve been using Ubuntu (mainly 12.04) for around three years, let’s say, since early 2013. The reason? Well, all the &lt;em&gt;cool&lt;/em&gt; and &lt;em&gt;useful&lt;/em&gt; tools for Robotics have been recently targeting this Linux distribution. What tools? &lt;a href=&quot;http://www.ros.org/&quot;&gt;ROS&lt;/a&gt;, &lt;a href=&quot;http://openrave.org/&quot;&gt;OpenRAVE&lt;/a&gt;, &lt;a href=&quot;http://gazebosim.org/&quot;&gt;Gazebo&lt;/a&gt;, &lt;a href=&quot;http://pointclouds.org/&quot;&gt;PCL&lt;/a&gt;… Should I continue?&lt;/p&gt;
+
+&lt;p&gt;So, back them, early 2013, when I only knew about Linux from my &lt;em&gt;freak&lt;/em&gt; friends and had used Windows my whole life. In order to make the &lt;em&gt;change&lt;/em&gt;, I had to gather enough courage and jump into this new world. Nowadays, when I see people going through the same process, most of them struggle with the same things that I did.&lt;/p&gt;
+
+&lt;p&gt;If you ask me, any introduction to Ubuntu should start with the terminal (command line or console). And since there are many commands that you will need to run every time you start a new terminal, then, the introduction should start with the infamous &lt;code&gt;.bashrc&lt;/code&gt; file.&lt;/p&gt;
+
+&lt;p&gt;So, what is this file? I find the following &lt;a href=&quot;http://askubuntu.com/a/540689&quot; target=&quot;_blank&quot;&gt;answer&lt;/a&gt; very concrete and easy to understand:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The &lt;code&gt;.bashrc&lt;/code&gt; file is a script that is executed whenever a new terminal session is started in &lt;strong&gt;interactive mode&lt;/strong&gt;. This is what happens when you open a new terminal window by pressing &lt;kbd&gt;Ctrl&lt;/kbd&gt;+&lt;kbd&gt;Alt&lt;/kbd&gt;+&lt;kbd&gt;T&lt;/kbd&gt;, or just open a new terminal tab.&lt;/p&gt;
+
+  &lt;p&gt;By contrast a terminal session in &lt;strong&gt;login mode&lt;/strong&gt; will ask you for user name and password and execute the &lt;code&gt;~/.bash_profile&lt;/code&gt; script. This is what takes place, for instance, when you log on to a remote system through SSH.&lt;/p&gt;
+
+  &lt;p&gt;The &lt;code&gt;.bashrc&lt;/code&gt; file itself contains a series of configurations for the terminal session. This includes setting up or enabling: colouring, completion, the shell history, command aliases and more. The &lt;code&gt;.bashrc&lt;/code&gt; file distributed with Ubuntu is well commented and you will be able to understand most of what it does just by reading it.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+    &lt;p&gt;&lt;a href=&quot;/blog/bashrc/&quot;&gt;The infamous .bashrc&lt;/a&gt; was originally published by Francisco Suárez-Ruiz at &lt;a href=&quot;&quot;&gt;Francisco Suárez Ruiz&lt;/a&gt; on December 16, 2015.&lt;/p&gt;
+  </content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Labrob Metapackage]]></title>
+  <link rel="alternate" type="text/html" href="/projects/labrob-metapackage/" />
+  <id>/projects/labrob-metapackage</id>
+  <published>2014-04-22T00:00:00+08:00</published>
+  <updated>2014-04-22T00:00:00+08:00</updated>
+  <author>
+    <name>Francisco Suárez-Ruiz</name>
+    <uri></uri>
+    <email>fsuarez6@gmail.com</email>
+  </author>
+  <content type="html">
+    &lt;p&gt;Metapackage to learn a little bit about ROS and get to know some of the existing tools for mobile robots.&lt;/p&gt;
+
+&lt;iframe width=&quot;300&quot; height=&quot;200&quot; src=&quot;https://www.youtube.com/embed/as7LYccnvgE&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;h3 id=&quot;build-status&quot;&gt;Build status&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://travis-ci.org/fsuarez6/labrob&quot;&gt;&lt;img src=&quot;https://travis-ci.org/fsuarez6/labrob.png?branch=master&quot; alt=&quot;Build Status&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;source-code&quot;&gt;Source code&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/fsuarez6/labrob&quot;&gt;https://github.com/fsuarez6/labrob&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;tutorials&quot;&gt;Tutorials&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.romin.upm.es/wiki/index.php?title=ROS%3ATutorials&quot;&gt;http://www.romin.upm.es/wiki&lt;/a&gt;&lt;/p&gt;
+
+
+    &lt;p&gt;&lt;a href=&quot;/projects/labrob-metapackage/&quot;&gt;Labrob Metapackage&lt;/a&gt; was originally published by Francisco Suárez-Ruiz at &lt;a href=&quot;&quot;&gt;Francisco Suárez Ruiz&lt;/a&gt; on April 22, 2014.&lt;/p&gt;
+  </content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Takktile Sensors with the Raspberry Pi]]></title>
+  <link rel="alternate" type="text/html" href="/projects/takktile-raspberry-pi-ros/" />
+  <id>/projects/takktile-raspberry-pi-ros</id>
+  <published>2014-02-20T00:00:00+08:00</published>
+  <updated>2014-02-20T00:00:00+08:00</updated>
+  <author>
+    <name>Francisco Suárez-Ruiz</name>
+    <uri></uri>
+    <email>fsuarez6@gmail.com</email>
+  </author>
+  <content type="html">
+    &lt;p&gt;ROS software to connect TakkTile sensors to the Raspberry PI directly using the I2C bus. This has been tested connecting the TakkTile Kit for Robotic.&lt;/p&gt;
+
+&lt;figure style=&quot;text-align: center;&quot;&gt;
+  &lt;img src=&quot;http://farm8.static.flickr.com/7457/13080610534_4659d97dc1.jpg&quot; /&gt;
+  &lt;figcaption&gt;TakkTile connection to Raspberry PI B&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;h3 id=&quot;build-status&quot;&gt;Build status&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://travis-ci.org/fsuarez6/takktile_raspberry&quot;&gt;&lt;img src=&quot;https://travis-ci.org/fsuarez6/takktile_raspberry.png?branch=groovy-devel&quot; alt=&quot;Build Status&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;source-code&quot;&gt;Source code&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/fsuarez6/takktile_raspberry&quot;&gt;https://github.com/fsuarez6/takktile_raspberry&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;tutorial&quot;&gt;Tutorial&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.takktile.com/tutorial:raspberrypi-ros&quot;&gt;http://www.takktile.com/tutorial:raspberrypi-ros&lt;/a&gt;&lt;/p&gt;
+
+    &lt;p&gt;&lt;a href=&quot;/projects/takktile-raspberry-pi-ros/&quot;&gt;Takktile Sensors with the Raspberry Pi&lt;/a&gt; was originally published by Francisco Suárez-Ruiz at &lt;a href=&quot;&quot;&gt;Francisco Suárez Ruiz&lt;/a&gt; on February 20, 2014.&lt;/p&gt;
+  </content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Grips Metapackage]]></title>
+  <link rel="alternate" type="text/html" href="/projects/grips-metapackage/" />
+  <id>/projects/grips-metapackage</id>
+  <published>2013-10-31T00:00:00+08:00</published>
+  <updated>2013-10-31T00:00:00+08:00</updated>
+  <author>
+    <name>Francisco Suárez-Ruiz</name>
+    <uri></uri>
+    <email>fsuarez6@gmail.com</email>
+  </author>
+  <content type="html">
+    &lt;p&gt;Worked to add the Grips Manipulator into Gazebo properly. Created simulated controllers, tweaked meshes and simulation properties.&lt;/p&gt;
+
+&lt;figure style=&quot;text-align: center;&quot;&gt;
+  &lt;img src=&quot;https://raw.github.com/fsuarez6/grips/hydro-devel/grips_description/resources/bimanual_gazebo.png&quot; /&gt;
+  &lt;figcaption&gt;Grips in Gazebo&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;h3 id=&quot;build-status&quot;&gt;Build status&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://travis-ci.org/fsuarez6/grips&quot;&gt;&lt;img src=&quot;https://travis-ci.org/fsuarez6/grips.png?branch=hydro-devel&quot; alt=&quot;Build Status&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;source-code&quot;&gt;Source code&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/fsuarez6/grips&quot;&gt;https://github.com/fsuarez6/grips&lt;/a&gt;&lt;/p&gt;
+
+
+    &lt;p&gt;&lt;a href=&quot;/projects/grips-metapackage/&quot;&gt;Grips Metapackage&lt;/a&gt; was originally published by Francisco Suárez-Ruiz at &lt;a href=&quot;&quot;&gt;Francisco Suárez Ruiz&lt;/a&gt; on October 31, 2013.&lt;/p&gt;
+  </content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Geomagic Touch in ROS]]></title>
+  <link rel="alternate" type="text/html" href="/projects/geomagic-touch-in-ros/" />
+  <id>/projects/geomagic-touch-in-ros</id>
+  <published>2013-10-18T00:00:00+08:00</published>
+  <updated>2013-10-18T00:00:00+08:00</updated>
+  <author>
+    <name>Francisco Suárez-Ruiz</name>
+    <uri></uri>
+    <email>fsuarez6@gmail.com</email>
+  </author>
+  <content type="html">
+    &lt;section id=&quot;table-of-contents&quot; class=&quot;toc&quot;&gt;
+  &lt;header&gt;
+    &lt;h3&gt;&lt;i class=&quot;fa fa-book&quot;&gt;&lt;/i&gt; Overview&lt;/h3&gt;
+  &lt;/header&gt;
+&lt;div id=&quot;drawer&quot;&gt;
+&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#installation&quot; id=&quot;markdown-toc-installation&quot;&gt;Installation&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#requirements&quot; id=&quot;markdown-toc-requirements&quot;&gt;Requirements&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#openhaptics-sdk&quot; id=&quot;markdown-toc-openhaptics-sdk&quot;&gt;OpenHaptics SDK&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#symbolic-links&quot; id=&quot;markdown-toc-symbolic-links&quot;&gt;Symbolic Links&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#ros-metapackage&quot; id=&quot;markdown-toc-ros-metapackage&quot;&gt;ROS Metapackage&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#testing-the-installation&quot; id=&quot;markdown-toc-testing-the-installation&quot;&gt;Testing the Installation&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+  &lt;/div&gt;
+&lt;/section&gt;
+&lt;!-- /#table-of-contents --&gt;
+
+&lt;figure style=&quot;text-align: center;&quot;&gt;
+  &lt;img src=&quot;https://raw.github.com/fsuarez6/phantom_omni/hydro-devel/omni_description/resources/OmniRviz.png&quot; /&gt;
+  &lt;figcaption&gt;Omni in RViz&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;These ROS packages are for the Geomagic Touch (formerly Sensable PHANToM Omni) haptic device – &lt;strong&gt;firewire&lt;/strong&gt; version.&lt;/p&gt;
+
+&lt;p&gt;I developed them during my time at the &lt;a href=&quot;http://www.romin.upm.es/&quot;&gt;Group of Robots and Intelligent Machines&lt;/a&gt;, Universidad Politécnica de Madrid.&lt;/p&gt;
+
+&lt;h2 id=&quot;installation&quot;&gt;Installation&lt;/h2&gt;
+
+&lt;p&gt;This instructions have been tested with OpenHaptics SDK 3.0 in Ubuntu 12.04, both 32 and 64 bits.
+Before going any further please check the following:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;You have a &lt;strong&gt;firewire&lt;/strong&gt; device NOT the Ethernet one.&lt;/li&gt;
+  &lt;li&gt;Your development machine has a &lt;strong&gt;firewire&lt;/strong&gt; port. I have tested both Firewire400 and Firewire800 and they work just fine.&lt;/li&gt;
+  &lt;li&gt;You understand what a &lt;em&gt;catkin workspace&lt;/em&gt;, a &lt;em&gt;symbolic link&lt;/em&gt; and a &lt;em&gt;git repository&lt;/em&gt; are.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;requirements&quot;&gt;Requirements&lt;/h3&gt;
+&lt;p&gt;The following are the requirements so that you can run &lt;code&gt;PHANToMConfiguration&lt;/code&gt;:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;sudo apt-get install --no-install-recommends freeglut3-dev g++ libdrm-dev libexpat1-dev libglw1-mesa-devlibmotif-dev libncurses5-dev libraw1394-dev libx11-dev libxdamage-dev libxext-dev libxt-dev libxxf86vm-dev tcsh unzip x11proto-dri2-dev x11proto-gl-dev x11proto-print-dev&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;openhaptics-sdk&quot;&gt;OpenHaptics SDK&lt;/h3&gt;
+&lt;p&gt;In order to connect to the device, you will need to install &lt;a href=&quot;http://www.dentsable.com/products-openhaptics-toolkit.htm&quot;&gt;OpenHaptics SDK&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;symbolic-links&quot;&gt;Symbolic Links&lt;/h3&gt;
+&lt;p&gt;Because OpenHaptics SDK puts the libraries in some weird locations you need to create the following symbolic links: (&lt;strong&gt;Only required in 64 bits systems&lt;/strong&gt;)&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;sudo ln -s /usr/lib/x86_64-linux-gnu/libraw1394.so.11.0.1 /usr/lib/libraw1394.so.8
+sudo ln -s /usr/lib64/libPHANToMIO.so.4.3 /usr/lib/libPHANToMIO.so.4
+sudo ln -s /usr/lib64/libHD.so.3.0.0 /usr/lib/libHD.so.3.0
+sudo ln -s /usr/lib64/libHL.so.3.0.0 /usr/lib/libHL.so.3.0&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;ros-metapackage&quot;&gt;ROS Metapackage&lt;/h3&gt;
+
+&lt;p&gt;Go to your ROS working directory. e.g.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~/catkin_ws/src&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Use the &lt;code&gt;wstool&lt;/code&gt; to install the repository&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;wstool init .
+wstool merge https://raw.github.com/fsuarez6/phantom_omni/hydro-devel/phantom_omni.rosinstall
+wstool update&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Check for any missing dependencies using rosdep:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;rosdep update
+rosdep check --from-paths . --ignore-src --rosdistro hydro&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;After installing the missing dependencies compile your ROS workspace. e.g.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~/catkin_ws &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; catkin_make&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;testing-the-installation&quot;&gt;Testing the Installation&lt;/h3&gt;
+
+&lt;p&gt;Be sure to always source the appropriate ROS setup file, which for Hydro is done like so:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt; /opt/ros/hydro/setup.bash&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;You might want to add that line to your &lt;code&gt;~/.bashrc&lt;/code&gt;.
+Try the &lt;code&gt;omni.launch&lt;/code&gt; file in the &lt;code&gt;omni_common&lt;/code&gt; package:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;rosrun omni_common initialize_device.sh -c
+roslaunch omni_common omni.launch&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+
+    &lt;p&gt;&lt;a href=&quot;/projects/geomagic-touch-in-ros/&quot;&gt;Geomagic Touch in ROS&lt;/a&gt; was originally published by Francisco Suárez-Ruiz at &lt;a href=&quot;&quot;&gt;Francisco Suárez Ruiz&lt;/a&gt; on October 18, 2013.&lt;/p&gt;
+  </content>
+</entry>
 
 
 <entry>
@@ -22,14 +258,20 @@
   <author>
     <name>Francisco Suárez-Ruiz</name>
     <uri></uri>
-    <email><username>@gmail.com</email>
+    <email>fsuarez6@gmail.com</email>
   </author>
   <content type="html">
     &lt;p&gt;This a project developed during a course about software engineering. The main goal was to design and implement an application to simulate algorithms on Kephera III robots in order to study their behavior in different mazes.&lt;/p&gt;
 
-&lt;p&gt;The ultimate goal of providing the client application as a tool that allows him/her to test the code without having to use any setup neither the real robot. The simulator only covers those aspects of the robot, the maze and the user interface.&lt;/p&gt;
+&lt;figure style=&quot;text-align: center;&quot;&gt;
+  &lt;img src=&quot;/images/yellow-simulator.jpg&quot; /&gt;
+  &lt;figcaption&gt;Simulator user interface&lt;/figcaption&gt;
+&lt;/figure&gt;
 
-&lt;p&gt;&lt;a href=&quot;/files/yellow-simulator/&quot; target=&quot;_blank&quot;&gt;Code API&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The ultimate goal of providing the client application as a tool that allows him/her to test the code without having to use any setup neither the real robot. The simulator only covers those aspects of the robot, the maze and the user interface.
+&lt;br /&gt;
+&lt;br /&gt;
+For more information please check the &lt;a href=&quot;/files/yellow-simulator/&quot; target=&quot;_blank&quot;&gt;Code API&lt;/a&gt;.&lt;/p&gt;
 
     &lt;p&gt;&lt;a href=&quot;/projects/yellow-simulator/&quot;&gt;The Yellow Simulator&lt;/a&gt; was originally published by Francisco Suárez-Ruiz at &lt;a href=&quot;&quot;&gt;Francisco Suárez Ruiz&lt;/a&gt; on June 25, 2012.&lt;/p&gt;
   </content>

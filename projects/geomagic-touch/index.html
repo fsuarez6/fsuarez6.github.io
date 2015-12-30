@@ -5,36 +5,36 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
 <head>
 <meta charset="utf-8">
-<title>Francisco Suárez Ruiz</title>
-
-<meta name="keywords" content="about, CRI, NTU, Robotics">
+<title>Geomagic Touch in ROS &#8211; Francisco Suárez Ruiz</title>
+<meta name="description" content="Worked to add the Geomagic Touch (formerly Sensable PHANToM Omni) haptic device into ROS. Created robot description, tweaked meshes and physical properties.">
+<meta name="keywords" content="C++, PHANToM Omni, Geomagic Touch, Haptics, ROS">
 
 
 <!-- Twitter Cards -->
-<meta name="twitter:title" content="Francisco Suárez Ruiz">
+<meta name="twitter:title" content="Geomagic Touch in ROS">
+<meta name="twitter:description" content="Worked to add the Geomagic Touch (formerly Sensable PHANToM Omni) haptic device into ROS. Created robot description, tweaked meshes and physical properties.">
 
 
 
-
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="/images/cover.jpg">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="/images/default-thumb.png">
 
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Francisco Suárez Ruiz">
-
-<meta property="og:url" content="/">
+<meta property="og:title" content="Geomagic Touch in ROS">
+<meta property="og:description" content="Worked to add the Geomagic Touch (formerly Sensable PHANToM Omni) haptic device into ROS. Created robot description, tweaked meshes and physical properties.">
+<meta property="og:url" content="/projects/geomagic-touch/">
 <meta property="og:site_name" content="Francisco Suárez Ruiz">
 
-<meta property="og:image" content="/images/cover.jpg">
+<meta property="og:image" content="/images/default-thumb.png">
 
 
 
 
 
 
-<link rel="canonical" href="/">
+<link rel="canonical" href="/projects/geomagic-touch/">
 <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Francisco Suárez Ruiz Feed">
 
 <!-- http://t.co/dKP3o1e -->
@@ -75,7 +75,7 @@
 
 </head>
 
-<body class="page">
+<body class="post">
 
 <!--[if lt IE 9]><div class="browser-upgrade alert alert-info">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div><![endif]-->
 
@@ -104,17 +104,6 @@
 	</div><!-- /.top-navigation -->
 </div><!-- /.navigation-wrapper -->
 
-
-  <div class="image-wrap">
-  <img src=
-    
-      "/images/cover.jpg"
-    
-  alt=" feature image">
-  
-    <span class="image-credit">Photo Credit: <a href="">Playa blanca, Isla Barú, Cartagena, Colombia.</a></span>
-  
-  </div><!-- /.image-wrap -->
 
 
 <div id="main" role="main">
@@ -153,38 +142,100 @@
 </div>
 
   </div>
-  <article class="page">
-    <h1></h1>
-    <div class="article-wrap">
-      <p>I’m a Research Fellow at <a href="http://research.ntu.edu.sg/expertise/academicprofile/Pages/StaffProfile.aspx?ST_EMAILID=CUONG">Prof. Pham Quang Cuong</a>’s <a href="http://www.ntu.edu.sg/home/cuong/">CRI Group</a>, Nanyang Technological University, Singapore.</p>
-
-<p>Research interests include robot arm manipulation, path planning, grasping point cloud processing, vision processing teleoperation and haptic interfaces.</p>
-
-<p>Experience with the open source Robotics Operating System, the OpenRAVE environment, the MoveIt motion planning framework, the Gazebo multi-robot simulator, OpenCV, and PCL. C++, Python, Labview, Linux Expert.</p>
-
+  <article class="post">
+    <div class="headline-wrap">
       
-        <hr />
+        <h1><a href="/projects/geomagic-touch/" rel="bookmark" title="Geomagic Touch in ROS">Geomagic Touch in ROS</a></h1>
+      
+    </div><!--/ .headline-wrap -->
+    <div class="article-wrap">
+      <section id="table-of-contents" class="toc">
+  <header>
+    <h3><i class="fa fa-book"></i> Overview</h3>
+  </header>
+<div id="drawer">
+<ul id="markdown-toc">
+  <li><a href="#installation" id="markdown-toc-installation">Installation</a>    <ul>
+      <li><a href="#requirements" id="markdown-toc-requirements">Requirements</a></li>
+      <li><a href="#openhaptics-sdk" id="markdown-toc-openhaptics-sdk">OpenHaptics SDK</a></li>
+      <li><a href="#symbolic-links" id="markdown-toc-symbolic-links">Symbolic Links</a></li>
+    </ul>
+  </li>
+</ul>
+
+  </div>
+</section>
+<!-- /#table-of-contents -->
+
+<p>These ROS packages are for the Geomagic Touch (formerly Sensable PHANToM Omni) haptic device – <strong>firewire</strong> version.</p>
+
+<p>I developed them during my time at the <a href="http://www.romin.upm.es/">Group of Robots and Intelligent Machines</a>, Universidad Politécnica de Madrid.</p>
+
+<h2 id="installation">Installation</h2>
+
+<p>This instructions have been tested with OpenHaptics SDK 3.0 in Ubuntu 12.04, both 32 and 64 bits.
+Before going any further please check the following:</p>
+
+<ul>
+  <li>You have a <strong>firewire</strong> device NOT the Ethernet one.</li>
+  <li>Your development machine has a <strong>firewire</strong> port. I have tested both Firewire400 and Firewire800 and they work just fine.</li>
+  <li>You understand what a <em>catkin workspace</em>, a <em>symbolic link</em> and a <em>git repository</em> are.</li>
+</ul>
+
+<h3 id="requirements">Requirements</h3>
+<p>The following are the requirements so that you can run <code>PHANToMConfiguration</code>:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">sudo apt-get install --no-install-recommends freeglut3-dev g++ libdrm-dev libexpat1-dev libglw1-mesa-devlibmotif-dev libncurses5-dev libraw1394-dev libx11-dev libxdamage-dev libxext-dev libxt-dev libxxf86vm-dev tcsh unzip x11proto-dri2-dev x11proto-gl-dev x11proto-print-dev</code></pre></figure>
+
+<h3 id="openhaptics-sdk">OpenHaptics SDK</h3>
+<p>In order to connect to the device, you will need to install <a href="http://www.dentsable.com/products-openhaptics-toolkit.htm">OpenHaptics SDK</a>.</p>
+
+<h3 id="symbolic-links">Symbolic Links</h3>
+<p>Because OpenHaptics SDK puts the libraries in some weird locations you need to create the following symbolic links: (<strong>Only required in 64 bits systems</strong>)</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">sudo ln -s /usr/lib/x86_64-linux-gnu/libraw1394.so.11.0.1 /usr/lib/libraw1394.so.8
+sudo ln -s /usr/lib64/libPHANToMIO.so.4.3 /usr/lib/libPHANToMIO.so.4
+sudo ln -s /usr/lib64/libHD.so.3.0.0 /usr/lib/libHD.so.3.0
+sudo ln -s /usr/lib64/libHL.so.3.0.0 /usr/lib/libHL.so.3.0</code></pre></figure>
+
+
+      <hr />
+      <footer role="contentinfo">
         <div class="social-share">
   <h4>Share on</h4>
   <ul>
     <li>
-      <a href="https://twitter.com/intent/tweet?text=/" class="twitter" title="Share on Twitter"><i class="fa fa-twitter"></i><span> Twitter</span></a>
+      <a href="https://twitter.com/intent/tweet?text=/projects/geomagic-touch/" class="twitter" title="Share on Twitter"><i class="fa fa-twitter"></i><span> Twitter</span></a>
     </li>
     <li>
-      <a href="https://www.facebook.com/sharer/sharer.php?u=/" class="facebook" title="Share on Facebook"><i class="fa fa-facebook"></i><span> Facebook</span></a>
+      <a href="https://www.facebook.com/sharer/sharer.php?u=/projects/geomagic-touch/" class="facebook" title="Share on Facebook"><i class="fa fa-facebook"></i><span> Facebook</span></a>
     </li>
     <li>
-      <a href="https://plus.google.com/share?url=/" class="google-plus" title="Share on Google Plus"><i class="fa fa-google-plus"></i><span> Google+</span></a>
+      <a href="https://plus.google.com/share?url=/projects/geomagic-touch/" class="google-plus" title="Share on Google Plus"><i class="fa fa-google-plus"></i><span> Google+</span></a>
     </li>
   </ul>
 </div><!-- /.social-share -->
-      
+        <p class="byline"><strong>Geomagic Touch in ROS</strong> was published on <time datetime="2013-10-18T00:00:00+08:00">October 18, 2013</time>.</p>
+      </footer>
     </div><!-- /.article-wrap -->
-    
+  
   </article>
-</div><!-- /#index -->
+</div><!-- /#main -->
 
 <div class="footer-wrap">
+  
+  <div class="related-articles">
+  <h4>You might also enjoy <small class="pull-right">(<a href="/posts/">View all posts</a>)</small></h4>
+    <ul>
+    
+      <li><a href="/blog/bashrc/" title="The infamous .bashrc">The infamous .bashrc</a></li>
+    
+      <li><a href="/projects/yellow-simulator/" title="The Yellow Simulator">The Yellow Simulator</a></li>
+    
+    </ul>
+    <hr />
+  </div><!-- /.related-articles -->
+  
   <footer>
     
 
@@ -212,6 +263,9 @@
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
 </script>
+
+
+  
 
 
 

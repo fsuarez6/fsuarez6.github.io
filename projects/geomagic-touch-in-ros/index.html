@@ -5,14 +5,14 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
 <head>
 <meta charset="utf-8">
-<title>The Yellow Simulator &#8211; Francisco Suárez Ruiz</title>
-<meta name="description" content="Application to simulate algorithms on Kephera III robots in order to study their behavior in different mazes.">
-<meta name="keywords" content="C++, Kephera III, Simulator">
+<title>Geomagic Touch in ROS &#8211; Francisco Suárez Ruiz</title>
+<meta name="description" content="Worked to add the Geomagic Touch (formerly Sensable PHANToM Omni) haptic device into ROS. Created robot description, tweaked meshes and physical properties.">
+<meta name="keywords" content="C++, PHANToM Omni, Geomagic Touch, Haptics, ROS">
 
 
 <!-- Twitter Cards -->
-<meta name="twitter:title" content="The Yellow Simulator">
-<meta name="twitter:description" content="Application to simulate algorithms on Kephera III robots in order to study their behavior in different mazes.">
+<meta name="twitter:title" content="Geomagic Touch in ROS">
+<meta name="twitter:description" content="Worked to add the Geomagic Touch (formerly Sensable PHANToM Omni) haptic device into ROS. Created robot description, tweaked meshes and physical properties.">
 
 
 
@@ -22,9 +22,9 @@
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="The Yellow Simulator">
-<meta property="og:description" content="Application to simulate algorithms on Kephera III robots in order to study their behavior in different mazes.">
-<meta property="og:url" content="/projects/yellow-simulator/">
+<meta property="og:title" content="Geomagic Touch in ROS">
+<meta property="og:description" content="Worked to add the Geomagic Touch (formerly Sensable PHANToM Omni) haptic device into ROS. Created robot description, tweaked meshes and physical properties.">
+<meta property="og:url" content="/projects/geomagic-touch-in-ros/">
 <meta property="og:site_name" content="Francisco Suárez Ruiz">
 
 <meta property="og:image" content="/images/default-thumb.png">
@@ -34,7 +34,7 @@
 
 
 
-<link rel="canonical" href="/projects/yellow-simulator/">
+<link rel="canonical" href="/projects/geomagic-touch-in-ros/">
 <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Francisco Suárez Ruiz Feed">
 
 <!-- http://t.co/dKP3o1e -->
@@ -145,21 +145,99 @@
   <article class="post">
     <div class="headline-wrap">
       
-        <h1><a href="/projects/yellow-simulator/" rel="bookmark" title="The Yellow Simulator">The Yellow Simulator</a></h1>
+        <h1><a href="/projects/geomagic-touch-in-ros/" rel="bookmark" title="Geomagic Touch in ROS">Geomagic Touch in ROS</a></h1>
       
     </div><!--/ .headline-wrap -->
     <div class="article-wrap">
-      <p>This a project developed during a course about software engineering. The main goal was to design and implement an application to simulate algorithms on Kephera III robots in order to study their behavior in different mazes.</p>
+      <section id="table-of-contents" class="toc">
+  <header>
+    <h3><i class="fa fa-book"></i> Overview</h3>
+  </header>
+<div id="drawer">
+<ul id="markdown-toc">
+  <li><a href="#installation" id="markdown-toc-installation">Installation</a>    <ul>
+      <li><a href="#requirements" id="markdown-toc-requirements">Requirements</a></li>
+      <li><a href="#openhaptics-sdk" id="markdown-toc-openhaptics-sdk">OpenHaptics SDK</a></li>
+      <li><a href="#symbolic-links" id="markdown-toc-symbolic-links">Symbolic Links</a></li>
+      <li><a href="#ros-metapackage" id="markdown-toc-ros-metapackage">ROS Metapackage</a></li>
+      <li><a href="#testing-the-installation" id="markdown-toc-testing-the-installation">Testing the Installation</a></li>
+    </ul>
+  </li>
+</ul>
+
+  </div>
+</section>
+<!-- /#table-of-contents -->
 
 <figure style="text-align: center;">
-  <img src="/images/yellow-simulator.jpg" />
-  <figcaption>Simulator user interface</figcaption>
+  <img src="https://raw.github.com/fsuarez6/phantom_omni/hydro-devel/omni_description/resources/OmniRviz.png" />
+  <figcaption>Omni in RViz</figcaption>
 </figure>
 
-<p>The ultimate goal of providing the client application as a tool that allows him/her to test the code without having to use any setup neither the real robot. The simulator only covers those aspects of the robot, the maze and the user interface.
-<br />
-<br />
-For more information please check the <a href="/files/yellow-simulator/" target="_blank">Code API</a>.</p>
+<p>These ROS packages are for the Geomagic Touch (formerly Sensable PHANToM Omni) haptic device – <strong>firewire</strong> version.</p>
+
+<p>I developed them during my time at the <a href="http://www.romin.upm.es/">Group of Robots and Intelligent Machines</a>, Universidad Politécnica de Madrid.</p>
+
+<h2 id="installation">Installation</h2>
+
+<p>This instructions have been tested with OpenHaptics SDK 3.0 in Ubuntu 12.04, both 32 and 64 bits.
+Before going any further please check the following:</p>
+
+<ul>
+  <li>You have a <strong>firewire</strong> device NOT the Ethernet one.</li>
+  <li>Your development machine has a <strong>firewire</strong> port. I have tested both Firewire400 and Firewire800 and they work just fine.</li>
+  <li>You understand what a <em>catkin workspace</em>, a <em>symbolic link</em> and a <em>git repository</em> are.</li>
+</ul>
+
+<h3 id="requirements">Requirements</h3>
+<p>The following are the requirements so that you can run <code>PHANToMConfiguration</code>:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">sudo apt-get install --no-install-recommends freeglut3-dev g++ libdrm-dev libexpat1-dev libglw1-mesa-devlibmotif-dev libncurses5-dev libraw1394-dev libx11-dev libxdamage-dev libxext-dev libxt-dev libxxf86vm-dev tcsh unzip x11proto-dri2-dev x11proto-gl-dev x11proto-print-dev</code></pre></figure>
+
+<h3 id="openhaptics-sdk">OpenHaptics SDK</h3>
+<p>In order to connect to the device, you will need to install <a href="http://www.dentsable.com/products-openhaptics-toolkit.htm">OpenHaptics SDK</a>.</p>
+
+<h3 id="symbolic-links">Symbolic Links</h3>
+<p>Because OpenHaptics SDK puts the libraries in some weird locations you need to create the following symbolic links: (<strong>Only required in 64 bits systems</strong>)</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">sudo ln -s /usr/lib/x86_64-linux-gnu/libraw1394.so.11.0.1 /usr/lib/libraw1394.so.8
+sudo ln -s /usr/lib64/libPHANToMIO.so.4.3 /usr/lib/libPHANToMIO.so.4
+sudo ln -s /usr/lib64/libHD.so.3.0.0 /usr/lib/libHD.so.3.0
+sudo ln -s /usr/lib64/libHL.so.3.0.0 /usr/lib/libHL.so.3.0</code></pre></figure>
+
+<h3 id="ros-metapackage">ROS Metapackage</h3>
+
+<p>Go to your ROS working directory. e.g.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">cd</span> ~/catkin_ws/src</code></pre></figure>
+
+<p>Use the <code>wstool</code> to install the repository</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">wstool init .
+wstool merge https://raw.github.com/fsuarez6/phantom_omni/hydro-devel/phantom_omni.rosinstall
+wstool update</code></pre></figure>
+
+<p>Check for any missing dependencies using rosdep:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">rosdep update
+rosdep check --from-paths . --ignore-src --rosdistro hydro</code></pre></figure>
+
+<p>After installing the missing dependencies compile your ROS workspace. e.g.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">cd</span> ~/catkin_ws <span class="o">&amp;&amp;</span> catkin_make</code></pre></figure>
+
+<h3 id="testing-the-installation">Testing the Installation</h3>
+
+<p>Be sure to always source the appropriate ROS setup file, which for Hydro is done like so:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">source</span> /opt/ros/hydro/setup.bash</code></pre></figure>
+
+<p>You might want to add that line to your <code>~/.bashrc</code>.
+Try the <code>omni.launch</code> file in the <code>omni_common</code> package:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">rosrun omni_common initialize_device.sh -c
+roslaunch omni_common omni.launch</code></pre></figure>
+
 
       <hr />
       <footer role="contentinfo">
@@ -167,17 +245,17 @@ For more information please check the <a href="/files/yellow-simulator/" target=
   <h4>Share on</h4>
   <ul>
     <li>
-      <a href="https://twitter.com/intent/tweet?text=/projects/yellow-simulator/" class="twitter" title="Share on Twitter"><i class="fa fa-twitter"></i><span> Twitter</span></a>
+      <a href="https://twitter.com/intent/tweet?text=/projects/geomagic-touch-in-ros/" class="twitter" title="Share on Twitter"><i class="fa fa-twitter"></i><span> Twitter</span></a>
     </li>
     <li>
-      <a href="https://www.facebook.com/sharer/sharer.php?u=/projects/yellow-simulator/" class="facebook" title="Share on Facebook"><i class="fa fa-facebook"></i><span> Facebook</span></a>
+      <a href="https://www.facebook.com/sharer/sharer.php?u=/projects/geomagic-touch-in-ros/" class="facebook" title="Share on Facebook"><i class="fa fa-facebook"></i><span> Facebook</span></a>
     </li>
     <li>
-      <a href="https://plus.google.com/share?url=/projects/yellow-simulator/" class="google-plus" title="Share on Google Plus"><i class="fa fa-google-plus"></i><span> Google+</span></a>
+      <a href="https://plus.google.com/share?url=/projects/geomagic-touch-in-ros/" class="google-plus" title="Share on Google Plus"><i class="fa fa-google-plus"></i><span> Google+</span></a>
     </li>
   </ul>
 </div><!-- /.social-share -->
-        <p class="byline"><strong>The Yellow Simulator</strong> was published on <time datetime="2012-06-25T00:00:00+08:00">June 25, 2012</time>.</p>
+        <p class="byline"><strong>Geomagic Touch in ROS</strong> was published on <time datetime="2013-10-18T00:00:00+08:00">October 18, 2013</time>.</p>
       </footer>
     </div><!-- /.article-wrap -->
   
