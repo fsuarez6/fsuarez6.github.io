@@ -11,4 +11,4 @@ I'm a Research Fellow at [Prof. Pham Quang Cuong](http://research.ntu.edu.sg/exp
 
 Research interests include robot arm manipulation, path planning, grasping point cloud processing, vision processing teleoperation and haptic interfaces.
 
-Experience with the open source Robotics Operating System, the OpenRAVE environment, the MoveIt motion planning framework, the Gazebo multi-robot simulator, OpenCV, and PCL. C++, Python, Labview, Linux Expert.
+Experience with the open source Robot Operating System (ROS), the OpenRAVE environment, the MoveIt motion planning framework, the Gazebo multi-robot simulator, OpenCV, and PCL. C++, Python, Labview and Linux Expert.
