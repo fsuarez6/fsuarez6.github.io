@@ -5,14 +5,14 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
 <head>
 <meta charset="utf-8">
-<title>Geomagic Touch in ROS &#8211; Francisco Suárez Ruiz</title>
-<meta name="description" content="Worked to add the Geomagic Touch (formerly Sensable PHANToM Omni) haptic device into ROS. Created robot description, tweaked meshes and physical properties.">
-<meta name="keywords" content="C++, PHANToM Omni, Geomagic Touch, Haptics, ROS">
+<title>Installing OpenRAVE in Ubuntu 14.04 (Trusty) &#8211; Francisco Suárez Ruiz</title>
+<meta name="description" content="Installation instructions to get OpenRAVE in Ubuntu 14.04">
+<meta name="keywords" content="Ubuntu, Robotics, OpenRAVE">
 
 
 <!-- Twitter Cards -->
-<meta name="twitter:title" content="Geomagic Touch in ROS">
-<meta name="twitter:description" content="Worked to add the Geomagic Touch (formerly Sensable PHANToM Omni) haptic device into ROS. Created robot description, tweaked meshes and physical properties.">
+<meta name="twitter:title" content="Installing OpenRAVE in Ubuntu 14.04 (Trusty)">
+<meta name="twitter:description" content="Installation instructions to get OpenRAVE in Ubuntu 14.04">
 
 
 
@@ -22,9 +22,9 @@
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Geomagic Touch in ROS">
-<meta property="og:description" content="Worked to add the Geomagic Touch (formerly Sensable PHANToM Omni) haptic device into ROS. Created robot description, tweaked meshes and physical properties.">
-<meta property="og:url" content="/projects/geomagic-touch-in-ros/">
+<meta property="og:title" content="Installing OpenRAVE in Ubuntu 14.04 (Trusty)">
+<meta property="og:description" content="Installation instructions to get OpenRAVE in Ubuntu 14.04">
+<meta property="og:url" content="/blog/openrave-trusty/">
 <meta property="og:site_name" content="Francisco Suárez Ruiz">
 
 <meta property="og:image" content="/images/default-thumb.png">
@@ -34,7 +34,7 @@
 
 
 
-<link rel="canonical" href="/projects/geomagic-touch-in-ros/">
+<link rel="canonical" href="/blog/openrave-trusty/">
 <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Francisco Suárez Ruiz Feed">
 
 <!-- http://t.co/dKP3o1e -->
@@ -145,99 +145,64 @@
   <article class="post">
     <div class="headline-wrap">
       
-        <h1><a href="/projects/geomagic-touch-in-ros/" rel="bookmark" title="Geomagic Touch in ROS">Geomagic Touch in ROS</a></h1>
+        <h1><a href="/blog/openrave-trusty/" rel="bookmark" title="Installing OpenRAVE in Ubuntu 14.04 (Trusty)">Installing OpenRAVE in Ubuntu 14.04 (Trusty)</a></h1>
       
     </div><!--/ .headline-wrap -->
     <div class="article-wrap">
-      <section id="table-of-contents" class="toc">
-  <header>
-    <h3><i class="fa fa-book"></i> Overview</h3>
-  </header>
-<div id="drawer">
-<ul id="markdown-toc">
-  <li><a href="#installation" id="markdown-toc-installation">Installation</a>    <ul>
-      <li><a href="#requirements" id="markdown-toc-requirements">Requirements</a></li>
-      <li><a href="#openhaptics-sdk" id="markdown-toc-openhaptics-sdk">OpenHaptics SDK</a></li>
-      <li><a href="#symbolic-links" id="markdown-toc-symbolic-links">Symbolic Links</a></li>
-      <li><a href="#ros-metapackage" id="markdown-toc-ros-metapackage">ROS Metapackage</a></li>
-      <li><a href="#testing-the-installation" id="markdown-toc-testing-the-installation">Testing the Installation</a></li>
-    </ul>
-  </li>
-</ul>
+      <p>This instructions are for installing OpenRAVE in Ubuntu 14.04 (Trusty). For the official documentation of OpenRAVE, please refer to http://openrave.org.</p>
 
-  </div>
-</section>
-<!-- /#table-of-contents -->
+<p>From my experience, the best solution to install OpenRAVE today is to build from source.</p>
 
+<h2 id="dependencies">Dependencies</h2>
+
+<p>You need to install the following programs:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">sudo apt-get install cmake g++ git ipython octave python-dev python-h5py python-numpy python-pip python-scipy python-sympy qt4-dev-tools zlib-bin</code></pre></figure>
+
+<p>Downgrade sympy so that IKFast works properly:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">pip install --upgrade --user <span class="nv">sympy</span><span class="o">==</span>0.7.1</code></pre></figure>
+
+<p>Next, you will need to install the following libraries, which are available from the Ubuntu package repository. (Thanks to <a href="https://scaron.info/teaching/installing-openrave-on-ubuntu-14.04.html">Stephane</a> for the list):</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">sudo apt-get install libassimp-dev libavcodec-dev libavformat-dev libavformat-dev libboost-all-dev libboost-date-time-dev libbullet-dev libfaac-dev libfreetype6-dev libglew-dev  libgsm1-dev liblapack-dev libmpfi-dev libmpfr-dev libode-dev libogg-dev libopenscenegraph-dev libpcre3-dev libpcrecpp0 libqhull-dev libqt4-dev libsoqt-dev-common libsoqt4-dev libswscale-dev libswscale-dev libvorbis-dev libx264-dev libxml2-dev libxvidcore-dev</code></pre></figure>
+
+<p>Almost there… Now, get the <code>collada-dom-dev</code> package from the OpenRAVE PPA:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">sudo add-apt-repository ppa:openrave/release
+sudo sh -c <span class="s1">&#39;echo &quot;deb-src http://ppa.launchpad.net/openrave/release/ubuntu `lsb_release -cs` main&quot; &gt;&gt; /etc/apt/sources.list.d/openrave-release-`lsb_release -cs`.list&#39;</span>
+sudo apt-get update
+sudo apt-get install collada-dom-dev
+sudo add-apt-repository --remove ppa:openrave/release</code></pre></figure>
+
+<h2 id="building-from-source">Building from Source</h2>
+
+<p>Clone the OpenRAVE’s <code>master</code> from GitHub (tested with commit 677ef40c60ae29b3e584dc883a799d126cc55752):</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">cd</span> ~/git
+git clone --branch master https://github.com/rdiankov/openrave.git</code></pre></figure>
+
+<p>Build it with CMake:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">cd </span>openrave
+mkdir build
+<span class="nb">cd </span>build
+cmake ..
+make
+sudo make install</code></pre></figure>
+
+<h2 id="testing-the-installation">Testing the Installation</h2>
+<p>You can check that your installation works by running one of the <a href="http://openrave.org/docs/latest_stable/examples/">default examples</a>. For example:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">openrave.py --example graspplanning</code></pre></figure>
+
+<p>It should start the <code>graspplanning</code> example:</p>
 <figure style="text-align: center;">
-  <img src="https://raw.github.com/fsuarez6/phantom_omni/hydro-devel/omni_description/resources/OmniRviz.png" />
-  <figcaption>Omni in RViz</figcaption>
+  <img src="/images/graspplanning.jpg" />
+  <figcaption>OpenRAVE example</figcaption>
 </figure>
 
-<p>These ROS packages are for the Geomagic Touch (formerly Sensable PHANToM Omni) haptic device – <strong>firewire</strong> version.</p>
-
-<p>I developed them during my time at the <a href="http://www.romin.upm.es/">Group of Robots and Intelligent Machines</a>, Universidad Politécnica de Madrid.</p>
-
-<h2 id="installation">Installation</h2>
-
-<p>This instructions have been tested with OpenHaptics SDK 3.0 in Ubuntu 12.04, both 32 and 64 bits.
-Before going any further please check the following:</p>
-
-<ul>
-  <li>You have a <strong>firewire</strong> device NOT the Ethernet one.</li>
-  <li>Your development machine has a <strong>firewire</strong> port. I have tested both Firewire400 and Firewire800 and they work just fine.</li>
-  <li>You understand what a <em>catkin workspace</em>, a <em>symbolic link</em> and a <em>git repository</em> are.</li>
-</ul>
-
-<h3 id="requirements">Requirements</h3>
-<p>The following are the requirements so that you can run <code>PHANToMConfiguration</code>:</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">sudo apt-get install --no-install-recommends freeglut3-dev g++ libdrm-dev libexpat1-dev libglw1-mesa-devlibmotif-dev libncurses5-dev libraw1394-dev libx11-dev libxdamage-dev libxext-dev libxt-dev libxxf86vm-dev tcsh unzip x11proto-dri2-dev x11proto-gl-dev x11proto-print-dev</code></pre></figure>
-
-<h3 id="openhaptics-sdk">OpenHaptics SDK</h3>
-<p>In order to connect to the device, you will need to install <a href="http://www.dentsable.com/products-openhaptics-toolkit.htm">OpenHaptics SDK</a>.</p>
-
-<h3 id="symbolic-links">Symbolic Links</h3>
-<p>Because OpenHaptics SDK puts the libraries in some weird locations you need to create the following symbolic links: (<strong>Only required in 64 bits systems</strong>)</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">sudo ln -s /usr/lib/x86_64-linux-gnu/libraw1394.so.11.0.1 /usr/lib/libraw1394.so.8
-sudo ln -s /usr/lib64/libPHANToMIO.so.4.3 /usr/lib/libPHANToMIO.so.4
-sudo ln -s /usr/lib64/libHD.so.3.0.0 /usr/lib/libHD.so.3.0
-sudo ln -s /usr/lib64/libHL.so.3.0.0 /usr/lib/libHL.so.3.0</code></pre></figure>
-
-<h3 id="ros-metapackage">ROS Metapackage</h3>
-
-<p>Go to your ROS working directory. e.g.</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">cd</span> ~/catkin_ws/src</code></pre></figure>
-
-<p>Use the <code>wstool</code> to install the repository</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">wstool init .
-wstool merge https://raw.github.com/fsuarez6/phantom_omni/hydro-devel/phantom_omni.rosinstall
-wstool update</code></pre></figure>
-
-<p>Check for any missing dependencies using rosdep:</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">rosdep update
-rosdep check --from-paths . --ignore-src --rosdistro hydro</code></pre></figure>
-
-<p>After installing the missing dependencies compile your ROS workspace. e.g.</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">cd</span> ~/catkin_ws <span class="o">&amp;&amp;</span> catkin_make</code></pre></figure>
-
-<h3 id="testing-the-installation">Testing the Installation</h3>
-
-<p>Be sure to always source the appropriate ROS setup file, which for Hydro is done like so:</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">source</span> /opt/ros/hydro/setup.bash</code></pre></figure>
-
-<p>You might want to add that line to your <code>~/.bashrc</code>.
-Try the <code>omni.launch</code> file in the <code>omni_common</code> package:</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">rosrun omni_common initialize_device.sh -c
-roslaunch omni_common omni.launch</code></pre></figure>
-
+<p>You may see some messages printed in yellow on your command line but they are just warnings that won’t prevent your installation from working.</p>
 
       <hr />
       <footer role="contentinfo">
@@ -245,17 +210,17 @@ roslaunch omni_common omni.launch</code></pre></figure>
   <h4>Share on</h4>
   <ul>
     <li>
-      <a href="https://twitter.com/intent/tweet?text=/projects/geomagic-touch-in-ros/" class="twitter" title="Share on Twitter"><i class="fa fa-twitter"></i><span> Twitter</span></a>
+      <a href="https://twitter.com/intent/tweet?text=/blog/openrave-trusty/" class="twitter" title="Share on Twitter"><i class="fa fa-twitter"></i><span> Twitter</span></a>
     </li>
     <li>
-      <a href="https://www.facebook.com/sharer/sharer.php?u=/projects/geomagic-touch-in-ros/" class="facebook" title="Share on Facebook"><i class="fa fa-facebook"></i><span> Facebook</span></a>
+      <a href="https://www.facebook.com/sharer/sharer.php?u=/blog/openrave-trusty/" class="facebook" title="Share on Facebook"><i class="fa fa-facebook"></i><span> Facebook</span></a>
     </li>
     <li>
-      <a href="https://plus.google.com/share?url=/projects/geomagic-touch-in-ros/" class="google-plus" title="Share on Google Plus"><i class="fa fa-google-plus"></i><span> Google+</span></a>
+      <a href="https://plus.google.com/share?url=/blog/openrave-trusty/" class="google-plus" title="Share on Google Plus"><i class="fa fa-google-plus"></i><span> Google+</span></a>
     </li>
   </ul>
 </div><!-- /.social-share -->
-        <p class="byline"><strong>Geomagic Touch in ROS</strong> was published on <time datetime="2013-10-18T00:00:00+08:00">October 18, 2013</time>.</p>
+        <p class="byline"><strong>Installing OpenRAVE in Ubuntu 14.04 (Trusty)</strong> was published on <time datetime="2016-03-04T00:00:00+08:00">March 04, 2016</time>.</p>
       </footer>
     </div><!-- /.article-wrap -->
   
@@ -270,11 +235,11 @@ roslaunch omni_common omni.launch</code></pre></figure>
   <h4>You might also enjoy <small class="pull-right">(<a href="/posts/">View all posts</a>)</small></h4>
     <ul>
     
-      <li><a href="/blog/openrave-trusty/" title="Installing OpenRAVE in Ubuntu 14.04 (Trusty)">Installing OpenRAVE in Ubuntu 14.04 (Trusty)</a></li>
-    
       <li><a href="/blog/bashrc/" title="The infamous .bashrc">The infamous .bashrc</a></li>
     
       <li><a href="/projects/labrob-metapackage/" title="Labrob Metapackage">Labrob Metapackage</a></li>
+    
+      <li><a href="/projects/takktile-raspberry-pi-ros/" title="Takktile Sensors with the Raspberry Pi">Takktile Sensors with the Raspberry Pi</a></li>
     
     </ul>
     <hr />
