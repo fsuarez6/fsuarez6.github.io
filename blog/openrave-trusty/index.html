@@ -167,13 +167,17 @@
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">sudo apt-get install libassimp-dev libavcodec-dev libavformat-dev libavformat-dev libboost-all-dev libboost-date-time-dev libbullet-dev libfaac-dev libfreetype6-dev libglew-dev  libgsm1-dev liblapack-dev libmpfi-dev libmpfr-dev libode-dev libogg-dev libopenscenegraph-dev libpcre3-dev libpcrecpp0 libqhull-dev libqt4-dev libsoqt-dev-common libsoqt4-dev libswscale-dev libswscale-dev libvorbis-dev libx264-dev libxml2-dev libxvidcore-dev</code></pre></figure>
 
-<p>Almost there… Now, get the <code>collada-dom-dev</code> package from the OpenRAVE PPA:</p>
+<p>Almost there… Now, get the <code>collada-dom-dev</code> package. If you are installing OpenRAVE is very likely that you already installed ROS Indigo. In that case, you can install <code>collada-dom-dev</code> directly:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">sudo apt-get update
+sudo apt-get install collada-dom-dev</code></pre></figure>
+
+<p>If you are not planning to use ROS, install <code>collada-dom-dev</code> from the OpenRAVE PPA:</p>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">sudo add-apt-repository ppa:openrave/release
 sudo sh -c <span class="s1">&#39;echo &quot;deb-src http://ppa.launchpad.net/openrave/release/ubuntu `lsb_release -cs` main&quot; &gt;&gt; /etc/apt/sources.list.d/openrave-release-`lsb_release -cs`.list&#39;</span>
 sudo apt-get update
-sudo apt-get install collada-dom-dev
-sudo add-apt-repository --remove ppa:openrave/release</code></pre></figure>
+sudo apt-get install collada-dom-dev</code></pre></figure>
 
 <h2 id="building-from-source">Building from Source</h2>
 
