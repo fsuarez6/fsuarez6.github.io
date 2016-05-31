@@ -6,7 +6,7 @@ excerpt: "Installation instructions to get OpenRAVE in Ubuntu 14.04"
 tags: [Ubuntu, Robotics, OpenRAVE]
 comments: true
 ---
-This instructions are for installing OpenRAVE in Ubuntu 14.04 (Trusty). For the official documentation of OpenRAVE, please refer to http://openrave.org.
+These instructions are for installing OpenRAVE in Ubuntu 14.04 (Trusty). For the official documentation of OpenRAVE, please refer to http://openrave.org.
 
 From my experience, the best solution to install OpenRAVE today is to build from source.
 
