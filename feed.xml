@@ -4,13 +4,189 @@
 <generator uri="https://github.com/jekyll/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2016-05-28T16:44:47+08:00</updated>
+<updated>2016-05-31T20:09:19+08:00</updated>
 <id>/</id>
 <author>
   <name>Francisco Suárez-Ruiz</name>
   <uri>/</uri>
   <email>fsuarez6@gmail.com</email>
 </author>
+
+
+<entry>
+  <title type="html"><![CDATA[Robotics Workstation Setup in Ubuntu 16.04 (Xenial)]]></title>
+  <link rel="alternate" type="text/html" href="/blog/workstation-setup-xenial/" />
+  <id>/blog/workstation-setup-xenial</id>
+  <published>2016-05-31T00:00:00+08:00</published>
+  <updated>2016-05-31T00:00:00+08:00</updated>
+  <author>
+    <name>Francisco Suárez-Ruiz</name>
+    <uri></uri>
+    <email>fsuarez6@gmail.com</email>
+  </author>
+  <content type="html">
+    &lt;p&gt;These instructions are for setting up your robotics workstation in &lt;strong&gt;Ubuntu 16.04 (Xenial)&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;After this, you will have installed the following tools:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://wiki.ros.org/kinetic&quot;&gt;ROS Kinetic&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://octomap.github.io/&quot;&gt;OctoMap&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/flexible-collision-library/fcl&quot;&gt;FCL - The Flexible Collision Library&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.openscenegraph.org/&quot;&gt;OSG - OpenSceneGraph&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://openrave.org&quot;&gt;OpenRAVE&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;For the official documentation, please refer to the website of the corresponding tool.&lt;/p&gt;
+
+&lt;h2 id=&quot;ros-kinetic&quot;&gt;ROS Kinetic&lt;/h2&gt;
+&lt;p&gt;For up-to-date instructions to install ROS Kinetic, please refer to: &lt;a href=&quot;http://wiki.ros.org/kinetic/Installation/Ubuntu&quot;&gt;http://wiki.ros.org/kinetic/Installation/Ubuntu&lt;/a&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;sudo sh -c &lt;span class=&quot;s1&quot;&gt;&amp;#39;echo &amp;quot;deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main&amp;quot;      \&lt;/span&gt;
+&lt;span class=&quot;s1&quot;&gt;&amp;gt; /etc/apt/sources.list.d/ros-latest.list&amp;#39;&lt;/span&gt;
+sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key 0xB01FA116
+sudo apt-get update
+sudo apt-get install ros-kinetic-ros-base rviz&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;initialize-rosdep&quot;&gt;Initialize rosdep&lt;/h3&gt;
+&lt;p&gt;Before you can use ROS, you will need to initialize rosdep. rosdep enables you to easily install system dependencies for source you want to compile and is required to run some core components in ROS.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;sudo rosdep init
+rosdep update&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;create-a-ros-workspace&quot;&gt;Create a ROS Workspace&lt;/h3&gt;
+&lt;p&gt;Let’s create a &lt;a href=&quot;http://wiki.ros.org/catkin/workspaces&quot;&gt;catkin workspace&lt;/a&gt;:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt; /opt/ros/kinetic/setup.bash
+mkdir -p ~/catkin_ws/src
+&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~/catkin_ws/src
+catkin_init_workspace&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Even though the workspace is empty (there are no packages in the &lt;code&gt;src&lt;/code&gt; folder, just a single &lt;code&gt;CMakeLists.txt&lt;/code&gt; link) you can still &lt;em&gt;build&lt;/em&gt; the workspace:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~/catkin_ws/
+catkin_make&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Before continuing, source your new &lt;code&gt;setup.bash&lt;/code&gt; file:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt; ~/catkin_ws/devel/setup.bash&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;To make sure your workspace is properly overlayed by the setup script, make sure &lt;code&gt;ROS_PACKAGE_PATH&lt;/code&gt; environment variable includes the directory you’re in:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$ROS_PACKAGE_PATH&lt;/span&gt;
+/home/&lt;span class=&quot;nv&quot;&gt;$USER&lt;/span&gt;/catkin_ws/src:/opt/ros/kinetic/share:/opt/ros/kinetic/stacks&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h2 id=&quot;dependencies&quot;&gt;Dependencies&lt;/h2&gt;
+&lt;p&gt;You need to install the following programs:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;sudo apt-get install build-essential cmake doxygen g++ git ipython octave python-dev  &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+python-h5py python-numpy python-pip python-scipy python-sympy qt4-dev-tools minizip&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Next, you will need to install the following libraries, which are available from the Ubuntu package repositories:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;sudo apt-get install libassimp-dev libavcodec-dev libavformat-dev libboost-all-dev    &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+libboost-date-time-dev libbullet-dev libfaac-dev libfreetype6-dev libglew-dev         &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+libgsm1-dev liblapack-dev libmpfi-dev libmpfr-dev libode-dev libogg-dev               &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+libopenscenegraph-dev libpcre3-dev libqglviewer-dev-qt4 libqhull-dev libqt4-dev       &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+libqt4-opengl-dev libsoqt-dev-common libsoqt4-dev libswscale-dev libswscale-dev       &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+libvorbis-dev libx264-dev libxml2-dev libxvidcore-dev&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Finally, &lt;em&gt;if you decide to install OpenSceneGraph&lt;/em&gt;, you will need these libraries:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;sudo apt-get install libavdevice-dev libcairo2-dev libcurl4-gnutls-dev libgdal-dev    &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+libgstreamer1.0-dev libgstreamermm-1.0-dev libgstreamer-ocaml-dev                     &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+libgstreamer-plugins-bad1.0-dev libgstreamer-plugins-base1.0-dev                      &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+libgstreamer-plugins-good1.0-dev libgtk2.0-dev libgtkglext1-dev libjasper-dev         &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+libjpeg-dev libpoppler-glib-dev libpthread-workqueue-dev libsdl1.2-dev libsdl2-dev    &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+librsvg2-dev libtiff5-dev&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h2 id=&quot;osg---openscenegraph&quot;&gt;OSG - OpenSceneGraph&lt;/h2&gt;
+
+&lt;p&gt;Build and install the GTA library (&lt;a href=&quot;http://www.nongnu.org/gta/download.html&quot;&gt;http://www.nongnu.org/gta/download.html&lt;/a&gt;):&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~/git
+git clone git://git.savannah.nongnu.org/gta.git
+&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;gta/libgta
+autoreconf -i
+./configure&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; make -j &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;nproc&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; sudo make install
+&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ../gtatool
+autoreconf -i
+./configure&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; make -j &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;nproc&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; sudo make install&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Build and install &lt;code&gt;OpenSceneGraph&lt;/code&gt; version &lt;code&gt;3.4.0&lt;/code&gt;:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~/git
+git clone https://github.com/openscenegraph/OpenSceneGraph.git
+&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;OpenSceneGraph&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; git checkout OpenSceneGraph-3.4.0
+mkdir build&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;build
+cmake ..
+sudo make install_ld_conf
+make -j &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;nproc&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;
+sudo make install&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h2 id=&quot;fcl---the-flexible-collision-library&quot;&gt;FCL - The Flexible Collision Library&lt;/h2&gt;
+
+&lt;p&gt;Build and install &lt;code&gt;octomap&lt;/code&gt; version &lt;code&gt;1.7.2&lt;/code&gt;:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~/git
+git clone https://github.com/OctoMap/octomap.git
+&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;octomap&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; git checkout v1.7.2
+mkdir build&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;build
+cmake ..
+make -j &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;nproc&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;
+sudo make install&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Build and install &lt;code&gt;libccd&lt;/code&gt;:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~/git
+git clone https://github.com/danfis/libccd
+&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;libccd
+mkdir build&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;build
+cmake ..
+make -j &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;nproc&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;
+sudo make install&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Finally, build and install &lt;code&gt;fcl&lt;/code&gt;:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~/git
+git https://github.com/flexible-collision-library/fcl
+&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;fcl
+mkdir build&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;build
+cmake ..
+make -j &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;nproc&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;
+sudo make install&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h2 id=&quot;openrave&quot;&gt;OpenRAVE&lt;/h2&gt;
+&lt;p&gt;Downgrade sympy so that IKFast works properly:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;sudo pip install --upgrade &lt;span class=&quot;nv&quot;&gt;sympy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;0.7.1&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Build and install &lt;code&gt;OpenRAVE&lt;/code&gt;:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~/git
+git clone https://github.com/rdiankov/openrave.git --branch master
+&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;openrave
+mkdir build&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;build
+cmake -DODE_USE_MULTITHREAD&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;ON -DOPT_QTOSG_VIEWER&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;OFF ..
+make -j &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;nproc&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;
+sudo make install&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h2 id=&quot;testing-the-installation&quot;&gt;Testing the Installation&lt;/h2&gt;
+&lt;p&gt;You can check that your installation works by running one of the &lt;a href=&quot;http://openrave.org/docs/latest_stable/examples/&quot;&gt;default examples&lt;/a&gt;:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;openrave.py --example graspplanning&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;It should start the &lt;code&gt;graspplanning&lt;/code&gt; example:&lt;/p&gt;
+&lt;figure style=&quot;text-align: center;&quot;&gt;
+  &lt;img src=&quot;/images/graspplanning.jpg&quot; /&gt;
+  &lt;figcaption&gt;OpenRAVE example&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;You may see some messages printed in yellow on your command line but they are just warnings that won’t prevent your installation from working.&lt;/p&gt;
+
+    &lt;p&gt;&lt;a href=&quot;/blog/workstation-setup-xenial/&quot;&gt;Robotics Workstation Setup in Ubuntu 16.04 (Xenial)&lt;/a&gt; was originally published by Francisco Suárez-Ruiz at &lt;a href=&quot;&quot;&gt;Francisco Suárez Ruiz&lt;/a&gt; on May 31, 2016.&lt;/p&gt;
+  </content>
+</entry>
 
 
 <entry>
@@ -25,7 +201,7 @@
     <email>fsuarez6@gmail.com</email>
   </author>
   <content type="html">
-    &lt;p&gt;This instructions are for installing OpenRAVE in Ubuntu 14.04 (Trusty). For the official documentation of OpenRAVE, please refer to http://openrave.org.&lt;/p&gt;
+    &lt;p&gt;These instructions are for installing OpenRAVE in Ubuntu 14.04 (Trusty). For the official documentation of OpenRAVE, please refer to http://openrave.org.&lt;/p&gt;
 
 &lt;p&gt;From my experience, the best solution to install OpenRAVE today is to build from source.&lt;/p&gt;
 

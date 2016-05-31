@@ -5,14 +5,14 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
 <head>
 <meta charset="utf-8">
-<title>Takktile Sensors with the Raspberry Pi &#8211; Francisco Suárez Ruiz</title>
-<meta name="description" content="ROS software to connect TakkTile sensors to the Raspberry PI directly using the I2C bus. This has been tested connecting the TakkTile Kit for Robotic.">
-<meta name="keywords" content="Python, TakkTile, ROS, I2C, Raspberry PI">
+<title>Installing OpenRAVE in Ubuntu 14.04 (Trusty) &#8211; Francisco Suárez Ruiz</title>
+<meta name="description" content="Installation instructions to get OpenRAVE in Ubuntu 14.04">
+<meta name="keywords" content="Ubuntu, Robotics, OpenRAVE">
 
 
 <!-- Twitter Cards -->
-<meta name="twitter:title" content="Takktile Sensors with the Raspberry Pi">
-<meta name="twitter:description" content="ROS software to connect TakkTile sensors to the Raspberry PI directly using the I2C bus. This has been tested connecting the TakkTile Kit for Robotic.">
+<meta name="twitter:title" content="Installing OpenRAVE in Ubuntu 14.04 (Trusty)">
+<meta name="twitter:description" content="Installation instructions to get OpenRAVE in Ubuntu 14.04">
 
 
 
@@ -22,9 +22,9 @@
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Takktile Sensors with the Raspberry Pi">
-<meta property="og:description" content="ROS software to connect TakkTile sensors to the Raspberry PI directly using the I2C bus. This has been tested connecting the TakkTile Kit for Robotic.">
-<meta property="og:url" content="/projects/takktile-raspberry-pi-ros/">
+<meta property="og:title" content="Installing OpenRAVE in Ubuntu 14.04 (Trusty)">
+<meta property="og:description" content="Installation instructions to get OpenRAVE in Ubuntu 14.04">
+<meta property="og:url" content="/blog/openrave-trusty-(copy)/">
 <meta property="og:site_name" content="Francisco Suárez Ruiz">
 
 <meta property="og:image" content="/images/default-thumb.png">
@@ -34,7 +34,7 @@
 
 
 
-<link rel="canonical" href="/projects/takktile-raspberry-pi-ros/">
+<link rel="canonical" href="/blog/openrave-trusty-(copy)/">
 <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Francisco Suárez Ruiz Feed">
 
 <!-- http://t.co/dKP3o1e -->
@@ -145,25 +145,68 @@
   <article class="post">
     <div class="headline-wrap">
       
-        <h1><a href="/projects/takktile-raspberry-pi-ros/" rel="bookmark" title="Takktile Sensors with the Raspberry Pi">Takktile Sensors with the Raspberry Pi</a></h1>
+        <h1><a href="/blog/openrave-trusty-(copy)/" rel="bookmark" title="Installing OpenRAVE in Ubuntu 14.04 (Trusty)">Installing OpenRAVE in Ubuntu 14.04 (Trusty)</a></h1>
       
     </div><!--/ .headline-wrap -->
     <div class="article-wrap">
-      <p>ROS software to connect TakkTile sensors to the Raspberry PI directly using the I2C bus. This has been tested connecting the TakkTile Kit for Robotic.</p>
+      <p>This instructions are for installing OpenRAVE in Ubuntu 14.04 (Trusty). For the official documentation of OpenRAVE, please refer to http://openrave.org.</p>
 
+<p>From my experience, the best solution to install OpenRAVE today is to build from source.</p>
+
+<h2 id="dependencies">Dependencies</h2>
+
+<p>You need to install the following programs:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">sudo apt-get install cmake g++ git ipython octave python-dev python-h5py python-numpy python-pip python-scipy python-sympy qt4-dev-tools zlib-bin</code></pre></figure>
+
+<p>Downgrade sympy so that IKFast works properly:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">pip install --upgrade --user <span class="nv">sympy</span><span class="o">==</span>0.7.1</code></pre></figure>
+
+<p>Next, you will need to install the following libraries, which are available from the Ubuntu package repository. (Thanks to <a href="https://scaron.info/teaching/installing-openrave-on-ubuntu-14.04.html">Stephane</a> for the list):</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">sudo apt-get install libassimp-dev libavcodec-dev libavformat-dev libavformat-dev libboost-all-dev libboost-date-time-dev libbullet-dev libfaac-dev libfreetype6-dev libglew-dev  libgsm1-dev liblapack-dev libmpfi-dev libmpfr-dev libode-dev libogg-dev libopenscenegraph-dev libpcre3-dev libpcrecpp0 libqhull-dev libqt4-dev libsoqt-dev-common libsoqt4-dev libswscale-dev libswscale-dev libvorbis-dev libx264-dev libxml2-dev libxvidcore-dev</code></pre></figure>
+
+<p>Almost there… Now, get the <code>collada-dom-dev</code> package. If you are installing OpenRAVE is very likely that you already installed ROS Indigo. In that case, you can install <code>collada-dom-dev</code> directly:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">sudo apt-get update
+sudo apt-get install collada-dom-dev</code></pre></figure>
+
+<p>If you are not planning to use ROS, install <code>collada-dom-dev</code> from the OpenRAVE PPA:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">sudo add-apt-repository ppa:openrave/release
+sudo sh -c <span class="s1">&#39;echo &quot;deb-src http://ppa.launchpad.net/openrave/release/ubuntu `lsb_release -cs` main&quot; &gt;&gt; /etc/apt/sources.list.d/openrave-release-`lsb_release -cs`.list&#39;</span>
+sudo apt-get update
+sudo apt-get install collada-dom-dev</code></pre></figure>
+
+<h2 id="building-from-source">Building from Source</h2>
+
+<p>Clone the OpenRAVE’s <code>master</code> from GitHub (tested with commit 677ef40c60ae29b3e584dc883a799d126cc55752):</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">cd</span> ~/git
+git clone --branch master https://github.com/rdiankov/openrave.git</code></pre></figure>
+
+<p>Build it with CMake:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">cd </span>openrave
+mkdir build
+<span class="nb">cd </span>build
+cmake ..
+make
+sudo make install</code></pre></figure>
+
+<h2 id="testing-the-installation">Testing the Installation</h2>
+<p>You can check that your installation works by running one of the <a href="http://openrave.org/docs/latest_stable/examples/">default examples</a>. For example:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">openrave.py --example graspplanning</code></pre></figure>
+
+<p>It should start the <code>graspplanning</code> example:</p>
 <figure style="text-align: center;">
-  <img src="http://farm8.static.flickr.com/7457/13080610534_4659d97dc1.jpg" />
-  <figcaption>TakkTile connection to Raspberry PI B</figcaption>
+  <img src="/images/graspplanning.jpg" />
+  <figcaption>OpenRAVE example</figcaption>
 </figure>
 
-<h3 id="build-status">Build status</h3>
-<p><a href="https://travis-ci.org/fsuarez6/takktile_raspberry"><img src="https://travis-ci.org/fsuarez6/takktile_raspberry.png?branch=groovy-devel" alt="Build Status" /></a></p>
-
-<h3 id="source-code">Source code</h3>
-<p><a href="https://github.com/fsuarez6/takktile_raspberry">https://github.com/fsuarez6/takktile_raspberry</a></p>
-
-<h3 id="tutorial">Tutorial</h3>
-<p><a href="http://www.takktile.com/tutorial:raspberrypi-ros">http://www.takktile.com/tutorial:raspberrypi-ros</a></p>
+<p>You may see some messages printed in yellow on your command line but they are just warnings that won’t prevent your installation from working.</p>
 
       <hr />
       <footer role="contentinfo">
@@ -171,17 +214,17 @@
   <h4>Share on</h4>
   <ul>
     <li>
-      <a href="https://twitter.com/intent/tweet?text=/projects/takktile-raspberry-pi-ros/" class="twitter" title="Share on Twitter"><i class="fa fa-twitter"></i><span> Twitter</span></a>
+      <a href="https://twitter.com/intent/tweet?text=/blog/openrave-trusty-(copy)/" class="twitter" title="Share on Twitter"><i class="fa fa-twitter"></i><span> Twitter</span></a>
     </li>
     <li>
-      <a href="https://www.facebook.com/sharer/sharer.php?u=/projects/takktile-raspberry-pi-ros/" class="facebook" title="Share on Facebook"><i class="fa fa-facebook"></i><span> Facebook</span></a>
+      <a href="https://www.facebook.com/sharer/sharer.php?u=/blog/openrave-trusty-(copy)/" class="facebook" title="Share on Facebook"><i class="fa fa-facebook"></i><span> Facebook</span></a>
     </li>
     <li>
-      <a href="https://plus.google.com/share?url=/projects/takktile-raspberry-pi-ros/" class="google-plus" title="Share on Google Plus"><i class="fa fa-google-plus"></i><span> Google+</span></a>
+      <a href="https://plus.google.com/share?url=/blog/openrave-trusty-(copy)/" class="google-plus" title="Share on Google Plus"><i class="fa fa-google-plus"></i><span> Google+</span></a>
     </li>
   </ul>
 </div><!-- /.social-share -->
-        <p class="byline"><strong>Takktile Sensors with the Raspberry Pi</strong> was published on <time datetime="2014-02-20T00:00:00+08:00">February 20, 2014</time>.</p>
+        <p class="byline"><strong>Installing OpenRAVE in Ubuntu 14.04 (Trusty)</strong> was published on <time datetime="2016-03-04T00:00:00+08:00">March 04, 2016</time>.</p>
       </footer>
     </div><!-- /.article-wrap -->
   
@@ -196,11 +239,11 @@
   <h4>You might also enjoy <small class="pull-right">(<a href="/posts/">View all posts</a>)</small></h4>
     <ul>
     
-      <li><a href="/blog/workstation-setup-xenial/" title="Robotics Workstation Setup in Ubuntu 16.04 (Xenial)">Robotics Workstation Setup in Ubuntu 16.04 (Xenial)</a></li>
-    
       <li><a href="/blog/openrave-trusty/" title="Installing OpenRAVE in Ubuntu 14.04 (Trusty)">Installing OpenRAVE in Ubuntu 14.04 (Trusty)</a></li>
     
       <li><a href="/blog/bashrc/" title="The infamous .bashrc">The infamous .bashrc</a></li>
+    
+      <li><a href="/projects/labrob-metapackage/" title="Labrob Metapackage">Labrob Metapackage</a></li>
     
     </ul>
     <hr />
