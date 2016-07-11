@@ -145,7 +145,7 @@ sudo make install
 Finally, build and install `fcl`:
 {% highlight bash %}
 cd ~/git
-git https://github.com/flexible-collision-library/fcl
+git clone https://github.com/flexible-collision-library/fcl
 cd fcl
 mkdir build; cd build
 cmake ..
