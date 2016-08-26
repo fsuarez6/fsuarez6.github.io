@@ -4,7 +4,7 @@
 <generator uri="https://github.com/jekyll/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2016-08-19T08:31:37+08:00</updated>
+<updated>2016-08-26T15:41:09+08:00</updated>
 <id>/</id>
 <author>
   <name>Francisco Suárez-Ruiz</name>
@@ -47,7 +47,7 @@
 &lt;span class=&quot;s1&quot;&gt;&amp;gt; /etc/apt/sources.list.d/ros-latest.list&amp;#39;&lt;/span&gt;
 sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key 0xB01FA116
 sudo apt-get update
-sudo apt-get install ros-kinetic-ros-base rviz&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+sudo apt-get install ros-kinetic-ros-base&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h3 id=&quot;initialize-rosdep&quot;&gt;Initialize rosdep&lt;/h3&gt;
 &lt;p&gt;Before you can use ROS, you will need to initialize rosdep. rosdep enables you to easily install system dependencies for source you want to compile and is required to run some core components in ROS.&lt;/p&gt;
@@ -74,8 +74,10 @@ catkin_make&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;To make sure your workspace is properly overlayed by the setup script, make sure &lt;code&gt;ROS_PACKAGE_PATH&lt;/code&gt; environment variable includes the directory you’re in:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$ROS_PACKAGE_PATH&lt;/span&gt;
-/home/&lt;span class=&quot;nv&quot;&gt;$USER&lt;/span&gt;/catkin_ws/src:/opt/ros/kinetic/share:/opt/ros/kinetic/stacks&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$ROS_PACKAGE_PATH&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;This is the expected output:
+&lt;code&gt;/home/username/catkin_ws/src:/opt/ros/kinetic/share:/opt/ros/kinetic/stacks&lt;/code&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;openrave&quot;&gt;OpenRAVE&lt;/h2&gt;
 &lt;p&gt;At this point OpenRAVE has a considerable number of dependencies that have to be installed manually. For the sake of simplicity, this instructions will show you how to get working OpenRAVE 0.9.0 with enought features.&lt;/p&gt;

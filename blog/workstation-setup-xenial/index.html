@@ -171,7 +171,7 @@
 <span class="s1">&gt; /etc/apt/sources.list.d/ros-latest.list&#39;</span>
 sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key 0xB01FA116
 sudo apt-get update
-sudo apt-get install ros-kinetic-ros-base rviz</code></pre></figure>
+sudo apt-get install ros-kinetic-ros-base</code></pre></figure>
 
 <h3 id="initialize-rosdep">Initialize rosdep</h3>
 <p>Before you can use ROS, you will need to initialize rosdep. rosdep enables you to easily install system dependencies for source you want to compile and is required to run some core components in ROS.</p>
@@ -198,8 +198,10 @@ catkin_make</code></pre></figure>
 
 <p>To make sure your workspace is properly overlayed by the setup script, make sure <code>ROS_PACKAGE_PATH</code> environment variable includes the directory you’re in:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span><span class="nb">echo</span> <span class="nv">$ROS_PACKAGE_PATH</span>
-/home/<span class="nv">$USER</span>/catkin_ws/src:/opt/ros/kinetic/share:/opt/ros/kinetic/stacks</code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">echo</span> <span class="nv">$ROS_PACKAGE_PATH</span></code></pre></figure>
+
+<p>This is the expected output:
+<code>/home/username/catkin_ws/src:/opt/ros/kinetic/share:/opt/ros/kinetic/stacks</code></p>
 
 <h2 id="openrave">OpenRAVE</h2>
 <p>At this point OpenRAVE has a considerable number of dependencies that have to be installed manually. For the sake of simplicity, this instructions will show you how to get working OpenRAVE 0.9.0 with enought features.</p>
