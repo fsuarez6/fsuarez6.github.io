@@ -26,7 +26,7 @@ sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main
 > /etc/apt/sources.list.d/ros-latest.list'
 sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key 0xB01FA116
 sudo apt-get update
-sudo apt-get install ros-kinetic-ros-base rviz
+sudo apt-get install ros-kinetic-ros-base
 {% endhighlight %}
 
 ### Initialize rosdep
@@ -62,9 +62,11 @@ source ~/catkin_ws/devel/setup.bash
 To make sure your workspace is properly overlayed by the setup script, make sure `ROS_PACKAGE_PATH` environment variable includes the directory you're in:
 
 {% highlight bash %}
-$ echo $ROS_PACKAGE_PATH
-/home/$USER/catkin_ws/src:/opt/ros/kinetic/share:/opt/ros/kinetic/stacks
+echo $ROS_PACKAGE_PATH
 {% endhighlight %}
+
+This is the expected output:
+`/home/username/catkin_ws/src:/opt/ros/kinetic/share:/opt/ros/kinetic/stacks`
 
 ## OpenRAVE
 At this point OpenRAVE has a considerable number of dependencies that have to be installed manually. For the sake of simplicity, this instructions will show you how to get working OpenRAVE 0.9.0 with enought features.
