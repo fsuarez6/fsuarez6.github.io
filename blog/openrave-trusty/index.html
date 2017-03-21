@@ -157,24 +157,24 @@
 
 <p>You need to install the following programs:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">sudo apt-get install cmake g++ git ipython octave python-dev python-h5py python-numpy python-pip python-scipy python-sympy qt4-dev-tools zlib-bin</code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>sudo apt-get install cmake g++ git ipython octave python-dev python-h5py python-numpy python-pip python-scipy python-sympy qt4-dev-tools zlib-bin</code></pre></figure>
 
 <p>Downgrade sympy so that IKFast works properly:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">pip install --upgrade --user <span class="nv">sympy</span><span class="o">==</span>0.7.1</code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>pip install --upgrade --user <span class="nv">sympy</span><span class="o">==</span><span class="m">0</span>.7.1</code></pre></figure>
 
 <p>Next, you will need to install the following libraries, which are available from the Ubuntu package repository. (Thanks to <a href="https://scaron.info/teaching/installing-openrave-on-ubuntu-14.04.html">Stephane</a> for the list):</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">sudo apt-get install libassimp-dev libavcodec-dev libavformat-dev libavformat-dev libboost-all-dev libboost-date-time-dev libbullet-dev libfaac-dev libfreetype6-dev libglew-dev  libgsm1-dev liblapack-dev libmpfi-dev libmpfr-dev libode-dev libogg-dev libopenscenegraph-dev libpcre3-dev libpcrecpp0 libqhull-dev libqt4-dev libsoqt-dev-common libsoqt4-dev libswscale-dev libswscale-dev libvorbis-dev libx264-dev libxml2-dev libxvidcore-dev</code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>sudo apt-get install libassimp-dev libavcodec-dev libavformat-dev libavformat-dev libboost-all-dev libboost-date-time-dev libbullet-dev libfaac-dev libfreetype6-dev libglew-dev  libgsm1-dev liblapack-dev libmpfi-dev libmpfr-dev libode-dev libogg-dev libopenscenegraph-dev libpcre3-dev libpcrecpp0 libqhull-dev libqt4-dev libsoqt-dev-common libsoqt4-dev libswscale-dev libswscale-dev libvorbis-dev libx264-dev libxml2-dev libxvidcore-dev</code></pre></figure>
 
 <p>Almost there… Now, get the <code>collada-dom-dev</code> package. If you are installing OpenRAVE is very likely that you already installed ROS Indigo. In that case, you can install <code>collada-dom-dev</code> directly:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">sudo apt-get update
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>sudo apt-get update
 sudo apt-get install collada-dom-dev</code></pre></figure>
 
 <p>If you are not planning to use ROS, install <code>collada-dom-dev</code> from the OpenRAVE PPA:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">sudo add-apt-repository ppa:openrave/release
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>sudo add-apt-repository ppa:openrave/release
 sudo sh -c <span class="s1">&#39;echo &quot;deb-src http://ppa.launchpad.net/openrave/release/ubuntu `lsb_release -cs` main&quot; &gt;&gt; /etc/apt/sources.list.d/openrave-release-`lsb_release -cs`.list&#39;</span>
 sudo apt-get update
 sudo apt-get install collada-dom-dev</code></pre></figure>
@@ -183,14 +183,14 @@ sudo apt-get install collada-dom-dev</code></pre></figure>
 
 <p>Clone the OpenRAVE’s <code>master</code> from GitHub (tested with commit 677ef40c60ae29b3e584dc883a799d126cc55752):</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">cd</span> ~/git
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span><span class="nb">cd</span> ~/git
 git clone --branch master https://github.com/rdiankov/openrave.git</code></pre></figure>
 
 <p>Build it with CMake:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">cd </span>openrave
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span><span class="nb">cd</span> openrave
 mkdir build
-<span class="nb">cd </span>build
+<span class="nb">cd</span> build
 cmake ..
 make
 sudo make install</code></pre></figure>
@@ -198,7 +198,7 @@ sudo make install</code></pre></figure>
 <h2 id="testing-the-installation">Testing the Installation</h2>
 <p>You can check that your installation works by running one of the <a href="http://openrave.org/docs/latest_stable/examples/">default examples</a>. For example:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">openrave.py --example graspplanning</code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>openrave.py --example graspplanning</code></pre></figure>
 
 <p>It should start the <code>graspplanning</code> example:</p>
 <figure style="text-align: center;">
@@ -252,7 +252,7 @@ sudo make install</code></pre></figure>
   <footer>
     
 
-<span>&copy; 2016 Francisco Suárez-Ruiz. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="http://mademistakes.com/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a> theme.</span>
+<span>&copy; 2017 Francisco Suárez-Ruiz. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="http://mademistakes.com/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a> theme.</span>
 
   </footer>
 </div><!-- /.footer-wrap -->

@@ -192,7 +192,7 @@ Before going any further please check the following:</p>
 <h3 id="requirements">Requirements</h3>
 <p>The following are the requirements so that you can run <code>PHANToMConfiguration</code>:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">sudo apt-get install --no-install-recommends freeglut3-dev g++ libdrm-dev libexpat1-dev libglw1-mesa-devlibmotif-dev libncurses5-dev libraw1394-dev libx11-dev libxdamage-dev libxext-dev libxt-dev libxxf86vm-dev tcsh unzip x11proto-dri2-dev x11proto-gl-dev x11proto-print-dev</code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>sudo apt-get install --no-install-recommends freeglut3-dev g++ libdrm-dev libexpat1-dev libglw1-mesa-devlibmotif-dev libncurses5-dev libraw1394-dev libx11-dev libxdamage-dev libxext-dev libxt-dev libxxf86vm-dev tcsh unzip x11proto-dri2-dev x11proto-gl-dev x11proto-print-dev</code></pre></figure>
 
 <h3 id="openhaptics-sdk">OpenHaptics SDK</h3>
 <p>In order to connect to the device, you will need to install <a href="http://www.dentsable.com/products-openhaptics-toolkit.htm">OpenHaptics SDK</a>.</p>
@@ -200,7 +200,7 @@ Before going any further please check the following:</p>
 <h3 id="symbolic-links">Symbolic Links</h3>
 <p>Because OpenHaptics SDK puts the libraries in some weird locations you need to create the following symbolic links: (<strong>Only required in 64 bits systems</strong>)</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">sudo ln -s /usr/lib/x86_64-linux-gnu/libraw1394.so.11.0.1 /usr/lib/libraw1394.so.8
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>sudo ln -s /usr/lib/x86_64-linux-gnu/libraw1394.so.11.0.1 /usr/lib/libraw1394.so.8
 sudo ln -s /usr/lib64/libPHANToMIO.so.4.3 /usr/lib/libPHANToMIO.so.4
 sudo ln -s /usr/lib64/libHD.so.3.0.0 /usr/lib/libHD.so.3.0
 sudo ln -s /usr/lib64/libHL.so.3.0.0 /usr/lib/libHL.so.3.0</code></pre></figure>
@@ -209,33 +209,33 @@ sudo ln -s /usr/lib64/libHL.so.3.0.0 /usr/lib/libHL.so.3.0</code></pre></figure>
 
 <p>Go to your ROS working directory. e.g.</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">cd</span> ~/catkin_ws/src</code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span><span class="nb">cd</span> ~/catkin_ws/src</code></pre></figure>
 
 <p>Use the <code>wstool</code> to install the repository</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">wstool init .
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>wstool init .
 wstool merge https://raw.github.com/fsuarez6/phantom_omni/hydro-devel/phantom_omni.rosinstall
 wstool update</code></pre></figure>
 
 <p>Check for any missing dependencies using rosdep:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">rosdep update
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>rosdep update
 rosdep check --from-paths . --ignore-src --rosdistro hydro</code></pre></figure>
 
 <p>After installing the missing dependencies compile your ROS workspace. e.g.</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">cd</span> ~/catkin_ws <span class="o">&amp;&amp;</span> catkin_make</code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span><span class="nb">cd</span> ~/catkin_ws <span class="o">&amp;&amp;</span> catkin_make</code></pre></figure>
 
 <h3 id="testing-the-installation">Testing the Installation</h3>
 
 <p>Be sure to always source the appropriate ROS setup file, which for Hydro is done like so:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">source</span> /opt/ros/hydro/setup.bash</code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span><span class="nb">source</span> /opt/ros/hydro/setup.bash</code></pre></figure>
 
 <p>You might want to add that line to your <code>~/.bashrc</code>.
 Try the <code>omni.launch</code> file in the <code>omni_common</code> package:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">rosrun omni_common initialize_device.sh -c
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>rosrun omni_common initialize_device.sh -c
 roslaunch omni_common omni.launch</code></pre></figure>
 
 
@@ -283,7 +283,7 @@ roslaunch omni_common omni.launch</code></pre></figure>
   <footer>
     
 
-<span>&copy; 2016 Francisco Suárez-Ruiz. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="http://mademistakes.com/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a> theme.</span>
+<span>&copy; 2017 Francisco Suárez-Ruiz. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="http://mademistakes.com/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a> theme.</span>
 
   </footer>
 </div><!-- /.footer-wrap -->
