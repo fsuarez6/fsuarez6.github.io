@@ -6,14 +6,13 @@ excerpt: "Installation instructions to setup your development workstation in Ubu
 tags: [Ubuntu, Xenial, Robotics, OpenRAVE]
 comments: true
 ---
-**Last update:** August 18, 2016
+**Last update:** March 21th, 2017
 
 These instructions are for setting up your robotics workstation in **Ubuntu 16.04 (Xenial)**.
 
 After this, you will have installed the following tools:
 
 * [ROS Kinetic](http://wiki.ros.org/kinetic)
-* [OctoMap](https://octomap.github.io/)
 * [FCL - The Flexible Collision Library](https://github.com/flexible-collision-library/fcl)
 * [OpenRAVE](http://openrave.org)
 
@@ -88,6 +87,18 @@ libminizip-dev liboctave-dev libode-dev libpcre3-dev libqhull-dev libsoqt-dev-co
 libsoqt4-dev libswscale-dev libtinyxml-dev libxml2-dev octomap-tools
 {% endhighlight %}
 
+### OpenSceneGraph
+The version available at the Ubuntu repositories is 3.2, but OpenRAVE requires 3.4, so we have to build it from source:
+{% highlight bash %}
+cd ~/git
+git clone https://github.com/openscenegraph/OpenSceneGraph.git --branch OpenSceneGraph-3.4
+cd OpenSceneGraph
+mkdir build; cd build
+cmake .. -DDESIRED_QT_VERSION=4
+make -j `nproc`
+sudo make install
+{% endhighlight %}
+
 ### FCL - The Flexible Collision Library
 Build and install `fcl` version 0.5.0:
 {% highlight bash %}
@@ -108,13 +119,13 @@ pip install --upgrade --user sympy==0.7.1
 {% endhighlight %}
 
 ### Build and Install
-Now you can build and install `OpenRAVE` (Tested with commit 30baaa66e1f43091220ce56f67047d29f07b8801):
+Now you can build and install `OpenRAVE` (Tested with commit 81ec5010dd49c7d42fb21886e600a58fdacd239f):
 {% highlight bash %}
 cd ~/git
 git clone https://github.com/rdiankov/openrave.git --branch master
 cd openrave
 mkdir build; cd build
-cmake -DODE_USE_MULTITHREAD=ON -DOPENRAVE_PLUGIN_MOBYRAVE=OFF -DOPT_QTOSG_VIEWER=OFF ..
+cmake -DODE_USE_MULTITHREAD=ON -DOSG_DIR=/usr/local/lib64/ ..
 make -j `nproc`
 sudo make install
 {% endhighlight %}
@@ -128,7 +139,7 @@ openrave.py --example graspplanning
 It should start the `graspplanning` example:
 {:refdef: style="text-align: center;"}
 <figure>
-  <img src="{{ site.url }}/images/graspplanning.jpg">
+  <img src="{{ site.url }}/images/graspplanning.png">
   <figcaption>OpenRAVE example</figcaption>
 </figure>
 {: refdef}
