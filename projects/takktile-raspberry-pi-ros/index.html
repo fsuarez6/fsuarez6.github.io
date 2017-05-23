@@ -1,0 +1,262 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Takktile Sensors with the Raspberry Pi &#8211; Francisco Suárez Ruiz</title>
+<meta name="description" content="ROS software to connect TakkTile sensors to the Raspberry PI directly using the I2C bus. This has been tested connecting the TakkTile Kit for Robotic.">
+<meta name="keywords" content="Python, TakkTile, ROS, I2C, Raspberry PI">
+
+
+<!-- Twitter Cards -->
+<meta name="twitter:title" content="Takktile Sensors with the Raspberry Pi">
+<meta name="twitter:description" content="ROS software to connect TakkTile sensors to the Raspberry PI directly using the I2C bus. This has been tested connecting the TakkTile Kit for Robotic.">
+
+
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="/images/default-thumb.png">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Takktile Sensors with the Raspberry Pi">
+<meta property="og:description" content="ROS software to connect TakkTile sensors to the Raspberry PI directly using the I2C bus. This has been tested connecting the TakkTile Kit for Robotic.">
+<meta property="og:url" content="/projects/takktile-raspberry-pi-ros/">
+<meta property="og:site_name" content="Francisco Suárez Ruiz">
+
+<meta property="og:image" content="/images/default-thumb.png">
+
+
+
+
+
+
+<link rel="canonical" href="/projects/takktile-raspberry-pi-ros/">
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Francisco Suárez Ruiz Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/academicons.css">
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- HTML5 Shiv and Media Query Support -->
+<!--[if lt IE 9]>
+  <script src="/assets/js/vendor/html5shiv.min.js"></script>
+  <script src="/assets/js/vendor/respond.min.js"></script>
+<![endif]-->
+
+<!-- Modernizr -->
+<script src="/assets/js/vendor/modernizr-2.7.1.custom.min.js"></script>
+
+<link href='//fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700%7CPT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+
+<body class="post">
+
+<!--[if lt IE 9]><div class="browser-upgrade alert alert-info">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div><![endif]-->
+
+<div class="navigation-wrapper">
+	<div class="site-name">
+		<a href="/">Francisco Suárez Ruiz</a>
+	</div><!-- /.site-name -->
+	<div class="top-navigation">
+		<nav role="navigation" id="site-nav" class="nav">
+		    <ul>
+		        
+				    
+				    <li><a href="/projects/" >Projects</a></li>
+				
+				    
+				    <li><a href="/publications/" >Publications</a></li>
+				
+				    
+				    <li><a href="/posts/" >Blog</a></li>
+				
+		    </ul>
+		</nav>
+	</div><!-- /.top-navigation -->
+</div><!-- /.navigation-wrapper -->
+
+
+
+<div id="main" role="main">
+  <div class="article-author-side">
+    
+
+<div itemscope itemtype="http://schema.org/Person">
+
+
+  <img src="/images/bio-photo.png" class="bio-photo" alt="Francisco Suárez-Ruiz bio photo">
+
+
+  <h3 itemprop="name">Francisco Suárez-Ruiz</h3>
+  <p>I'm from Bogotá, Colombia. Currently in Singapore. Passionate about robotics, technology and football.</p>
+  <a href="mailto:fsuarez6@gmail.com" class="author-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i> Email</a>
+  
+  
+  <a href="http://linkedin.com/in/fsuarez6" class="author-social" target="_blank"><i class="fa fa-fw fa-linkedin-square"></i> LinkedIn</a>
+  
+  
+  
+  <a href="http://github.com/fsuarez6" class="author-social" target="_blank"><i class="fa fa-fw fa-github"></i> Github</a>
+  
+  
+  
+  
+  
+  
+  <a href="https://youtube.com/user/FSuarezRuiz" class="author-social" target="_blank"><i class="fa fa-fw fa-youtube-square"></i> Youtube</a>
+  
+  
+  
+  
+  
+  <a href="http://scholar.google.es/citations?user=uXo_Q_IAAAAJ" class="author-social" target="_blank"><i class="ai ai-google-scholar"></i>&nbsp; G. Scholar</a>
+</div>
+
+  </div>
+  <article class="post">
+    <div class="headline-wrap">
+      
+        <h1><a href="/projects/takktile-raspberry-pi-ros/" rel="bookmark" title="Takktile Sensors with the Raspberry Pi">Takktile Sensors with the Raspberry Pi</a></h1>
+      
+    </div><!--/ .headline-wrap -->
+    <div class="article-wrap">
+      <p>ROS software to connect TakkTile sensors to the Raspberry PI directly using the I2C bus. This has been tested connecting the TakkTile Kit for Robotic.</p>
+
+<figure style="text-align: center;">
+  <img src="http://farm8.static.flickr.com/7457/13080610534_4659d97dc1.jpg" />
+  <figcaption>TakkTile connection to Raspberry PI B</figcaption>
+</figure>
+
+<h3 id="build-status">Build status</h3>
+<p><a href="https://travis-ci.org/fsuarez6/takktile_raspberry"><img src="https://travis-ci.org/fsuarez6/takktile_raspberry.png?branch=groovy-devel" alt="Build Status" /></a></p>
+
+<h3 id="source-code">Source code</h3>
+<p><a href="https://github.com/fsuarez6/takktile_raspberry">https://github.com/fsuarez6/takktile_raspberry</a></p>
+
+<h3 id="tutorial">Tutorial</h3>
+<p><a href="http://www.takktile.com/tutorial:raspberrypi-ros">http://www.takktile.com/tutorial:raspberrypi-ros</a></p>
+
+      <hr />
+      <footer role="contentinfo">
+        <div class="social-share">
+  <h4>Share on</h4>
+  <ul>
+    <li>
+      <a href="https://twitter.com/intent/tweet?text=/projects/takktile-raspberry-pi-ros/" class="twitter" title="Share on Twitter"><i class="fa fa-twitter"></i><span> Twitter</span></a>
+    </li>
+    <li>
+      <a href="https://www.facebook.com/sharer/sharer.php?u=/projects/takktile-raspberry-pi-ros/" class="facebook" title="Share on Facebook"><i class="fa fa-facebook"></i><span> Facebook</span></a>
+    </li>
+    <li>
+      <a href="https://plus.google.com/share?url=/projects/takktile-raspberry-pi-ros/" class="google-plus" title="Share on Google Plus"><i class="fa fa-google-plus"></i><span> Google+</span></a>
+    </li>
+  </ul>
+</div><!-- /.social-share -->
+        <p class="byline"><strong>Takktile Sensors with the Raspberry Pi</strong> was published on <time datetime="2014-02-20T00:00:00+08:00">February 20, 2014</time>.</p>
+      </footer>
+    </div><!-- /.article-wrap -->
+  
+    <section id="disqus_thread"></section><!-- /#disqus_thread -->
+  
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrap">
+  
+  <div class="related-articles">
+  <h4>You might also enjoy <small class="pull-right">(<a href="/posts/">View all posts</a>)</small></h4>
+    <ul>
+    
+      <li><a href="/blog/workstation-setup-xenial/" title="Robotics Workstation Setup in Ubuntu 16.04 (Xenial)">Robotics Workstation Setup in Ubuntu 16.04 (Xenial)</a></li>
+    
+      <li><a href="/blog/openrave-trusty/" title="Installing OpenRAVE in Ubuntu 14.04 (Trusty)">Installing OpenRAVE in Ubuntu 14.04 (Trusty)</a></li>
+    
+      <li><a href="/blog/bashrc/" title="The infamous .bashrc">The infamous .bashrc</a></li>
+    
+    </ul>
+    <hr />
+  </div><!-- /.related-articles -->
+  
+  <footer>
+    
+
+<span>&copy; 2017 Francisco Suárez-Ruiz. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="http://mademistakes.com/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a> theme.</span>
+
+  </footer>
+</div><!-- /.footer-wrap -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="/assets/js/scripts.min.js"></script>
+
+<!-- Asynchronous Google Analytics snippet -->
+<script>
+  var _gaq = _gaq || [];
+  var pluginUrl =
+ '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+  _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+  _gaq.push(['_setAccount', 'UA-71473057-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+  
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'fsuarez6githu'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+
+</body>
+</html>
