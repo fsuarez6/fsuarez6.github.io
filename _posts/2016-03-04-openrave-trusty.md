@@ -107,7 +107,7 @@ openrave.py --example graspplanning
 It should start the `graspplanning` example:
 {:refdef: style="text-align: center;"}
 <figure>
-  <img src="{{ site.url }}/images/graspplanning.jpg">
+  <img src="{{ site.url }}/images/graspplanning.png">
   <figcaption>OpenRAVE example</figcaption>
 </figure>
 {: refdef}
