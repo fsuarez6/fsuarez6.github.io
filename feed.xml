@@ -4,7 +4,7 @@
 <generator uri="https://github.com/jekyll/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2017-05-23T15:15:39+08:00</updated>
+<updated>2017-07-10T08:48:27+08:00</updated>
 <id>/</id>
 <author>
   <name>Francisco Suárez-Ruiz</name>
@@ -418,6 +418,7 @@ just warnings that won’t prevent your installation from working.&lt;/p&gt;
       &lt;li&gt;&lt;a href=&quot;#openhaptics-sdk&quot; id=&quot;markdown-toc-openhaptics-sdk&quot;&gt;OpenHaptics SDK&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;#symbolic-links&quot; id=&quot;markdown-toc-symbolic-links&quot;&gt;Symbolic Links&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;#ros-metapackage&quot; id=&quot;markdown-toc-ros-metapackage&quot;&gt;ROS Metapackage&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#allow-access-to-the-firewire-interface&quot; id=&quot;markdown-toc-allow-access-to-the-firewire-interface&quot;&gt;Allow Access to the FireWire Interface&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;#testing-the-installation&quot; id=&quot;markdown-toc-testing-the-installation&quot;&gt;Testing the Installation&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
@@ -432,13 +433,15 @@ just warnings that won’t prevent your installation from working.&lt;/p&gt;
   &lt;figcaption&gt;Omni in RViz&lt;/figcaption&gt;
 &lt;/figure&gt;
 
+&lt;p&gt;&lt;strong&gt;Last update:&lt;/strong&gt; July 10th, 2017&lt;/p&gt;
+
 &lt;p&gt;These ROS packages are for the Geomagic Touch (formerly Sensable PHANToM Omni) haptic device – &lt;strong&gt;firewire&lt;/strong&gt; version.&lt;/p&gt;
 
 &lt;p&gt;I developed them during my time at the &lt;a href=&quot;http://www.romin.upm.es/&quot;&gt;Group of Robots and Intelligent Machines&lt;/a&gt;, Universidad Politécnica de Madrid.&lt;/p&gt;
 
 &lt;h2 id=&quot;installation&quot;&gt;Installation&lt;/h2&gt;
 
-&lt;p&gt;This instructions have been tested with OpenHaptics SDK 3.0 in Ubuntu 12.04, both 32 and 64 bits.
+&lt;p&gt;These instructions have been tested with OpenHaptics SDK 3.0 in Ubuntu 12.04, both 32 and 64 bits.
 Before going any further please check the following:&lt;/p&gt;
 
 &lt;ul&gt;
@@ -450,13 +453,16 @@ Before going any further please check the following:&lt;/p&gt;
 &lt;h3 id=&quot;requirements&quot;&gt;Requirements&lt;/h3&gt;
 &lt;p&gt;The following are the requirements so that you can run &lt;code&gt;PHANToMConfiguration&lt;/code&gt;:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get install --no-install-recommends freeglut3-dev g++ libdrm-dev libexpat1-dev libglw1-mesa-devlibmotif-dev libncurses5-dev libraw1394-dev libx11-dev libxdamage-dev libxext-dev libxt-dev libxxf86vm-dev tcsh unzip x11proto-dri2-dev x11proto-gl-dev x11proto-print-dev&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get install --no-install-recommends freeglut3-dev g++ libdrm-dev &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+libexpat1-dev libglw1-mesa-devlibmotif-dev libncurses5-dev libraw1394-dev &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+libx11-dev libxdamage-dev libxext-dev libxt-dev libxxf86vm-dev tcsh unzip &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+x11proto-dri2-dev x11proto-gl-dev x11proto-print-dev&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h3 id=&quot;openhaptics-sdk&quot;&gt;OpenHaptics SDK&lt;/h3&gt;
 &lt;p&gt;In order to connect to the device, you will need to install &lt;a href=&quot;http://www.dentsable.com/products-openhaptics-toolkit.htm&quot;&gt;OpenHaptics SDK&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h3 id=&quot;symbolic-links&quot;&gt;Symbolic Links&lt;/h3&gt;
-&lt;p&gt;Because OpenHaptics SDK puts the libraries in some weird locations you need to create the following symbolic links: (&lt;strong&gt;Only required in 64 bits systems&lt;/strong&gt;)&lt;/p&gt;
+&lt;p&gt;Because OpenHaptics SDK installs the libraries in some weird locations, you need to create the following symbolic links: (&lt;strong&gt;Only required in 64 bits systems&lt;/strong&gt;)&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span&gt;&lt;/span&gt;sudo ln -s /usr/lib/x86_64-linux-gnu/libraw1394.so.11.0.1 /usr/lib/libraw1394.so.8
 sudo ln -s /usr/lib64/libPHANToMIO.so.4.3 /usr/lib/libPHANToMIO.so.4
@@ -477,24 +483,32 @@ wstool update&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Check for any missing dependencies using rosdep:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span&gt;&lt;/span&gt;rosdep update
-rosdep check --from-paths . --ignore-src --rosdistro hydro&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt; /opt/ros/&lt;span class=&quot;nv&quot;&gt;$ROS_DISTRO&lt;/span&gt;/setup.bash
+rosdep update
+rosdep check --from-paths . --ignore-src --rosdistro &lt;span class=&quot;nv&quot;&gt;$ROS_DISTRO&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;After installing the missing dependencies compile your ROS workspace. e.g.&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~/catkin_ws &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; catkin_make&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
+&lt;p&gt;Be sure to always source the appropriate ROS setup file, e.g:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt; ~/catkin_ws/devel/setup.bash&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;You might want to add that line to your &lt;code&gt;~/.bashrc&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;allow-access-to-the-firewire-interface&quot;&gt;Allow Access to the FireWire Interface&lt;/h3&gt;
+
+&lt;p&gt;This package provides a dummy driver that allows you to access the 
+FireWire interface. For new installations or every time you upgrade your linux kernel, please run the following command:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span&gt;&lt;/span&gt;rosrun omni_common initialize_device.sh -c&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
 &lt;h3 id=&quot;testing-the-installation&quot;&gt;Testing the Installation&lt;/h3&gt;
 
-&lt;p&gt;Be sure to always source the appropriate ROS setup file, which for Hydro is done like so:&lt;/p&gt;
+&lt;p&gt;Try the &lt;code&gt;omni.launch&lt;/code&gt; file in the &lt;code&gt;omni_common&lt;/code&gt; package:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt; /opt/ros/hydro/setup.bash&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;You might want to add that line to your &lt;code&gt;~/.bashrc&lt;/code&gt;.
-Try the &lt;code&gt;omni.launch&lt;/code&gt; file in the &lt;code&gt;omni_common&lt;/code&gt; package:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span&gt;&lt;/span&gt;rosrun omni_common initialize_device.sh -c
-roslaunch omni_common omni.launch&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span&gt;&lt;/span&gt;roslaunch omni_common omni.launch&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 
     &lt;p&gt;&lt;a href=&quot;/projects/geomagic-touch-in-ros/&quot;&gt;Geomagic Touch in ROS&lt;/a&gt; was originally published by Francisco Suárez-Ruiz at &lt;a href=&quot;&quot;&gt;Francisco Suárez Ruiz&lt;/a&gt; on October 18, 2013.&lt;/p&gt;

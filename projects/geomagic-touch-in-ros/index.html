@@ -157,6 +157,7 @@
       <li><a href="#openhaptics-sdk" id="markdown-toc-openhaptics-sdk">OpenHaptics SDK</a></li>
       <li><a href="#symbolic-links" id="markdown-toc-symbolic-links">Symbolic Links</a></li>
       <li><a href="#ros-metapackage" id="markdown-toc-ros-metapackage">ROS Metapackage</a></li>
+      <li><a href="#allow-access-to-the-firewire-interface" id="markdown-toc-allow-access-to-the-firewire-interface">Allow Access to the FireWire Interface</a></li>
       <li><a href="#testing-the-installation" id="markdown-toc-testing-the-installation">Testing the Installation</a></li>
     </ul>
   </li>
@@ -171,13 +172,15 @@
   <figcaption>Omni in RViz</figcaption>
 </figure>
 
+<p><strong>Last update:</strong> July 10th, 2017</p>
+
 <p>These ROS packages are for the Geomagic Touch (formerly Sensable PHANToM Omni) haptic device – <strong>firewire</strong> version.</p>
 
 <p>I developed them during my time at the <a href="http://www.romin.upm.es/">Group of Robots and Intelligent Machines</a>, Universidad Politécnica de Madrid.</p>
 
 <h2 id="installation">Installation</h2>
 
-<p>This instructions have been tested with OpenHaptics SDK 3.0 in Ubuntu 12.04, both 32 and 64 bits.
+<p>These instructions have been tested with OpenHaptics SDK 3.0 in Ubuntu 12.04, both 32 and 64 bits.
 Before going any further please check the following:</p>
 
 <ul>
@@ -189,13 +192,16 @@ Before going any further please check the following:</p>
 <h3 id="requirements">Requirements</h3>
 <p>The following are the requirements so that you can run <code>PHANToMConfiguration</code>:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>sudo apt-get install --no-install-recommends freeglut3-dev g++ libdrm-dev libexpat1-dev libglw1-mesa-devlibmotif-dev libncurses5-dev libraw1394-dev libx11-dev libxdamage-dev libxext-dev libxt-dev libxxf86vm-dev tcsh unzip x11proto-dri2-dev x11proto-gl-dev x11proto-print-dev</code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>sudo apt-get install --no-install-recommends freeglut3-dev g++ libdrm-dev <span class="se">\</span>
+libexpat1-dev libglw1-mesa-devlibmotif-dev libncurses5-dev libraw1394-dev <span class="se">\</span>
+libx11-dev libxdamage-dev libxext-dev libxt-dev libxxf86vm-dev tcsh unzip <span class="se">\</span>
+x11proto-dri2-dev x11proto-gl-dev x11proto-print-dev</code></pre></figure>
 
 <h3 id="openhaptics-sdk">OpenHaptics SDK</h3>
 <p>In order to connect to the device, you will need to install <a href="http://www.dentsable.com/products-openhaptics-toolkit.htm">OpenHaptics SDK</a>.</p>
 
 <h3 id="symbolic-links">Symbolic Links</h3>
-<p>Because OpenHaptics SDK puts the libraries in some weird locations you need to create the following symbolic links: (<strong>Only required in 64 bits systems</strong>)</p>
+<p>Because OpenHaptics SDK installs the libraries in some weird locations, you need to create the following symbolic links: (<strong>Only required in 64 bits systems</strong>)</p>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>sudo ln -s /usr/lib/x86_64-linux-gnu/libraw1394.so.11.0.1 /usr/lib/libraw1394.so.8
 sudo ln -s /usr/lib64/libPHANToMIO.so.4.3 /usr/lib/libPHANToMIO.so.4
@@ -216,24 +222,32 @@ wstool update</code></pre></figure>
 
 <p>Check for any missing dependencies using rosdep:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>rosdep update
-rosdep check --from-paths . --ignore-src --rosdistro hydro</code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span><span class="nb">source</span> /opt/ros/<span class="nv">$ROS_DISTRO</span>/setup.bash
+rosdep update
+rosdep check --from-paths . --ignore-src --rosdistro <span class="nv">$ROS_DISTRO</span></code></pre></figure>
 
 <p>After installing the missing dependencies compile your ROS workspace. e.g.</p>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span><span class="nb">cd</span> ~/catkin_ws <span class="o">&amp;&amp;</span> catkin_make</code></pre></figure>
 
+<p>Be sure to always source the appropriate ROS setup file, e.g:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span><span class="nb">source</span> ~/catkin_ws/devel/setup.bash</code></pre></figure>
+
+<p>You might want to add that line to your <code>~/.bashrc</code>.</p>
+
+<h3 id="allow-access-to-the-firewire-interface">Allow Access to the FireWire Interface</h3>
+
+<p>This package provides a dummy driver that allows you to access the 
+FireWire interface. For new installations or every time you upgrade your linux kernel, please run the following command:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>rosrun omni_common initialize_device.sh -c</code></pre></figure>
+
 <h3 id="testing-the-installation">Testing the Installation</h3>
 
-<p>Be sure to always source the appropriate ROS setup file, which for Hydro is done like so:</p>
+<p>Try the <code>omni.launch</code> file in the <code>omni_common</code> package:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span><span class="nb">source</span> /opt/ros/hydro/setup.bash</code></pre></figure>
-
-<p>You might want to add that line to your <code>~/.bashrc</code>.
-Try the <code>omni.launch</code> file in the <code>omni_common</code> package:</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>rosrun omni_common initialize_device.sh -c
-roslaunch omni_common omni.launch</code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>roslaunch omni_common omni.launch</code></pre></figure>
 
 
       <hr />
