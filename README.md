@@ -19,6 +19,8 @@ You need couple of `gems` to get this website up and running. I use `rvm` to han
 gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
 curl -L https://get.rvm.io | bash -s stable --autolibs=enabled --ruby --rails
 source ~/.rvm/scripts/rvm
+rvm install 2.1.0
+rvm use 2.1.0 --default
 gem install bundler
 ``` 
 
