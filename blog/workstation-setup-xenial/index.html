@@ -146,7 +146,7 @@
       
     </div><!--/ .headline-wrap -->
     <div class="article-wrap">
-      <p><strong>Last update:</strong> March 21st, 2017</p>
+      <p><strong>Last update:</strong> August 1st, 2017</p>
 
 <p>These instructions are for setting up your robotics workstation in <strong>Ubuntu 16.04 (Xenial)</strong>.</p>
 
@@ -245,11 +245,11 @@ sudo make install</code></pre></figure>
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>pip install --upgrade --user <span class="nv">sympy</span><span class="o">==</span><span class="m">0</span>.7.1</code></pre></figure>
 
 <h3 id="build-and-install">Build and Install</h3>
-<p>Now you can build and install <code>OpenRAVE</code> (Tested with commit 81ec501):</p>
+<p>Now you can build and install <code>OpenRAVE</code> (Tested with commit 9350ebc):</p>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span><span class="nb">cd</span> ~/git
 git clone https://github.com/rdiankov/openrave.git --branch master
-<span class="nb">cd</span> openrave<span class="p">;</span> git reset --hard 81ec501
+<span class="nb">cd</span> openrave<span class="p">;</span> git reset --hard 9350ebc
 mkdir build<span class="p">;</span> <span class="nb">cd</span> build
 cmake -DODE_USE_MULTITHREAD<span class="o">=</span>ON -DOSG_DIR<span class="o">=</span>/usr/local/lib64/ ..
 make -j <span class="sb">`</span>nproc<span class="sb">`</span>

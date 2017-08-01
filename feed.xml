@@ -4,7 +4,7 @@
 <generator uri="https://github.com/jekyll/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2017-07-26T14:25:14+08:00</updated>
+<updated>2017-08-01T14:21:51+08:00</updated>
 <id>/</id>
 <author>
   <name>Francisco Suárez-Ruiz</name>
@@ -25,7 +25,7 @@
     <email>fsuarez6@gmail.com</email>
   </author>
   <content type="html">
-    &lt;p&gt;&lt;strong&gt;Last update:&lt;/strong&gt; March 21st, 2017&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;Last update:&lt;/strong&gt; August 1st, 2017&lt;/p&gt;
 
 &lt;p&gt;These instructions are for setting up your robotics workstation in &lt;strong&gt;Ubuntu 16.04 (Xenial)&lt;/strong&gt;.&lt;/p&gt;
 
@@ -124,11 +124,11 @@ sudo make install&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span&gt;&lt;/span&gt;pip install --upgrade --user &lt;span class=&quot;nv&quot;&gt;sympy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;.7.1&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h3 id=&quot;build-and-install&quot;&gt;Build and Install&lt;/h3&gt;
-&lt;p&gt;Now you can build and install &lt;code&gt;OpenRAVE&lt;/code&gt; (Tested with commit 81ec501):&lt;/p&gt;
+&lt;p&gt;Now you can build and install &lt;code&gt;OpenRAVE&lt;/code&gt; (Tested with commit 9350ebc):&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~/git
 git clone https://github.com/rdiankov/openrave.git --branch master
-&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; openrave&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; git reset --hard 81ec501
+&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; openrave&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; git reset --hard 9350ebc
 mkdir build&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; build
 cmake -DODE_USE_MULTITHREAD&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;ON -DOSG_DIR&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/local/lib64/ ..
 make -j &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;nproc&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;
