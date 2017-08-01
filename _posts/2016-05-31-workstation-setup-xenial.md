@@ -6,7 +6,7 @@ excerpt: "Installation instructions to setup your development workstation in Ubu
 tags: [Ubuntu, Xenial, Robotics, OpenRAVE]
 comments: true
 ---
-**Last update:** March 21st, 2017
+**Last update:** August 1st, 2017
 
 These instructions are for setting up your robotics workstation in **Ubuntu 16.04 (Xenial)**.
 
@@ -119,11 +119,11 @@ pip install --upgrade --user sympy==0.7.1
 {% endhighlight %}
 
 ### Build and Install
-Now you can build and install `OpenRAVE` (Tested with commit 81ec501):
+Now you can build and install `OpenRAVE` (Tested with commit 9350ebc):
 {% highlight bash %}
 cd ~/git
 git clone https://github.com/rdiankov/openrave.git --branch master
-cd openrave; git reset --hard 81ec501
+cd openrave; git reset --hard 9350ebc
 mkdir build; cd build
 cmake -DODE_USE_MULTITHREAD=ON -DOSG_DIR=/usr/local/lib64/ ..
 make -j `nproc`
