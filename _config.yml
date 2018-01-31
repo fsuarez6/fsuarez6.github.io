@@ -1,6 +1,6 @@
 # Site wide configuration
 
-title:            Francisco Suárez Ruiz
+title:            Francisco Suárez-Ruiz
 locale:           en_US
 url:
 
@@ -24,7 +24,8 @@ kramdown:
 
 # Publications
 scholar:
-  style: annales
+  # style: annales
+  style: assets/bibliography/ieee-without-citation-number.csl
   locale: en
 
   sort_by: year

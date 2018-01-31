@@ -14,9 +14,12 @@
 //-->
 </script>
 
-  [<a href="javascript:toggle_visibility('{{key}}-bibtex')">BibTeX</a>]
+[<a href="javascript:toggle_visibility('{{key}}-bibtex')">BibTeX</a>]
 {% if entry.pdf %}
-  [<a href="{{site.url}}/files/pdf/{{entry.pdf}}" target="_blank">preprint</a>]
+  [<a href="{{site.url}}/files/pdf/{{entry.pdf}}" target="_blank">PDF</a>]
+{% endif %}
+{% if entry.preprint %}
+  [<a href="{{entry.preprint}}" target="_blank">preprint</a>]
 {% endif %}
 {% if entry.url %}
   [<a href="{{entry.url}}" target="_blank">link</a>]
