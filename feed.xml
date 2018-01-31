@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
-<title type="text">Francisco Suárez Ruiz</title>
+<title type="text">Francisco Suárez-Ruiz</title>
 <generator uri="https://github.com/jekyll/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2017-08-01T14:21:51+08:00</updated>
+<updated>2018-01-31T10:38:04+08:00</updated>
 <id>/</id>
 <author>
   <name>Francisco Suárez-Ruiz</name>
@@ -147,7 +147,7 @@ sudo make install&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;You may see some messages printed in yellow on your terminal but they are just warnings that won’t prevent your installation from working.&lt;/p&gt;
 
-    &lt;p&gt;&lt;a href=&quot;/blog/workstation-setup-xenial/&quot;&gt;Robotics Workstation Setup in Ubuntu 16.04 (Xenial)&lt;/a&gt; was originally published by Francisco Suárez-Ruiz at &lt;a href=&quot;&quot;&gt;Francisco Suárez Ruiz&lt;/a&gt; on May 31, 2016.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;/blog/workstation-setup-xenial/&quot;&gt;Robotics Workstation Setup in Ubuntu 16.04 (Xenial)&lt;/a&gt; was originally published by Francisco Suárez-Ruiz at &lt;a href=&quot;&quot;&gt;Francisco Suárez-Ruiz&lt;/a&gt; on May 31, 2016.&lt;/p&gt;
   </content>
 </entry>
 
@@ -261,7 +261,7 @@ sudo make install&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 &lt;p&gt;You may see some messages printed in yellow on your command line but they are 
 just warnings that won’t prevent your installation from working.&lt;/p&gt;
 
-    &lt;p&gt;&lt;a href=&quot;/blog/openrave-trusty/&quot;&gt;Installing OpenRAVE in Ubuntu 14.04 (Trusty)&lt;/a&gt; was originally published by Francisco Suárez-Ruiz at &lt;a href=&quot;&quot;&gt;Francisco Suárez Ruiz&lt;/a&gt; on March 04, 2016.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;/blog/openrave-trusty/&quot;&gt;Installing OpenRAVE in Ubuntu 14.04 (Trusty)&lt;/a&gt; was originally published by Francisco Suárez-Ruiz at &lt;a href=&quot;&quot;&gt;Francisco Suárez-Ruiz&lt;/a&gt; on March 04, 2016.&lt;/p&gt;
   </content>
 </entry>
 
@@ -295,7 +295,7 @@ just warnings that won’t prevent your installation from working.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 
-    &lt;p&gt;&lt;a href=&quot;/blog/bashrc/&quot;&gt;The infamous .bashrc&lt;/a&gt; was originally published by Francisco Suárez-Ruiz at &lt;a href=&quot;&quot;&gt;Francisco Suárez Ruiz&lt;/a&gt; on December 16, 2015.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;/blog/bashrc/&quot;&gt;The infamous .bashrc&lt;/a&gt; was originally published by Francisco Suárez-Ruiz at &lt;a href=&quot;&quot;&gt;Francisco Suárez-Ruiz&lt;/a&gt; on December 16, 2015.&lt;/p&gt;
   </content>
 </entry>
 
@@ -326,7 +326,7 @@ just warnings that won’t prevent your installation from working.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;http://www.romin.upm.es/wiki/index.php?title=ROS%3ATutorials&quot;&gt;http://www.romin.upm.es/wiki&lt;/a&gt;&lt;/p&gt;
 
 
-    &lt;p&gt;&lt;a href=&quot;/projects/labrob-metapackage/&quot;&gt;Labrob Metapackage&lt;/a&gt; was originally published by Francisco Suárez-Ruiz at &lt;a href=&quot;&quot;&gt;Francisco Suárez Ruiz&lt;/a&gt; on April 22, 2014.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;/projects/labrob-metapackage/&quot;&gt;Labrob Metapackage&lt;/a&gt; was originally published by Francisco Suárez-Ruiz at &lt;a href=&quot;&quot;&gt;Francisco Suárez-Ruiz&lt;/a&gt; on April 22, 2014.&lt;/p&gt;
   </content>
 </entry>
 
@@ -359,7 +359,7 @@ just warnings that won’t prevent your installation from working.&lt;/p&gt;
 &lt;h3 id=&quot;tutorial&quot;&gt;Tutorial&lt;/h3&gt;
 &lt;p&gt;&lt;a href=&quot;http://www.takktile.com/tutorial:raspberrypi-ros&quot;&gt;http://www.takktile.com/tutorial:raspberrypi-ros&lt;/a&gt;&lt;/p&gt;
 
-    &lt;p&gt;&lt;a href=&quot;/projects/takktile-raspberry-pi-ros/&quot;&gt;Takktile Sensors with the Raspberry Pi&lt;/a&gt; was originally published by Francisco Suárez-Ruiz at &lt;a href=&quot;&quot;&gt;Francisco Suárez Ruiz&lt;/a&gt; on February 20, 2014.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;/projects/takktile-raspberry-pi-ros/&quot;&gt;Takktile Sensors with the Raspberry Pi&lt;/a&gt; was originally published by Francisco Suárez-Ruiz at &lt;a href=&quot;&quot;&gt;Francisco Suárez-Ruiz&lt;/a&gt; on February 20, 2014.&lt;/p&gt;
   </content>
 </entry>
 
@@ -390,7 +390,7 @@ just warnings that won’t prevent your installation from working.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;https://github.com/fsuarez6/grips&quot;&gt;https://github.com/fsuarez6/grips&lt;/a&gt;&lt;/p&gt;
 
 
-    &lt;p&gt;&lt;a href=&quot;/projects/grips-metapackage/&quot;&gt;Grips Metapackage&lt;/a&gt; was originally published by Francisco Suárez-Ruiz at &lt;a href=&quot;&quot;&gt;Francisco Suárez Ruiz&lt;/a&gt; on October 31, 2013.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;/projects/grips-metapackage/&quot;&gt;Grips Metapackage&lt;/a&gt; was originally published by Francisco Suárez-Ruiz at &lt;a href=&quot;&quot;&gt;Francisco Suárez-Ruiz&lt;/a&gt; on October 31, 2013.&lt;/p&gt;
   </content>
 </entry>
 
@@ -511,7 +511,7 @@ FireWire interface. For new installations or every time you upgrade your linux k
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span&gt;&lt;/span&gt;roslaunch omni_common omni.launch&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 
-    &lt;p&gt;&lt;a href=&quot;/projects/geomagic-touch-in-ros/&quot;&gt;Geomagic Touch in ROS&lt;/a&gt; was originally published by Francisco Suárez-Ruiz at &lt;a href=&quot;&quot;&gt;Francisco Suárez Ruiz&lt;/a&gt; on October 18, 2013.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;/projects/geomagic-touch-in-ros/&quot;&gt;Geomagic Touch in ROS&lt;/a&gt; was originally published by Francisco Suárez-Ruiz at &lt;a href=&quot;&quot;&gt;Francisco Suárez-Ruiz&lt;/a&gt; on October 18, 2013.&lt;/p&gt;
   </content>
 </entry>
 
