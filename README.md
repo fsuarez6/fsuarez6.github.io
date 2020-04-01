@@ -9,35 +9,35 @@ Feel free to adapt this theme to your site without linking back to me or includi
 ## Requirements
 
 Clone the `source` branch of this repository:
-```{bash}
+```bash
 cd ~/git
 git clone https://github.com/fsuarez6/fsuarez6.github.io.git -b source
 ``` 
 
-You need couple of `gems` to get this website up and running. I use `rvm` to handle them:
-```{bash}
+You need some `gems` to get this website up and running. I use `rvm` to handle them:
+```bash
 gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
 curl -L https://get.rvm.io | bash -s stable --autolibs=enabled --ruby --rails
 source ~/.rvm/scripts/rvm
-rvm install 2.1.0
-rvm use 2.1.0 --default
+rvm install 2.7.0
+rvm use 2.7.0 --default
 gem install bundler
 ``` 
 
 Now, using bundler you can install the required `gems`:
-```{bash}
+```bash
 cd ~/git/fsuarez6.github.io
 bundle update
 ``` 
 
 Finally, install nodejs:
-```{bash}
+```bash
 sudo apt-get install nodejs
 ``` 
 
 ## Running it Locally
 
-```{bash}
+```bash
 cd ~/git/fsuarez6.github.io
 jekyll serve --watch --port 5000
 ``` 
@@ -46,6 +46,6 @@ jekyll serve --watch --port 5000
 
 Because github doesn't support `jekyll-scholar` you need to build the `source` branch and push the generated website to the `master` branch. All this is done automatically using a `Rakefile`. You just need to run this command:
 
-```{bash}
+```bash
 rake
 ``` 
