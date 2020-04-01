@@ -163,41 +163,41 @@
 <h2 id="ros-kinetic">ROS Kinetic</h2>
 <p>For up-to-date instructions to install ROS Kinetic, please refer to: <a href="http://wiki.ros.org/kinetic/Installation/Ubuntu">http://wiki.ros.org/kinetic/Installation/Ubuntu</a></p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>sudo sh -c <span class="s1">&#39;echo &quot;deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main&quot;      \</span>
-<span class="s1">&gt; /etc/apt/sources.list.d/ros-latest.list&#39;</span>
-sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key 0xB01FA116
-sudo apt-get update
-sudo apt-get install ros-kinetic-ros-base</code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">sudo </span>sh <span class="nt">-c</span> <span class="s1">'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main"      \
+&gt; /etc/apt/sources.list.d/ros-latest.list'</span>
+<span class="nb">sudo </span>apt-key adv <span class="nt">--keyserver</span> hkp://ha.pool.sks-keyservers.net:80 <span class="nt">--recv-key</span> 0xB01FA116
+<span class="nb">sudo </span>apt-get update
+<span class="nb">sudo </span>apt-get <span class="nb">install </span>ros-kinetic-ros-base</code></pre></figure>
 
 <h3 id="initialize-rosdep">Initialize rosdep</h3>
 <p>Before you can use ROS, you will need to initialize rosdep. rosdep enables you to easily install system dependencies for source you want to compile and is required to run some core components in ROS.</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>sudo rosdep init
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">sudo </span>rosdep init
 rosdep update</code></pre></figure>
 
 <h3 id="create-a-ros-workspace">Create a ROS Workspace</h3>
 <p>Let’s create a <a href="http://wiki.ros.org/catkin/workspaces">catkin workspace</a>:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span><span class="nb">source</span> /opt/ros/kinetic/setup.bash
-mkdir -p ~/catkin_ws/src
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">source</span> /opt/ros/kinetic/setup.bash
+<span class="nb">mkdir</span> <span class="nt">-p</span> ~/catkin_ws/src
 <span class="nb">cd</span> ~/catkin_ws/src
 catkin_init_workspace</code></pre></figure>
 
-<p>Even though the workspace is empty (there are no packages in the <code>src</code> folder, just a single <code>CMakeLists.txt</code> link) you can still <em>build</em> the workspace:</p>
+<p>Even though the workspace is empty (there are no packages in the <code class="highlighter-rouge">src</code> folder, just a single <code class="highlighter-rouge">CMakeLists.txt</code> link) you can still <em>build</em> the workspace:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span><span class="nb">cd</span> ~/catkin_ws/
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">cd</span> ~/catkin_ws/
 catkin_make</code></pre></figure>
 
-<p>Before continuing, source your new <code>setup.bash</code> file:</p>
+<p>Before continuing, source your new <code class="highlighter-rouge">setup.bash</code> file:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span><span class="nb">source</span> ~/catkin_ws/devel/setup.bash</code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">source</span> ~/catkin_ws/devel/setup.bash</code></pre></figure>
 
-<p>To make sure your workspace is properly overlayed by the setup script, make sure <code>ROS_PACKAGE_PATH</code> environment variable includes the directory you’re in:</p>
+<p>To make sure your workspace is properly overlayed by the setup script, make sure <code class="highlighter-rouge">ROS_PACKAGE_PATH</code> environment variable includes the directory you’re in:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span><span class="nb">echo</span> <span class="nv">$ROS_PACKAGE_PATH</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">echo</span> <span class="nv">$ROS_PACKAGE_PATH</span></code></pre></figure>
 
 <p>This is the expected output:
-<code>/home/username/catkin_ws/src:/opt/ros/kinetic/share:/opt/ros/kinetic/stacks</code></p>
+<code class="highlighter-rouge">/home/username/catkin_ws/src:/opt/ros/kinetic/share:/opt/ros/kinetic/stacks</code></p>
 
 <h2 id="openrave">OpenRAVE</h2>
 <p>At this point OpenRAVE has a considerable number of dependencies that have to be installed manually. For the sake of simplicity, this instructions will show you how to get working OpenRAVE 0.9.0 with enought features.</p>
@@ -206,12 +206,12 @@ catkin_make</code></pre></figure>
 
 <p>You need to install the following programs:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>sudo apt-get install build-essential cmake doxygen g++ git ipython octave python-dev  <span class="se">\</span>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">sudo </span>apt-get <span class="nb">install </span>build-essential cmake doxygen g++ git ipython octave python-dev  <span class="se">\</span>
 python-h5py python-numpy python-pip python-scipy python-sympy qt5-default minizip</code></pre></figure>
 
 <p>Next, you will need to install the following libraries, which are available from the Ubuntu package repositories:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>sudo apt-get install ann-tools cmake libann-dev libassimp-dev libavcodec-dev          <span class="se">\</span>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">sudo </span>apt-get <span class="nb">install </span>ann-tools cmake libann-dev libassimp-dev libavcodec-dev          <span class="se">\</span>
 libavformat-dev libboost-python-dev libboost-all-dev libccd-dev                       <span class="se">\</span>
 libcollada-dom2.4-dp-dev libeigen3-dev libflann-dev liblapack-dev liblog4cxx-dev      <span class="se">\</span>
 libminizip-dev liboctave-dev libode-dev libpcre3-dev libqhull-dev libsoqt-dev-common  <span class="se">\</span>
@@ -220,47 +220,47 @@ libsoqt4-dev libswscale-dev libtinyxml-dev libxml2-dev octomap-tools</code></pre
 <h3 id="openscenegraph">OpenSceneGraph</h3>
 <p>The version available at the Ubuntu repositories is 3.2, but OpenRAVE requires 3.4, so we have to build it from source:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span><span class="nb">cd</span> ~/git
-git clone https://github.com/openscenegraph/OpenSceneGraph.git --branch OpenSceneGraph-3.4
-<span class="nb">cd</span> OpenSceneGraph
-mkdir build<span class="p">;</span> <span class="nb">cd</span> build
-cmake .. -DDESIRED_QT_VERSION<span class="o">=</span><span class="m">4</span>
-make -j <span class="sb">`</span>nproc<span class="sb">`</span>
-sudo make install</code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">cd</span> ~/git
+git clone https://github.com/openscenegraph/OpenSceneGraph.git <span class="nt">--branch</span> OpenSceneGraph-3.4
+<span class="nb">cd </span>OpenSceneGraph
+<span class="nb">mkdir </span>build<span class="p">;</span> <span class="nb">cd </span>build
+cmake .. <span class="nt">-DDESIRED_QT_VERSION</span><span class="o">=</span>4
+make <span class="nt">-j</span> <span class="sb">`</span><span class="nb">nproc</span><span class="sb">`</span>
+<span class="nb">sudo </span>make <span class="nb">install</span></code></pre></figure>
 
 <h3 id="fcl---the-flexible-collision-library">FCL - The Flexible Collision Library</h3>
-<p>Build and install <code>fcl</code> version 0.5.0:</p>
+<p>Build and install <code class="highlighter-rouge">fcl</code> version 0.5.0:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span><span class="nb">cd</span> ~/git
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">cd</span> ~/git
 git clone https://github.com/flexible-collision-library/fcl
-<span class="nb">cd</span> fcl<span class="p">;</span> git checkout <span class="m">0</span>.5.0
-mkdir build<span class="p">;</span> <span class="nb">cd</span> build
+<span class="nb">cd </span>fcl<span class="p">;</span> git checkout 0.5.0
+<span class="nb">mkdir </span>build<span class="p">;</span> <span class="nb">cd </span>build
 cmake ..
-make -j <span class="sb">`</span>nproc<span class="sb">`</span>
-sudo make install</code></pre></figure>
+make <span class="nt">-j</span> <span class="sb">`</span><span class="nb">nproc</span><span class="sb">`</span>
+<span class="nb">sudo </span>make <span class="nb">install</span></code></pre></figure>
 
-<h3 id="sympy-version"><code>sympy</code> Version</h3>
+<h3 id="sympy-version"><code class="highlighter-rouge">sympy</code> Version</h3>
 <p>Downgrade sympy so that IKFast works properly:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>pip install --upgrade --user <span class="nv">sympy</span><span class="o">==</span><span class="m">0</span>.7.1</code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">pip <span class="nb">install</span> <span class="nt">--upgrade</span> <span class="nt">--user</span> <span class="nv">sympy</span><span class="o">==</span>0.7.1</code></pre></figure>
 
 <h3 id="build-and-install">Build and Install</h3>
-<p>Now you can build and install <code>OpenRAVE</code> (Tested with commit 9350ebc):</p>
+<p>Now you can build and install <code class="highlighter-rouge">OpenRAVE</code> (Tested with commit 9350ebc):</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span><span class="nb">cd</span> ~/git
-git clone https://github.com/rdiankov/openrave.git --branch master
-<span class="nb">cd</span> openrave<span class="p">;</span> git reset --hard 9350ebc
-mkdir build<span class="p">;</span> <span class="nb">cd</span> build
-cmake -DODE_USE_MULTITHREAD<span class="o">=</span>ON -DOSG_DIR<span class="o">=</span>/usr/local/lib64/ ..
-make -j <span class="sb">`</span>nproc<span class="sb">`</span>
-sudo make install</code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">cd</span> ~/git
+git clone https://github.com/rdiankov/openrave.git <span class="nt">--branch</span> master
+<span class="nb">cd </span>openrave<span class="p">;</span> git reset <span class="nt">--hard</span> 9350ebc
+<span class="nb">mkdir </span>build<span class="p">;</span> <span class="nb">cd </span>build
+cmake <span class="nt">-DODE_USE_MULTITHREAD</span><span class="o">=</span>ON <span class="nt">-DOSG_DIR</span><span class="o">=</span>/usr/local/lib64/ ..
+make <span class="nt">-j</span> <span class="sb">`</span><span class="nb">nproc</span><span class="sb">`</span>
+<span class="nb">sudo </span>make <span class="nb">install</span></code></pre></figure>
 
 <h3 id="testing-the-installation">Testing the Installation</h3>
 <p>You can check that your installation works by running one of the <a href="http://openrave.org/docs/latest_stable/examples/">default examples</a>:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>openrave.py --example graspplanning</code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">openrave.py <span class="nt">--example</span> graspplanning</code></pre></figure>
 
-<p>It should start the <code>graspplanning</code> example:</p>
+<p>It should start the <code class="highlighter-rouge">graspplanning</code> example:</p>
 <figure style="text-align: center;">
   <img src="/images/graspplanning.png" />
   <figcaption>OpenRAVE example</figcaption>
@@ -284,7 +284,7 @@ sudo make install</code></pre></figure>
     </li>
   </ul>
 </div><!-- /.social-share -->
-        <p class="byline"><strong>Robotics Workstation Setup in Ubuntu 16.04 (Xenial)</strong> was published on <time datetime="2016-05-31T00:00:00+08:00">May 31, 2016</time>.</p>
+        <p class="byline"><strong>Robotics Workstation Setup in Ubuntu 16.04 (Xenial)</strong> was published on <time datetime="2016-05-31T00:00:00+00:00">May 31, 2016</time>.</p>
       </footer>
     </div><!-- /.article-wrap -->
   
@@ -312,7 +312,7 @@ sudo make install</code></pre></figure>
   <footer>
     
 
-<span>&copy; 2018 Francisco Suárez-Ruiz. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="http://mademistakes.com/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a> theme.</span>
+<span>&copy; 2020 Francisco Suárez-Ruiz. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="http://mademistakes.com/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a> theme.</span>
 
   </footer>
 </div><!-- /.footer-wrap -->

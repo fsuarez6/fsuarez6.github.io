@@ -172,7 +172,7 @@
   <figcaption>Omni in RViz</figcaption>
 </figure>
 
-<p><strong>Last update:</strong> July 10th, 2017</p>
+<p><strong>Last update:</strong> April 1st, 2020</p>
 
 <p>These ROS packages are for the Geomagic Touch (formerly Sensable PHANToM Omni) haptic device – <strong>firewire</strong> version.</p>
 
@@ -180,7 +180,7 @@
 
 <h2 id="installation">Installation</h2>
 
-<p>These instructions have been tested with OpenHaptics SDK 3.0 in Ubuntu 12.04, both 32 and 64 bits.
+<p>These instructions have been tested with OpenHaptics SDK 3.0 in Ubuntu 16.04, 64 bits and ROS Kinetic.
 Before going any further please check the following:</p>
 
 <ul>
@@ -190,12 +190,12 @@ Before going any further please check the following:</p>
 </ul>
 
 <h3 id="requirements">Requirements</h3>
-<p>The following are the requirements so that you can run <code>PHANToMConfiguration</code>:</p>
+<p>The following are the requirements so that you can run <code class="highlighter-rouge">PHANToMConfiguration</code>:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>sudo apt-get install --no-install-recommends freeglut3-dev g++ libdrm-dev <span class="se">\</span>
-libexpat1-dev libglw1-mesa-devlibmotif-dev libncurses5-dev libraw1394-dev <span class="se">\</span>
-libx11-dev libxdamage-dev libxext-dev libxt-dev libxxf86vm-dev tcsh unzip <span class="se">\</span>
-x11proto-dri2-dev x11proto-gl-dev x11proto-print-dev</code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">sudo </span>apt-get <span class="nb">install</span> <span class="nt">--no-install-recommends</span> freeglut3-dev g++ libdrm-dev <span class="se">\</span>
+libexpat1-dev libncurses5-dev libraw1394-dev libx11-dev libxdamage-dev    <span class="se">\</span>
+libxext-dev libxt-dev libxxf86vm-dev tcsh unzip x11proto-dri2-dev         <span class="se">\</span>
+x11proto-gl-dev x11proto-print-dev</code></pre></figure>
 
 <h3 id="openhaptics-sdk">OpenHaptics SDK</h3>
 <p>In order to connect to the device, you will need to install <a href="http://www.dentsable.com/products-openhaptics-toolkit.htm">OpenHaptics SDK</a>.</p>
@@ -203,51 +203,51 @@ x11proto-dri2-dev x11proto-gl-dev x11proto-print-dev</code></pre></figure>
 <h3 id="symbolic-links">Symbolic Links</h3>
 <p>Because OpenHaptics SDK installs the libraries in some weird locations, you need to create the following symbolic links: (<strong>Only required in 64 bits systems</strong>)</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>sudo ln -s /usr/lib/x86_64-linux-gnu/libraw1394.so.11.0.1 /usr/lib/libraw1394.so.8
-sudo ln -s /usr/lib64/libPHANToMIO.so.4.3 /usr/lib/libPHANToMIO.so.4
-sudo ln -s /usr/lib64/libHD.so.3.0.0 /usr/lib/libHD.so.3.0
-sudo ln -s /usr/lib64/libHL.so.3.0.0 /usr/lib/libHL.so.3.0</code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">sudo ln</span> <span class="nt">-s</span> /usr/lib/x86_64-linux-gnu/libraw1394.so.11 /usr/lib/libraw1394.so.8
+<span class="nb">sudo ln</span> <span class="nt">-s</span> /usr/lib64/libPHANToMIO.so.4.3 /usr/lib/libPHANToMIO.so.4
+<span class="nb">sudo ln</span> <span class="nt">-s</span> /usr/lib64/libHD.so.3.0.0 /usr/lib/libHD.so.3.0
+<span class="nb">sudo ln</span> <span class="nt">-s</span> /usr/lib64/libHL.so.3.0.0 /usr/lib/libHL.so.3.0</code></pre></figure>
 
 <h3 id="ros-metapackage">ROS Metapackage</h3>
 
 <p>Go to your ROS working directory. e.g.</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span><span class="nb">cd</span> ~/catkin_ws/src</code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">cd</span> ~/catkin_ws/src</code></pre></figure>
 
-<p>Use the <code>wstool</code> to install the repository</p>
+<p>Use the <code class="highlighter-rouge">wstool</code> to install the repository</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>wstool init .
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">wstool init <span class="nb">.</span>
 wstool merge https://raw.github.com/fsuarez6/phantom_omni/hydro-devel/phantom_omni.rosinstall
 wstool update</code></pre></figure>
 
 <p>Check for any missing dependencies using rosdep:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span><span class="nb">source</span> /opt/ros/<span class="nv">$ROS_DISTRO</span>/setup.bash
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">source</span> /opt/ros/<span class="nv">$ROS_DISTRO</span>/setup.bash
 rosdep update
-rosdep check --from-paths . --ignore-src --rosdistro <span class="nv">$ROS_DISTRO</span></code></pre></figure>
+rosdep check <span class="nt">--from-paths</span> <span class="nb">.</span> <span class="nt">--ignore-src</span> <span class="nt">--rosdistro</span> <span class="nv">$ROS_DISTRO</span></code></pre></figure>
 
 <p>After installing the missing dependencies compile your ROS workspace. e.g.</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span><span class="nb">cd</span> ~/catkin_ws <span class="o">&amp;&amp;</span> catkin_make</code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">cd</span> ~/catkin_ws <span class="o">&amp;&amp;</span> catkin_make</code></pre></figure>
 
 <p>Be sure to always source the appropriate ROS setup file, e.g:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span><span class="nb">source</span> ~/catkin_ws/devel/setup.bash</code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">source</span> ~/catkin_ws/devel/setup.bash</code></pre></figure>
 
-<p>You might want to add that line to your <code>~/.bashrc</code>.</p>
+<p>You might want to add that line to your <code class="highlighter-rouge">~/.bashrc</code>.</p>
 
 <h3 id="allow-access-to-the-firewire-interface">Allow Access to the FireWire Interface</h3>
 
 <p>This package provides a dummy driver that allows you to access the 
 FireWire interface. For new installations or every time you upgrade your linux kernel, please run the following command:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>rosrun omni_common initialize_device.sh -c</code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">rosrun omni_common initialize_device.sh <span class="nt">-c</span></code></pre></figure>
 
 <h3 id="testing-the-installation">Testing the Installation</h3>
 
-<p>Try the <code>omni.launch</code> file in the <code>omni_common</code> package:</p>
+<p>Try the <code class="highlighter-rouge">omni.launch</code> file in the <code class="highlighter-rouge">omni_common</code> package:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>roslaunch omni_common omni.launch</code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">roslaunch omni_common omni.launch</code></pre></figure>
 
 
       <hr />
@@ -266,7 +266,7 @@ FireWire interface. For new installations or every time you upgrade your linux k
     </li>
   </ul>
 </div><!-- /.social-share -->
-        <p class="byline"><strong>Geomagic Touch in ROS</strong> was published on <time datetime="2013-10-18T00:00:00+08:00">October 18, 2013</time>.</p>
+        <p class="byline"><strong>Geomagic Touch in ROS</strong> was published on <time datetime="2013-10-18T00:00:00+00:00">October 18, 2013</time>.</p>
       </footer>
     </div><!-- /.article-wrap -->
   
@@ -294,7 +294,7 @@ FireWire interface. For new installations or every time you upgrade your linux k
   <footer>
     
 
-<span>&copy; 2018 Francisco Suárez-Ruiz. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="http://mademistakes.com/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a> theme.</span>
+<span>&copy; 2020 Francisco Suárez-Ruiz. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="http://mademistakes.com/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a> theme.</span>
 
   </footer>
 </div><!-- /.footer-wrap -->

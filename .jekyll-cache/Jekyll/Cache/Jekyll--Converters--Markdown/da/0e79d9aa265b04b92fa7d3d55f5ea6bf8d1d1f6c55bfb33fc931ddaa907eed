@@ -1,0 +1,14 @@
+I"˜<p>Worked to add the Grips Manipulator into Gazebo properly. Created simulated controllers, tweaked meshes and simulation properties.</p>
+
+<figure style="text-align: center;">
+  <img src="https://raw.github.com/fsuarez6/grips/hydro-devel/grips_description/resources/bimanual_gazebo.png" />
+  <figcaption>Grips in Gazebo</figcaption>
+</figure>
+
+<h3 id="build-status">Build status</h3>
+<p><a href="https://travis-ci.org/fsuarez6/grips"><img src="https://travis-ci.org/fsuarez6/grips.png?branch=hydro-devel" alt="Build Status" /></a></p>
+
+<h3 id="source-code">Source code</h3>
+<p><a href="https://github.com/fsuarez6/grips">https://github.com/fsuarez6/grips</a></p>
+
+:ET

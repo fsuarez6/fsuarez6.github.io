@@ -4,7 +4,7 @@
 <generator uri="https://github.com/jekyll/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2018-01-31T10:38:04+08:00</updated>
+<updated>2020-04-01T04:59:54+00:00</updated>
 <id>/</id>
 <author>
   <name>Francisco Suárez-Ruiz</name>
@@ -17,8 +17,8 @@
   <title type="html"><![CDATA[Robotics Workstation Setup in Ubuntu 16.04 (Xenial)]]></title>
   <link rel="alternate" type="text/html" href="/blog/workstation-setup-xenial/" />
   <id>/blog/workstation-setup-xenial</id>
-  <published>2016-05-31T00:00:00+08:00</published>
-  <updated>2016-05-31T00:00:00+08:00</updated>
+  <published>2016-05-31T00:00:00+00:00</published>
+  <updated>2016-05-31T00:00:00+00:00</updated>
   <author>
     <name>Francisco Suárez-Ruiz</name>
     <uri></uri>
@@ -42,41 +42,41 @@
 &lt;h2 id=&quot;ros-kinetic&quot;&gt;ROS Kinetic&lt;/h2&gt;
 &lt;p&gt;For up-to-date instructions to install ROS Kinetic, please refer to: &lt;a href=&quot;http://wiki.ros.org/kinetic/Installation/Ubuntu&quot;&gt;http://wiki.ros.org/kinetic/Installation/Ubuntu&lt;/a&gt;&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span&gt;&lt;/span&gt;sudo sh -c &lt;span class=&quot;s1&quot;&gt;&amp;#39;echo &amp;quot;deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main&amp;quot;      \&lt;/span&gt;
-&lt;span class=&quot;s1&quot;&gt;&amp;gt; /etc/apt/sources.list.d/ros-latest.list&amp;#39;&lt;/span&gt;
-sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key 0xB01FA116
-sudo apt-get update
-sudo apt-get install ros-kinetic-ros-base&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;sh &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'echo &quot;deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main&quot;      \
+&amp;gt; /etc/apt/sources.list.d/ros-latest.list'&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-key adv &lt;span class=&quot;nt&quot;&gt;--keyserver&lt;/span&gt; hkp://ha.pool.sks-keyservers.net:80 &lt;span class=&quot;nt&quot;&gt;--recv-key&lt;/span&gt; 0xB01FA116
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get update
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;ros-kinetic-ros-base&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h3 id=&quot;initialize-rosdep&quot;&gt;Initialize rosdep&lt;/h3&gt;
 &lt;p&gt;Before you can use ROS, you will need to initialize rosdep. rosdep enables you to easily install system dependencies for source you want to compile and is required to run some core components in ROS.&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span&gt;&lt;/span&gt;sudo rosdep init
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;rosdep init
 rosdep update&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h3 id=&quot;create-a-ros-workspace&quot;&gt;Create a ROS Workspace&lt;/h3&gt;
 &lt;p&gt;Let’s create a &lt;a href=&quot;http://wiki.ros.org/catkin/workspaces&quot;&gt;catkin workspace&lt;/a&gt;:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt; /opt/ros/kinetic/setup.bash
-mkdir -p ~/catkin_ws/src
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt; /opt/ros/kinetic/setup.bash
+&lt;span class=&quot;nb&quot;&gt;mkdir&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt; ~/catkin_ws/src
 &lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~/catkin_ws/src
 catkin_init_workspace&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;Even though the workspace is empty (there are no packages in the &lt;code&gt;src&lt;/code&gt; folder, just a single &lt;code&gt;CMakeLists.txt&lt;/code&gt; link) you can still &lt;em&gt;build&lt;/em&gt; the workspace:&lt;/p&gt;
+&lt;p&gt;Even though the workspace is empty (there are no packages in the &lt;code class=&quot;highlighter-rouge&quot;&gt;src&lt;/code&gt; folder, just a single &lt;code class=&quot;highlighter-rouge&quot;&gt;CMakeLists.txt&lt;/code&gt; link) you can still &lt;em&gt;build&lt;/em&gt; the workspace:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~/catkin_ws/
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~/catkin_ws/
 catkin_make&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;Before continuing, source your new &lt;code&gt;setup.bash&lt;/code&gt; file:&lt;/p&gt;
+&lt;p&gt;Before continuing, source your new &lt;code class=&quot;highlighter-rouge&quot;&gt;setup.bash&lt;/code&gt; file:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt; ~/catkin_ws/devel/setup.bash&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt; ~/catkin_ws/devel/setup.bash&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;To make sure your workspace is properly overlayed by the setup script, make sure &lt;code&gt;ROS_PACKAGE_PATH&lt;/code&gt; environment variable includes the directory you’re in:&lt;/p&gt;
+&lt;p&gt;To make sure your workspace is properly overlayed by the setup script, make sure &lt;code class=&quot;highlighter-rouge&quot;&gt;ROS_PACKAGE_PATH&lt;/code&gt; environment variable includes the directory you’re in:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$ROS_PACKAGE_PATH&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$ROS_PACKAGE_PATH&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;This is the expected output:
-&lt;code&gt;/home/username/catkin_ws/src:/opt/ros/kinetic/share:/opt/ros/kinetic/stacks&lt;/code&gt;&lt;/p&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;/home/username/catkin_ws/src:/opt/ros/kinetic/share:/opt/ros/kinetic/stacks&lt;/code&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;openrave&quot;&gt;OpenRAVE&lt;/h2&gt;
 &lt;p&gt;At this point OpenRAVE has a considerable number of dependencies that have to be installed manually. For the sake of simplicity, this instructions will show you how to get working OpenRAVE 0.9.0 with enought features.&lt;/p&gt;
@@ -85,12 +85,12 @@ catkin_make&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;You need to install the following programs:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get install build-essential cmake doxygen g++ git ipython octave python-dev  &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;build-essential cmake doxygen g++ git ipython octave python-dev  &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
 python-h5py python-numpy python-pip python-scipy python-sympy qt5-default minizip&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Next, you will need to install the following libraries, which are available from the Ubuntu package repositories:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get install ann-tools cmake libann-dev libassimp-dev libavcodec-dev          &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;ann-tools cmake libann-dev libassimp-dev libavcodec-dev          &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
 libavformat-dev libboost-python-dev libboost-all-dev libccd-dev                       &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
 libcollada-dom2.4-dp-dev libeigen3-dev libflann-dev liblapack-dev liblog4cxx-dev      &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
 libminizip-dev liboctave-dev libode-dev libpcre3-dev libqhull-dev libsoqt-dev-common  &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
@@ -99,47 +99,47 @@ libsoqt4-dev libswscale-dev libtinyxml-dev libxml2-dev octomap-tools&lt;/code&gt
 &lt;h3 id=&quot;openscenegraph&quot;&gt;OpenSceneGraph&lt;/h3&gt;
 &lt;p&gt;The version available at the Ubuntu repositories is 3.2, but OpenRAVE requires 3.4, so we have to build it from source:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~/git
-git clone https://github.com/openscenegraph/OpenSceneGraph.git --branch OpenSceneGraph-3.4
-&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; OpenSceneGraph
-mkdir build&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; build
-cmake .. -DDESIRED_QT_VERSION&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;
-make -j &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;nproc&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;
-sudo make install&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~/git
+git clone https://github.com/openscenegraph/OpenSceneGraph.git &lt;span class=&quot;nt&quot;&gt;--branch&lt;/span&gt; OpenSceneGraph-3.4
+&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;OpenSceneGraph
+&lt;span class=&quot;nb&quot;&gt;mkdir &lt;/span&gt;build&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;build
+cmake .. &lt;span class=&quot;nt&quot;&gt;-DDESIRED_QT_VERSION&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;4
+make &lt;span class=&quot;nt&quot;&gt;-j&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;nproc&lt;/span&gt;&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;make &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h3 id=&quot;fcl---the-flexible-collision-library&quot;&gt;FCL - The Flexible Collision Library&lt;/h3&gt;
-&lt;p&gt;Build and install &lt;code&gt;fcl&lt;/code&gt; version 0.5.0:&lt;/p&gt;
+&lt;p&gt;Build and install &lt;code class=&quot;highlighter-rouge&quot;&gt;fcl&lt;/code&gt; version 0.5.0:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~/git
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~/git
 git clone https://github.com/flexible-collision-library/fcl
-&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; fcl&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; git checkout &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;.5.0
-mkdir build&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; build
+&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;fcl&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; git checkout 0.5.0
+&lt;span class=&quot;nb&quot;&gt;mkdir &lt;/span&gt;build&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;build
 cmake ..
-make -j &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;nproc&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;
-sudo make install&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+make &lt;span class=&quot;nt&quot;&gt;-j&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;nproc&lt;/span&gt;&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;make &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;h3 id=&quot;sympy-version&quot;&gt;&lt;code&gt;sympy&lt;/code&gt; Version&lt;/h3&gt;
+&lt;h3 id=&quot;sympy-version&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sympy&lt;/code&gt; Version&lt;/h3&gt;
 &lt;p&gt;Downgrade sympy so that IKFast works properly:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span&gt;&lt;/span&gt;pip install --upgrade --user &lt;span class=&quot;nv&quot;&gt;sympy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;.7.1&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;pip &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--upgrade&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--user&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;sympy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;0.7.1&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h3 id=&quot;build-and-install&quot;&gt;Build and Install&lt;/h3&gt;
-&lt;p&gt;Now you can build and install &lt;code&gt;OpenRAVE&lt;/code&gt; (Tested with commit 9350ebc):&lt;/p&gt;
+&lt;p&gt;Now you can build and install &lt;code class=&quot;highlighter-rouge&quot;&gt;OpenRAVE&lt;/code&gt; (Tested with commit 9350ebc):&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~/git
-git clone https://github.com/rdiankov/openrave.git --branch master
-&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; openrave&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; git reset --hard 9350ebc
-mkdir build&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; build
-cmake -DODE_USE_MULTITHREAD&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;ON -DOSG_DIR&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/local/lib64/ ..
-make -j &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;nproc&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;
-sudo make install&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~/git
+git clone https://github.com/rdiankov/openrave.git &lt;span class=&quot;nt&quot;&gt;--branch&lt;/span&gt; master
+&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;openrave&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; git reset &lt;span class=&quot;nt&quot;&gt;--hard&lt;/span&gt; 9350ebc
+&lt;span class=&quot;nb&quot;&gt;mkdir &lt;/span&gt;build&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;build
+cmake &lt;span class=&quot;nt&quot;&gt;-DODE_USE_MULTITHREAD&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;ON &lt;span class=&quot;nt&quot;&gt;-DOSG_DIR&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/local/lib64/ ..
+make &lt;span class=&quot;nt&quot;&gt;-j&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;nproc&lt;/span&gt;&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;make &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h3 id=&quot;testing-the-installation&quot;&gt;Testing the Installation&lt;/h3&gt;
 &lt;p&gt;You can check that your installation works by running one of the &lt;a href=&quot;http://openrave.org/docs/latest_stable/examples/&quot;&gt;default examples&lt;/a&gt;:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span&gt;&lt;/span&gt;openrave.py --example graspplanning&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;openrave.py &lt;span class=&quot;nt&quot;&gt;--example&lt;/span&gt; graspplanning&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;It should start the &lt;code&gt;graspplanning&lt;/code&gt; example:&lt;/p&gt;
+&lt;p&gt;It should start the &lt;code class=&quot;highlighter-rouge&quot;&gt;graspplanning&lt;/code&gt; example:&lt;/p&gt;
 &lt;figure style=&quot;text-align: center;&quot;&gt;
   &lt;img src=&quot;/images/graspplanning.png&quot; /&gt;
   &lt;figcaption&gt;OpenRAVE example&lt;/figcaption&gt;
@@ -156,8 +156,8 @@ sudo make install&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
   <title type="html"><![CDATA[Installing OpenRAVE in Ubuntu 14.04 (Trusty)]]></title>
   <link rel="alternate" type="text/html" href="/blog/openrave-trusty/" />
   <id>/blog/openrave-trusty</id>
-  <published>2016-03-04T00:00:00+08:00</published>
-  <updated>2016-03-04T00:00:00+08:00</updated>
+  <published>2016-03-04T00:00:00+00:00</published>
+  <updated>2016-03-04T00:00:00+00:00</updated>
   <author>
     <name>Francisco Suárez-Ruiz</name>
     <uri></uri>
@@ -175,84 +175,84 @@ documentation of OpenRAVE, please refer to http://openrave.org.&lt;/p&gt;
 
 &lt;p&gt;You need to install the following programs:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get install cmake g++ git ipython octave python-dev python-h5py python-numpy &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;cmake g++ git ipython octave python-dev python-h5py python-numpy &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
 python-pip python-scipy python-sympy qt4-dev-tools zlib-bin&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Next, you will need to install the following libraries, which are available from the 
 Ubuntu package repository:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get install libassimp-dev libavcodec-dev libavformat-dev libavformat-dev     &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;libassimp-dev libavcodec-dev libavformat-dev libavformat-dev     &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
 libboost-all-dev libboost-date-time-dev libbullet-dev libfaac-dev libfreetype6-dev    &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
 libglew-dev  libgsm1-dev liblapack-dev libmpfi-dev libmpfr-dev libode-dev libogg-dev  &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
 libpcre3-dev libpcrecpp0 libqhull-dev libqt4-dev libsoqt-dev-common libsoqt4-dev      &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
 libswscale-dev libswscale-dev libvorbis-dev libx264-dev libxml2-dev libxvidcore-dev&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;Now, get the &lt;code&gt;collada-dom-dev&lt;/code&gt; package. If you are installing OpenRAVE is very likely that 
+&lt;p&gt;Now, get the &lt;code class=&quot;highlighter-rouge&quot;&gt;collada-dom-dev&lt;/code&gt; package. If you are installing OpenRAVE is very likely that 
 you have already installed ROS Indigo. 
-In that case, you can install &lt;code&gt;collada-dom-dev&lt;/code&gt; directly:&lt;/p&gt;
+In that case, you can install &lt;code class=&quot;highlighter-rouge&quot;&gt;collada-dom-dev&lt;/code&gt; directly:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get update
-sudo apt-get install collada-dom-dev&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get update
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;collada-dom-dev&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;If you are not planning to use ROS, install &lt;code&gt;collada-dom-dev&lt;/code&gt; from the OpenRAVE PPA:&lt;/p&gt;
+&lt;p&gt;If you are not planning to use ROS, install &lt;code class=&quot;highlighter-rouge&quot;&gt;collada-dom-dev&lt;/code&gt; from the OpenRAVE PPA:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span&gt;&lt;/span&gt;sudo add-apt-repository ppa:openrave/release
-sudo sh -c &lt;span class=&quot;s1&quot;&gt;&amp;#39;echo &amp;quot;deb-src http://ppa.launchpad.net/openrave/release/ubuntu `lsb_release -cs` main&amp;quot; &amp;gt;&amp;gt; /etc/apt/sources.list.d/openrave-release-`lsb_release -cs`.list&amp;#39;&lt;/span&gt;
-sudo apt-get update
-sudo apt-get install collada-dom-dev&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;add-apt-repository ppa:openrave/release
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;sh &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'echo &quot;deb-src http://ppa.launchpad.net/openrave/release/ubuntu `lsb_release -cs` main&quot; &amp;gt;&amp;gt; /etc/apt/sources.list.d/openrave-release-`lsb_release -cs`.list'&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get update
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;collada-dom-dev&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h3 id=&quot;openscenegraph&quot;&gt;OpenSceneGraph&lt;/h3&gt;
 &lt;p&gt;OpenRAVE requires OpenSceneGraph 3.4, so we have to build it from source:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~/git
-git clone https://github.com/openscenegraph/OpenSceneGraph.git --branch OpenSceneGraph-3.4
-&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; OpenSceneGraph
-mkdir build&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; build
-cmake .. -DDESIRED_QT_VERSION&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;
-make -j &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;nproc&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;
-sudo make install&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~/git
+git clone https://github.com/openscenegraph/OpenSceneGraph.git &lt;span class=&quot;nt&quot;&gt;--branch&lt;/span&gt; OpenSceneGraph-3.4
+&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;OpenSceneGraph
+&lt;span class=&quot;nb&quot;&gt;mkdir &lt;/span&gt;build&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;build
+cmake .. &lt;span class=&quot;nt&quot;&gt;-DDESIRED_QT_VERSION&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;4
+make &lt;span class=&quot;nt&quot;&gt;-j&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;nproc&lt;/span&gt;&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;make &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h3 id=&quot;fcl---the-flexible-collision-library&quot;&gt;FCL - The Flexible Collision Library&lt;/h3&gt;
-&lt;p&gt;Install &lt;code&gt;libccd&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;Install &lt;code class=&quot;highlighter-rouge&quot;&gt;libccd&lt;/code&gt;:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span&gt;&lt;/span&gt;sudo apt-add-repository ppa:imnmfotmal/libccd
-sudo apt-get update
-sudo apt-get install libccd&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-add-repository ppa:imnmfotmal/libccd
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get update
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;libccd&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;Build and install &lt;code&gt;fcl&lt;/code&gt; version 0.5.0:&lt;/p&gt;
+&lt;p&gt;Build and install &lt;code class=&quot;highlighter-rouge&quot;&gt;fcl&lt;/code&gt; version 0.5.0:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~/git
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~/git
 git clone https://github.com/flexible-collision-library/fcl
-&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; fcl&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; git reset --hard &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;.5.0
-mkdir build&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; build
+&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;fcl&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; git reset &lt;span class=&quot;nt&quot;&gt;--hard&lt;/span&gt; 0.5.0
+&lt;span class=&quot;nb&quot;&gt;mkdir &lt;/span&gt;build&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;build
 cmake ..
-make -j &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;nproc&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;
-sudo make install&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+make &lt;span class=&quot;nt&quot;&gt;-j&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;nproc&lt;/span&gt;&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;make &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;h2 id=&quot;sympy-version&quot;&gt;&lt;code&gt;sympy&lt;/code&gt; Version&lt;/h2&gt;
+&lt;h2 id=&quot;sympy-version&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sympy&lt;/code&gt; Version&lt;/h2&gt;
 &lt;p&gt;Downgrade sympy so that IKFast works properly:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span&gt;&lt;/span&gt;pip install --upgrade --user &lt;span class=&quot;nv&quot;&gt;sympy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;.7.1&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;pip &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--upgrade&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--user&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;sympy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;0.7.1&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h2 id=&quot;building-from-source&quot;&gt;Building from Source&lt;/h2&gt;
 
-&lt;p&gt;Now you can build and install &lt;code&gt;OpenRAVE&lt;/code&gt; (Tested with commit 81ec501):&lt;/p&gt;
+&lt;p&gt;Now you can build and install &lt;code class=&quot;highlighter-rouge&quot;&gt;OpenRAVE&lt;/code&gt; (Tested with commit 81ec501):&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~/git
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~/git
 git clone https://github.com/rdiankov/openrave.git
-&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; openrave&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; git reset --hard 81ec501
-mkdir build&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; build
-cmake -DODE_USE_MULTITHREAD&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;ON -DOSG_DIR&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/local/lib64/ ..
-make -j &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;nproc&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;
-sudo make install&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;openrave&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; git reset &lt;span class=&quot;nt&quot;&gt;--hard&lt;/span&gt; 81ec501
+&lt;span class=&quot;nb&quot;&gt;mkdir &lt;/span&gt;build&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;build
+cmake &lt;span class=&quot;nt&quot;&gt;-DODE_USE_MULTITHREAD&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;ON &lt;span class=&quot;nt&quot;&gt;-DOSG_DIR&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/local/lib64/ ..
+make &lt;span class=&quot;nt&quot;&gt;-j&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;nproc&lt;/span&gt;&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;make &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h2 id=&quot;testing-the-installation&quot;&gt;Testing the Installation&lt;/h2&gt;
 &lt;p&gt;You can check that your installation works by running one of the 
 &lt;a href=&quot;http://openrave.org/docs/latest_stable/examples/&quot;&gt;default examples&lt;/a&gt;. For example:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span&gt;&lt;/span&gt;openrave.py --example graspplanning&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;openrave.py &lt;span class=&quot;nt&quot;&gt;--example&lt;/span&gt; graspplanning&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;It should start the &lt;code&gt;graspplanning&lt;/code&gt; example:&lt;/p&gt;
+&lt;p&gt;It should start the &lt;code class=&quot;highlighter-rouge&quot;&gt;graspplanning&lt;/code&gt; example:&lt;/p&gt;
 &lt;figure style=&quot;text-align: center;&quot;&gt;
   &lt;img src=&quot;/images/graspplanning.png&quot; /&gt;
   &lt;figcaption&gt;OpenRAVE example&lt;/figcaption&gt;
@@ -270,8 +270,8 @@ just warnings that won’t prevent your installation from working.&lt;/p&gt;
   <title type="html"><![CDATA[The infamous .bashrc]]></title>
   <link rel="alternate" type="text/html" href="/blog/bashrc/" />
   <id>/blog/bashrc</id>
-  <published>2015-12-16T00:00:00+08:00</published>
-  <updated>2015-12-16T00:00:00+08:00</updated>
+  <published>2015-12-16T00:00:00+00:00</published>
+  <updated>2015-12-16T00:00:00+00:00</updated>
   <author>
     <name>Francisco Suárez-Ruiz</name>
     <uri></uri>
@@ -282,16 +282,16 @@ just warnings that won’t prevent your installation from working.&lt;/p&gt;
 
 &lt;p&gt;So, back them, early 2013, when I only knew about Linux from my &lt;em&gt;freak&lt;/em&gt; friends and had used Windows my whole life. In order to make the &lt;em&gt;change&lt;/em&gt;, I had to gather enough courage and jump into this new world. Nowadays, when I see people going through the same process, most of them struggle with the same things that I did.&lt;/p&gt;
 
-&lt;p&gt;If you ask me, any introduction to Ubuntu should start with the terminal (command line or console). And since there are many commands that you will need to run every time you start a new terminal, then, the introduction should start with the infamous &lt;code&gt;.bashrc&lt;/code&gt; file.&lt;/p&gt;
+&lt;p&gt;If you ask me, any introduction to Ubuntu should start with the terminal (command line or console). And since there are many commands that you will need to run every time you start a new terminal, then, the introduction should start with the infamous &lt;code class=&quot;highlighter-rouge&quot;&gt;.bashrc&lt;/code&gt; file.&lt;/p&gt;
 
 &lt;p&gt;So, what is this file? I find the following &lt;a href=&quot;http://askubuntu.com/a/540689&quot; target=&quot;_blank&quot;&gt;answer&lt;/a&gt; very concrete and easy to understand:&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;The &lt;code&gt;.bashrc&lt;/code&gt; file is a script that is executed whenever a new terminal session is started in &lt;strong&gt;interactive mode&lt;/strong&gt;. This is what happens when you open a new terminal window by pressing &lt;kbd&gt;Ctrl&lt;/kbd&gt;+&lt;kbd&gt;Alt&lt;/kbd&gt;+&lt;kbd&gt;T&lt;/kbd&gt;, or just open a new terminal tab.&lt;/p&gt;
+  &lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;.bashrc&lt;/code&gt; file is a script that is executed whenever a new terminal session is started in &lt;strong&gt;interactive mode&lt;/strong&gt;. This is what happens when you open a new terminal window by pressing &lt;kbd&gt;Ctrl&lt;/kbd&gt;+&lt;kbd&gt;Alt&lt;/kbd&gt;+&lt;kbd&gt;T&lt;/kbd&gt;, or just open a new terminal tab.&lt;/p&gt;
 
-  &lt;p&gt;By contrast a terminal session in &lt;strong&gt;login mode&lt;/strong&gt; will ask you for user name and password and execute the &lt;code&gt;~/.bash_profile&lt;/code&gt; script. This is what takes place, for instance, when you log on to a remote system through SSH.&lt;/p&gt;
+  &lt;p&gt;By contrast a terminal session in &lt;strong&gt;login mode&lt;/strong&gt; will ask you for user name and password and execute the &lt;code class=&quot;highlighter-rouge&quot;&gt;~/.bash_profile&lt;/code&gt; script. This is what takes place, for instance, when you log on to a remote system through SSH.&lt;/p&gt;
 
-  &lt;p&gt;The &lt;code&gt;.bashrc&lt;/code&gt; file itself contains a series of configurations for the terminal session. This includes setting up or enabling: colouring, completion, the shell history, command aliases and more. The &lt;code&gt;.bashrc&lt;/code&gt; file distributed with Ubuntu is well commented and you will be able to understand most of what it does just by reading it.&lt;/p&gt;
+  &lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;.bashrc&lt;/code&gt; file itself contains a series of configurations for the terminal session. This includes setting up or enabling: colouring, completion, the shell history, command aliases and more. The &lt;code class=&quot;highlighter-rouge&quot;&gt;.bashrc&lt;/code&gt; file distributed with Ubuntu is well commented and you will be able to understand most of what it does just by reading it.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 
@@ -304,8 +304,8 @@ just warnings that won’t prevent your installation from working.&lt;/p&gt;
   <title type="html"><![CDATA[Labrob Metapackage]]></title>
   <link rel="alternate" type="text/html" href="/projects/labrob-metapackage/" />
   <id>/projects/labrob-metapackage</id>
-  <published>2014-04-22T00:00:00+08:00</published>
-  <updated>2014-04-22T00:00:00+08:00</updated>
+  <published>2014-04-22T00:00:00+00:00</published>
+  <updated>2014-04-22T00:00:00+00:00</updated>
   <author>
     <name>Francisco Suárez-Ruiz</name>
     <uri></uri>
@@ -335,8 +335,8 @@ just warnings that won’t prevent your installation from working.&lt;/p&gt;
   <title type="html"><![CDATA[Takktile Sensors with the Raspberry Pi]]></title>
   <link rel="alternate" type="text/html" href="/projects/takktile-raspberry-pi-ros/" />
   <id>/projects/takktile-raspberry-pi-ros</id>
-  <published>2014-02-20T00:00:00+08:00</published>
-  <updated>2014-02-20T00:00:00+08:00</updated>
+  <published>2014-02-20T00:00:00+00:00</published>
+  <updated>2014-02-20T00:00:00+00:00</updated>
   <author>
     <name>Francisco Suárez-Ruiz</name>
     <uri></uri>
@@ -368,8 +368,8 @@ just warnings that won’t prevent your installation from working.&lt;/p&gt;
   <title type="html"><![CDATA[Grips Metapackage]]></title>
   <link rel="alternate" type="text/html" href="/projects/grips-metapackage/" />
   <id>/projects/grips-metapackage</id>
-  <published>2013-10-31T00:00:00+08:00</published>
-  <updated>2013-10-31T00:00:00+08:00</updated>
+  <published>2013-10-31T00:00:00+00:00</published>
+  <updated>2013-10-31T00:00:00+00:00</updated>
   <author>
     <name>Francisco Suárez-Ruiz</name>
     <uri></uri>
@@ -399,8 +399,8 @@ just warnings that won’t prevent your installation from working.&lt;/p&gt;
   <title type="html"><![CDATA[Geomagic Touch in ROS]]></title>
   <link rel="alternate" type="text/html" href="/projects/geomagic-touch-in-ros/" />
   <id>/projects/geomagic-touch-in-ros</id>
-  <published>2013-10-18T00:00:00+08:00</published>
-  <updated>2013-10-18T00:00:00+08:00</updated>
+  <published>2013-10-18T00:00:00+00:00</published>
+  <updated>2013-10-18T00:00:00+00:00</updated>
   <author>
     <name>Francisco Suárez-Ruiz</name>
     <uri></uri>
@@ -433,7 +433,7 @@ just warnings that won’t prevent your installation from working.&lt;/p&gt;
   &lt;figcaption&gt;Omni in RViz&lt;/figcaption&gt;
 &lt;/figure&gt;
 
-&lt;p&gt;&lt;strong&gt;Last update:&lt;/strong&gt; July 10th, 2017&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Last update:&lt;/strong&gt; April 1st, 2020&lt;/p&gt;
 
 &lt;p&gt;These ROS packages are for the Geomagic Touch (formerly Sensable PHANToM Omni) haptic device – &lt;strong&gt;firewire&lt;/strong&gt; version.&lt;/p&gt;
 
@@ -441,7 +441,7 @@ just warnings that won’t prevent your installation from working.&lt;/p&gt;
 
 &lt;h2 id=&quot;installation&quot;&gt;Installation&lt;/h2&gt;
 
-&lt;p&gt;These instructions have been tested with OpenHaptics SDK 3.0 in Ubuntu 12.04, both 32 and 64 bits.
+&lt;p&gt;These instructions have been tested with OpenHaptics SDK 3.0 in Ubuntu 16.04, 64 bits and ROS Kinetic.
 Before going any further please check the following:&lt;/p&gt;
 
 &lt;ul&gt;
@@ -451,12 +451,12 @@ Before going any further please check the following:&lt;/p&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;requirements&quot;&gt;Requirements&lt;/h3&gt;
-&lt;p&gt;The following are the requirements so that you can run &lt;code&gt;PHANToMConfiguration&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;The following are the requirements so that you can run &lt;code class=&quot;highlighter-rouge&quot;&gt;PHANToMConfiguration&lt;/code&gt;:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get install --no-install-recommends freeglut3-dev g++ libdrm-dev &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-libexpat1-dev libglw1-mesa-devlibmotif-dev libncurses5-dev libraw1394-dev &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-libx11-dev libxdamage-dev libxext-dev libxt-dev libxxf86vm-dev tcsh unzip &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-x11proto-dri2-dev x11proto-gl-dev x11proto-print-dev&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--no-install-recommends&lt;/span&gt; freeglut3-dev g++ libdrm-dev &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+libexpat1-dev libncurses5-dev libraw1394-dev libx11-dev libxdamage-dev    &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+libxext-dev libxt-dev libxxf86vm-dev tcsh unzip x11proto-dri2-dev         &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+x11proto-gl-dev x11proto-print-dev&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h3 id=&quot;openhaptics-sdk&quot;&gt;OpenHaptics SDK&lt;/h3&gt;
 &lt;p&gt;In order to connect to the device, you will need to install &lt;a href=&quot;http://www.dentsable.com/products-openhaptics-toolkit.htm&quot;&gt;OpenHaptics SDK&lt;/a&gt;.&lt;/p&gt;
@@ -464,51 +464,51 @@ x11proto-dri2-dev x11proto-gl-dev x11proto-print-dev&lt;/code&gt;&lt;/pre&gt;&lt
 &lt;h3 id=&quot;symbolic-links&quot;&gt;Symbolic Links&lt;/h3&gt;
 &lt;p&gt;Because OpenHaptics SDK installs the libraries in some weird locations, you need to create the following symbolic links: (&lt;strong&gt;Only required in 64 bits systems&lt;/strong&gt;)&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span&gt;&lt;/span&gt;sudo ln -s /usr/lib/x86_64-linux-gnu/libraw1394.so.11.0.1 /usr/lib/libraw1394.so.8
-sudo ln -s /usr/lib64/libPHANToMIO.so.4.3 /usr/lib/libPHANToMIO.so.4
-sudo ln -s /usr/lib64/libHD.so.3.0.0 /usr/lib/libHD.so.3.0
-sudo ln -s /usr/lib64/libHL.so.3.0.0 /usr/lib/libHL.so.3.0&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nb&quot;&gt;sudo ln&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt; /usr/lib/x86_64-linux-gnu/libraw1394.so.11 /usr/lib/libraw1394.so.8
+&lt;span class=&quot;nb&quot;&gt;sudo ln&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt; /usr/lib64/libPHANToMIO.so.4.3 /usr/lib/libPHANToMIO.so.4
+&lt;span class=&quot;nb&quot;&gt;sudo ln&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt; /usr/lib64/libHD.so.3.0.0 /usr/lib/libHD.so.3.0
+&lt;span class=&quot;nb&quot;&gt;sudo ln&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt; /usr/lib64/libHL.so.3.0.0 /usr/lib/libHL.so.3.0&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h3 id=&quot;ros-metapackage&quot;&gt;ROS Metapackage&lt;/h3&gt;
 
 &lt;p&gt;Go to your ROS working directory. e.g.&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~/catkin_ws/src&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~/catkin_ws/src&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;Use the &lt;code&gt;wstool&lt;/code&gt; to install the repository&lt;/p&gt;
+&lt;p&gt;Use the &lt;code class=&quot;highlighter-rouge&quot;&gt;wstool&lt;/code&gt; to install the repository&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span&gt;&lt;/span&gt;wstool init .
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;wstool init &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
 wstool merge https://raw.github.com/fsuarez6/phantom_omni/hydro-devel/phantom_omni.rosinstall
 wstool update&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Check for any missing dependencies using rosdep:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt; /opt/ros/&lt;span class=&quot;nv&quot;&gt;$ROS_DISTRO&lt;/span&gt;/setup.bash
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt; /opt/ros/&lt;span class=&quot;nv&quot;&gt;$ROS_DISTRO&lt;/span&gt;/setup.bash
 rosdep update
-rosdep check --from-paths . --ignore-src --rosdistro &lt;span class=&quot;nv&quot;&gt;$ROS_DISTRO&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+rosdep check &lt;span class=&quot;nt&quot;&gt;--from-paths&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--ignore-src&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--rosdistro&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$ROS_DISTRO&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;After installing the missing dependencies compile your ROS workspace. e.g.&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~/catkin_ws &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; catkin_make&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~/catkin_ws &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; catkin_make&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Be sure to always source the appropriate ROS setup file, e.g:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt; ~/catkin_ws/devel/setup.bash&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt; ~/catkin_ws/devel/setup.bash&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;You might want to add that line to your &lt;code&gt;~/.bashrc&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;You might want to add that line to your &lt;code class=&quot;highlighter-rouge&quot;&gt;~/.bashrc&lt;/code&gt;.&lt;/p&gt;
 
 &lt;h3 id=&quot;allow-access-to-the-firewire-interface&quot;&gt;Allow Access to the FireWire Interface&lt;/h3&gt;
 
 &lt;p&gt;This package provides a dummy driver that allows you to access the 
 FireWire interface. For new installations or every time you upgrade your linux kernel, please run the following command:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span&gt;&lt;/span&gt;rosrun omni_common initialize_device.sh -c&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;rosrun omni_common initialize_device.sh &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h3 id=&quot;testing-the-installation&quot;&gt;Testing the Installation&lt;/h3&gt;
 
-&lt;p&gt;Try the &lt;code&gt;omni.launch&lt;/code&gt; file in the &lt;code&gt;omni_common&lt;/code&gt; package:&lt;/p&gt;
+&lt;p&gt;Try the &lt;code class=&quot;highlighter-rouge&quot;&gt;omni.launch&lt;/code&gt; file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;omni_common&lt;/code&gt; package:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span&gt;&lt;/span&gt;roslaunch omni_common omni.launch&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;roslaunch omni_common omni.launch&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 
     &lt;p&gt;&lt;a href=&quot;/projects/geomagic-touch-in-ros/&quot;&gt;Geomagic Touch in ROS&lt;/a&gt; was originally published by Francisco Suárez-Ruiz at &lt;a href=&quot;&quot;&gt;Francisco Suárez-Ruiz&lt;/a&gt; on October 18, 2013.&lt;/p&gt;

@@ -1,0 +1,14 @@
+I"Â<p>Metapackage to learn a little bit about ROS and get to know some of the existing tools for mobile robots.</p>
+
+<iframe width="300" height="200" src="https://www.youtube.com/embed/as7LYccnvgE" frameborder="0" allowfullscreen=""></iframe>
+
+<h3 id="build-status">Build status</h3>
+<p><a href="https://travis-ci.org/fsuarez6/labrob"><img src="https://travis-ci.org/fsuarez6/labrob.png?branch=master" alt="Build Status" /></a></p>
+
+<h3 id="source-code">Source code</h3>
+<p><a href="https://github.com/fsuarez6/labrob">https://github.com/fsuarez6/labrob</a></p>
+
+<h3 id="tutorials">Tutorials</h3>
+<p><a href="http://www.romin.upm.es/wiki/index.php?title=ROS%3ATutorials">http://www.romin.upm.es/wiki</a></p>
+
+:ET

@@ -1,0 +1,16 @@
+I"k<p>ROS software to connect TakkTile sensors to the Raspberry PI directly using the I2C bus. This has been tested connecting the TakkTile Kit for Robotic.</p>
+
+<figure style="text-align: center;">
+  <img src="http://farm8.static.flickr.com/7457/13080610534_4659d97dc1.jpg" />
+  <figcaption>TakkTile connection to Raspberry PI B</figcaption>
+</figure>
+
+<h3 id="build-status">Build status</h3>
+<p><a href="https://travis-ci.org/fsuarez6/takktile_raspberry"><img src="https://travis-ci.org/fsuarez6/takktile_raspberry.png?branch=groovy-devel" alt="Build Status" /></a></p>
+
+<h3 id="source-code">Source code</h3>
+<p><a href="https://github.com/fsuarez6/takktile_raspberry">https://github.com/fsuarez6/takktile_raspberry</a></p>
+
+<h3 id="tutorial">Tutorial</h3>
+<p><a href="http://www.takktile.com/tutorial:raspberrypi-ros">http://www.takktile.com/tutorial:raspberrypi-ros</a></p>
+:ET
